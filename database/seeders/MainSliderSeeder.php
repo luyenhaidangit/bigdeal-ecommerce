@@ -25,5 +25,7 @@ class MainSliderSeeder extends Seeder
             'link_url' => '#',
             'order' => 0,
         ]);
+
+        MainSlider::factory()->count(1)->create();
     }
 }
