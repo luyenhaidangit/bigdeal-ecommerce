@@ -6,16 +6,11 @@
         <div class="brand-panel-box">
             <div class="brand-panel-contain ">
                 <ul>
-                    <li><a href="javascript:void(0)">top brand</a></li>
+                    <li><a href="javascript:void(0)">Nhãn hiệu nổi bật</a></li>
                     <li><a>:</a></li>
-                    <li><a href="category-page(left-sidebar).html">aerie</a></li>
-                    <li><a href="category-page(left-sidebar).html">baci lingrie</a></li>
-                    <li><a href="category-page(left-sidebar).html">gerbe</a></li>
-                    <li><a href="category-page(left-sidebar).html">jolidon</a></li>
-                    <li><a href="category-page(left-sidebar).html">Wonderbra</a></li>
-                    <li><a href="category-page(left-sidebar).html">Ultimo</a></li>
-                    <li><a href="category-page(left-sidebar).html">Vassarette </a></li>
-                    <li><a href="category-page(left-sidebar).html">Oysho</a></li>
+                    @foreach ($brands as $brand)
+                        <li><a href="category-page(left-sidebar).html">{{$brand->name}}</a></li>
+                    @endforeach
                 </ul>
             </div>
         </div>
