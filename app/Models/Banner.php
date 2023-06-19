@@ -7,5 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Banner extends Model
 {
-    use HasFactory;
+    protected $fillable = [
+        'image',
+        'title_1',
+        'title_2',
+        'title_3',
+        'link_url',
+        'order',
+        'type'
+    ];
+
+    public $timestamps = false;
 }

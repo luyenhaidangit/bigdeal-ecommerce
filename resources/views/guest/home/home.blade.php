@@ -57,6 +57,25 @@
     </section>
     <!--slider end-->
 
+    <!--collection banner start-->
+    <section class="collection-banner section-pt-space b-g-white ">
+        <div class="custom-container">
+            <div class="row collection2">
+                @foreach ($bannersTypeMainHome as $banner)
+                    <div class="col-md-4">
+                        <div class="collection-banner-main banner-1  p-right">
+                            <div class="collection-img" style="height: 232px; border-radius: 12px;">
+                                <img src="{{ asset($banner->image)}}" class="img-fluid bg-img  "
+                                alt="banner">
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+    <!--collection banner end-->
+
     <!-- cookie bar start -->
     <div class="cookie-bar">
         <p>Chúng tôi sử dụng cookie để cải thiện trang web và trải nghiệm mua sắm của bạn. Bằng cách tiếp tục duyệt trang
