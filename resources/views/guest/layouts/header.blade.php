@@ -340,7 +340,8 @@
                                     </li>
                                     <!--SHOP-END-->
                                     <!--product-meu start-->
-                                    <li class="mega"><a class="dark-menu-item" href="javascript:void(0)">Hỏi đáp</a>
+                                    <li class="mega"><a class="dark-menu-item" href="javascript:void(0)">Hỏi
+                                            đáp</a>
                                     </li>
                                     <!--product-meu end-->
 
@@ -470,55 +471,18 @@
                                     </div>
                                 </div>
                                 <div class="dropdown-menu gift-dropdown">
+                                    @foreach ($couponData as $coupon)
                                     <div class="media">
                                         <div class="me-3">
-                                            <img src="{{ asset('guest-resource/images/icon/1.png') }}" alt="Generic placeholder image">
+                                            <img src="{{ asset($coupon->image) }}"
+                                                alt="Generic placeholder image">
                                         </div>
                                         <div class="media-body">
-                                            <h5 class="mt-0">Billion Days</h5>
-                                            <p><img src="../assets/images/icon/currency.png" class="cash"
-                                                    alt="curancy"> Flat Rs. 270 Rewards</p>
+                                            <h5 class="mt-0">{{$coupon->discount_code}}</h5>
+                                            <p>{{$coupon->description}}</p>
                                         </div>
                                     </div>
-                                    <div class="media">
-                                        <div class="me-3">
-                                            <img src="{{ asset('guest-resource/images/icon/2.png') }}" alt="Generic placeholder image"
-                                                class="gift-bloc">
-                                        </div>
-                                        <div class="media-body">
-                                            <h5 class="mt-0">Fashion Discount</h5>
-                                            <p><img src="{{ asset('guest-resource/images/icon/3.png') }}" class="fire"
-                                                    alt="fire">Extra 10% off (upto Rs. 10,000*) </p>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="me-3">
-                                            <img src="{{ asset('guest-resource/images/icon/4.png') }}" alt="Generic placeholder image">
-                                        </div>
-                                        <div class="media-body">
-                                            <h5 class="mt-0">75% off Store</h5>
-                                            <p>No coupon code is required.</p>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="me-3">
-                                            <img src="{{ asset('guest-resource/images/icon/5.png') }}" alt="Generic placeholder image">
-                                        </div>
-                                        <div class="media-body">
-                                            <h5 class="mt-0">Upto 50% off</h5>
-                                            <p>Buy popular phones under Rs.20.</p>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="me-3">
-                                            <img src="{{ asset('guest-resource/images/icon/6.png') }}" alt="Generic placeholder image">
-                                        </div>
-                                        <div class="media-body">
-                                            <h5 class="mt-0">Beauty store</h5>
-                                            <p><img src="../assets/images/icon/currency.png" class="cash"
-                                                    alt="curancy"> Flat Rs. 270 Rewards</p>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>

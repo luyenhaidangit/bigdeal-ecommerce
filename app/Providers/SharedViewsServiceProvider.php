@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use App\Models\ProductCategory;
+use App\Models\Coupon;
 
 class SharedViewsServiceProvider extends ServiceProvider
 {
@@ -37,8 +38,15 @@ class SharedViewsServiceProvider extends ServiceProvider
                 ->take(5)
                 ->get();
 
+            $couponData = Coupon::where('start_date', '<', now())
+                ->where('expiration_date', '>', now())
+                ->where('usage_limit', '>', 0)
+                ->take(5)
+                ->get();
+
             $view->with('productCategoryDefaultData', $productCategoryDefaultData)
-                ->with('productCategoryMoreData', $productCategoryMoreData);
+                ->with('productCategoryMoreData', $productCategoryMoreData)
+                ->with('couponData', $couponData);
         });
     
         // View::composer('guest.layouts.footer', function ($view) {
