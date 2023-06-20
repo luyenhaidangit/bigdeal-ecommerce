@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Product;
 
 class ProductCategory extends Model
 {
@@ -14,4 +15,9 @@ class ProductCategory extends Model
         'order',
         'is_active',
     ];
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 }

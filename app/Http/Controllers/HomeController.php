@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\MainSlider;
 use App\Models\Brand;
 use App\Models\Banner;
+use App\Models\ProductCategory;
 
 use App\Helpers\Constants;
 
@@ -34,6 +35,12 @@ class HomeController extends Controller
 
         $bannersTypeMainHome = Banner::where('type', Constants::BANNER_TYPE_MAIN_HOME)->orderBy('order', 'desc')->take(3)->get();
 
-        return view('guest.home.home', compact('mainSliders','brands','bannersTypeMainHome'));
+        $productCategories = ProductCategory::with('products')
+        ->where('is_active', true)
+        ->orderBy('order', 'desc')
+        ->take(5)
+        ->get();
+
+        return view('guest.home.home', compact('mainSliders','brands','bannersTypeMainHome','productCategories'));
     }
 }
