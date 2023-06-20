@@ -76,6 +76,26 @@
     </section>
     <!--collection banner end-->
 
+    <!--discount banner start-->
+    <section class="discount-banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="discount-banner-contain">
+                        <h2>Chào mừng đến với trang web của chúng tôi.</h2>
+                        <h1><span>Đặt hàng</span> <span>ngay hôm nay!</span></h1>
+                        <div class="rounded-contain rounded-inverse">
+                            <div class="rounded-subcontain">
+                                Chúng tôi cam kết mang đến cho bạn những sản phẩm chất lượng với mức giá vô cùng hấp dẫn!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--discount banner end-->
+
     <!-- cookie bar start -->
     <div class="cookie-bar">
         <p>Chúng tôi sử dụng cookie để cải thiện trang web và trải nghiệm mua sắm của bạn. Bằng cách tiếp tục duyệt trang
