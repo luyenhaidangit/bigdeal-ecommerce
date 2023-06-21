@@ -232,14 +232,14 @@
         <div class="custom-container">
             <div class="row">
                 <div class="col">
-                    <a href="{{$bannerTypeSpecial->link_url}}" class="collection-banner-main banner-5 p-center">
+                    <a href="{{ $bannerTypeSpecial->link_url }}" class="collection-banner-main banner-5 p-center">
                         <div class="collection-img" style="height: 160px;">
-                            <img src="{{asset($bannerTypeSpecial->image)}}" class="bg-img  " alt="banner">
+                            <img src="{{ asset($bannerTypeSpecial->image) }}" class="bg-img  " alt="banner">
                         </div>
                         <div class="collection-banner-contain ">
                             <div class="sub-contain">
-                                <h3>{{$bannerTypeSpecial->title_1}}</h3>
-                                <h4>{{$bannerTypeSpecial->title_2}}</span></h4>
+                                <h3>{{ $bannerTypeSpecial->title_1 }}</h3>
+                                <h4>{{ $bannerTypeSpecial->title_2 }}</span></h4>
                             </div>
                         </div>
                     </a>
@@ -248,6 +248,34 @@
         </div>
     </section>
     <!--collection banner end-->
+
+    <!--deal banner start-->
+    <section class="deal-banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-8">
+                    <div class="deal-banner-containe">
+                        <h2>
+                            Khuyến mãi hấp dẫn: Các sản phẩm giảm giá đặc biệt!
+                        </h2>
+                        <h1 class="mt-2">
+                            Các mặt hàng giảm giá mạnh lên tới 50%
+                        </h1>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-4 ">
+                    <div class="deal-banner-containe">
+                        <diV class="deal-btn">
+                            <a href="category-page(left-sidebar).html" class="btn-white">
+                                Xem thêm
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--deal banner end-->
 
     <!-- cookie bar start -->
     <div class="cookie-bar">
