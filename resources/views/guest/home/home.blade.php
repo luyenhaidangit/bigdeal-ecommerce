@@ -121,8 +121,8 @@
                             @foreach ($productCategories as $index => $productCategory)
                                 <div id="tab-{{ $index + 1 }}"
                                     class="tab-content {{ $loop->first ? 'active default' : '' }}">
-                                    @foreach ($productCategory->products as $product)
-                                        <div class="product-slide-6 product-m no-arrow">
+                                    <div class="product-slide-6 product-m no-arrow">
+                                        @foreach ($productCategory->products as $product)
                                             <div>
                                                 <div class="product-box">
                                                     <div class="product-imgbox">
@@ -215,8 +215,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    @endforeach
+                                        @endforeach
+                                    </div>
                                 </div>
                             @endforeach
                         </div>
