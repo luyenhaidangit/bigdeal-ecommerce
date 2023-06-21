@@ -277,6 +277,34 @@
     </section>
     <!--deal banner end-->
 
+    <!--rounded category start-->
+    <section class="rounded-category">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="slide-6 no-arrow">
+                        @foreach ($productCategories as $productCategory)
+                            <div>
+                                <div class="category-contain">
+                                    <div class="img-wrapper">
+                                        <a href="category-page(left-sidebar).html">
+                                            <img src="{{asset($productCategory->image)}}" alt="category  "
+                                                class="img-fluid">
+                                        </a>
+                                    </div>
+                                    <a href="category-page(left-sidebar).html" class="btn-rounded">
+                                        {{$productCategory->name}}
+                                    </a>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--rounded category end-->
+
     <!-- cookie bar start -->
     <div class="cookie-bar">
         <p>Chúng tôi sử dụng cookie để cải thiện trang web và trải nghiệm mua sắm của bạn. Bằng cách tiếp tục duyệt trang
