@@ -477,242 +477,258 @@
                         <div id="tab-8" class="tab-content ">
                             <div class="media-slide-5 product-m no-arrow">
                                 @foreach ($sellingProducts as $key => $product)
-                                @if ($key % 3 == 0)
-                                    <div>
-                                @endif
+                                    @if ($key % 3 == 0)
+                                        <div>
+                                    @endif
 
-                                <div class="media-banner media-banner-1 border-0">
-                                    <div class="media-banner-box">
-                                        <div class="media">
-                                            <a href="product-page(left-sidebar).html">
-                                                <img src="{{ asset($product->image) }}" class="img-fluid"
-                                                    alt="banner" style="height: 84px; width: 84px;">
-                                            </a>
-                                            <div class="media-body">
-                                                <div class="media-contant">
-                                                    <div>
-                                                        <div class="product-detail">
-                                                            <ul class="rating">
-                                                                @for ($i = 1; $i <= 5; $i++)
-                                                                    @if ($i <= floor($product->ratingStar))
-                                                                        <div class="fa fa-star text-warning"></div>
+                                    <div class="media-banner media-banner-1 border-0">
+                                        <div class="media-banner-box">
+                                            <div class="media">
+                                                <a href="product-page(left-sidebar).html">
+                                                    <img src="{{ asset($product->image) }}" class="img-fluid"
+                                                        alt="banner" style="height: 84px; width: 84px;">
+                                                </a>
+                                                <div class="media-body">
+                                                    <div class="media-contant">
+                                                        <div>
+                                                            <div class="product-detail">
+                                                                <ul class="rating">
+                                                                    @for ($i = 1; $i <= 5; $i++)
+                                                                        @if ($i <= floor($product->ratingStar))
+                                                                            <div class="fa fa-star text-warning"></div>
+                                                                        @else
+                                                                            <div class="fa fa-star-o text-secondary">
+                                                                            </div>
+                                                                        @endif
+                                                                    @endfor
+                                                                </ul>
+                                                                <a href="product-page(left-sidebar).html">
+                                                                    <p>{{ $product->name }}</p>
+                                                                </a>
+                                                                @if ($product->price)
+                                                                    @if ($product->discount_price)
+                                                                        <h6>{{ number_format($product->discount_price, 0, ',', '.') }}đ<span
+                                                                                class="ms-2">{{ number_format($product->price, 0, ',', '.') }}đ</span>
+                                                                        </h6>
                                                                     @else
-                                                                        <div class="fa fa-star-o text-secondary">
-                                                                        </div>
+                                                                        <h6>{{ number_format($product->price, 0, ',', '.') }}đ<span
+                                                                                class="ms-2"></span></h6>
                                                                     @endif
-                                                                @endfor
-                                                            </ul>
-                                                            <a href="product-page(left-sidebar).html">
-                                                                <p>{{ $product->name }}</p>
-                                                            </a>
-                                                            @if ($product->price)
-                                                                @if ($product->discount_price)
-                                                                    <h6>{{ number_format($product->discount_price, 0, ',', '.') }}đ<span
-                                                                            class="ms-2">{{ number_format($product->price, 0, ',', '.') }}đ</span>
-                                                                    </h6>
                                                                 @else
-                                                                    <h6>{{ number_format($product->price, 0, ',', '.') }}đ<span
-                                                                            class="ms-2"></span></h6>
+                                                                    <h6>Đang cập nhật...<span class="ms-2"></span>
+                                                                    </h6>
                                                                 @endif
-                                                            @else
-                                                                <h6>Đang cập nhật...<span class="ms-2"></span>
-                                                                </h6>
-                                                            @endif
-                                                        </div>
-                                                        <div class="cart-info">
-                                                            <button onclick="openCart()" class="tooltip-top"
-                                                                data-tippy-content="Add to cart">
-                                                                <i data-feather="shopping-cart"></i>
-                                                            </button>
-                                                            <a href="javascript:void(0)"
-                                                                class="add-to-wish tooltip-top"
-                                                                data-tippy-content="Add to Wishlist">
-                                                                <i data-feather="heart"></i>
-                                                            </a>
-                                                            <a href="javascript:void(0)" data-bs-toggle="modal"
-                                                                data-bs-target="#quick-view" class="tooltip-top"
-                                                                data-tippy-content="Quick View">
-                                                                <i data-feather="eye"></i>
-                                                            </a>
-                                                            <a href="compare.html" class="tooltip-top"
-                                                                data-tippy-content="Compare">
-                                                                <i data-feather="refresh-cw"></i>
-                                                            </a>
+                                                            </div>
+                                                            <div class="cart-info">
+                                                                <button onclick="openCart()" class="tooltip-top"
+                                                                    data-tippy-content="Add to cart">
+                                                                    <i data-feather="shopping-cart"></i>
+                                                                </button>
+                                                                <a href="javascript:void(0)"
+                                                                    class="add-to-wish tooltip-top"
+                                                                    data-tippy-content="Add to Wishlist">
+                                                                    <i data-feather="heart"></i>
+                                                                </a>
+                                                                <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                                    data-bs-target="#quick-view" class="tooltip-top"
+                                                                    data-tippy-content="Quick View">
+                                                                    <i data-feather="eye"></i>
+                                                                </a>
+                                                                <a href="compare.html" class="tooltip-top"
+                                                                    data-tippy-content="Compare">
+                                                                    <i data-feather="refresh-cw"></i>
+                                                                </a>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                @if (($key + 1) % 3 == 0 || $loop->last)
-                        </div>
-                        @endif
-                        @endforeach
+                                    @if (($key + 1) % 3 == 0 || $loop->last)
                             </div>
-                        </div>
-                        <div id="tab-9" class="tab-content ">
-                            <div class="media-slide-5 product-m no-arrow">
-                                @foreach ($bigDiscountProducts as $key => $product)
-                                @if ($key % 3 == 0)
-                                    <div>
-                                @endif
-
-                                <div class="media-banner media-banner-1 border-0">
-                                    <div class="media-banner-box">
-                                        <div class="media">
-                                            <a href="product-page(left-sidebar).html">
-                                                <img src="{{ asset($product->image) }}" class="img-fluid"
-                                                    alt="banner" style="height: 84px; width: 84px;">
-                                            </a>
-                                            <div class="media-body">
-                                                <div class="media-contant">
-                                                    <div>
-                                                        <div class="product-detail">
-                                                            <ul class="rating">
-                                                                @for ($i = 1; $i <= 5; $i++)
-                                                                    @if ($i <= floor($product->ratingStar))
-                                                                        <div class="fa fa-star text-warning"></div>
-                                                                    @else
-                                                                        <div class="fa fa-star-o text-secondary">
-                                                                        </div>
-                                                                    @endif
-                                                                @endfor
-                                                            </ul>
-                                                            <a href="product-page(left-sidebar).html">
-                                                                <p>{{ $product->name }}</p>
-                                                            </a>
-                                                            @if ($product->price)
-                                                                @if ($product->discount_price)
-                                                                    <h6>{{ number_format($product->discount_price, 0, ',', '.') }}đ<span
-                                                                            class="ms-2">{{ number_format($product->price, 0, ',', '.') }}đ</span>
-                                                                    </h6>
-                                                                @else
-                                                                    <h6>{{ number_format($product->price, 0, ',', '.') }}đ<span
-                                                                            class="ms-2"></span></h6>
-                                                                @endif
-                                                            @else
-                                                                <h6>Đang cập nhật...<span class="ms-2"></span>
-                                                                </h6>
-                                                            @endif
-                                                        </div>
-                                                        <div class="cart-info">
-                                                            <button onclick="openCart()" class="tooltip-top"
-                                                                data-tippy-content="Add to cart">
-                                                                <i data-feather="shopping-cart"></i>
-                                                            </button>
-                                                            <a href="javascript:void(0)"
-                                                                class="add-to-wish tooltip-top"
-                                                                data-tippy-content="Add to Wishlist">
-                                                                <i data-feather="heart"></i>
-                                                            </a>
-                                                            <a href="javascript:void(0)" data-bs-toggle="modal"
-                                                                data-bs-target="#quick-view" class="tooltip-top"
-                                                                data-tippy-content="Quick View">
-                                                                <i data-feather="eye"></i>
-                                                            </a>
-                                                            <a href="compare.html" class="tooltip-top"
-                                                                data-tippy-content="Compare">
-                                                                <i data-feather="refresh-cw"></i>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                @if (($key + 1) % 3 == 0 || $loop->last)
-                        </div>
-                        @endif
-                        @endforeach
-                            </div>
-                        </div>
-                        <div id="tab-10" class="tab-content ">
-                            <div class="media-slide-5 product-m no-arrow">
-                                @foreach ($bestViewProducts as $key => $product)
-                                @if ($key % 3 == 0)
-                                    <div>
-                                @endif
-
-                                <div class="media-banner media-banner-1 border-0">
-                                    <div class="media-banner-box">
-                                        <div class="media">
-                                            <a href="product-page(left-sidebar).html">
-                                                <img src="{{ asset($product->image) }}" class="img-fluid"
-                                                    alt="banner" style="height: 84px; width: 84px;">
-                                            </a>
-                                            <div class="media-body">
-                                                <div class="media-contant">
-                                                    <div>
-                                                        <div class="product-detail">
-                                                            <ul class="rating">
-                                                                @for ($i = 1; $i <= 5; $i++)
-                                                                    @if ($i <= floor($product->ratingStar))
-                                                                        <div class="fa fa-star text-warning"></div>
-                                                                    @else
-                                                                        <div class="fa fa-star-o text-secondary">
-                                                                        </div>
-                                                                    @endif
-                                                                @endfor
-                                                            </ul>
-                                                            <a href="product-page(left-sidebar).html">
-                                                                <p>{{ $product->name }}</p>
-                                                            </a>
-                                                            @if ($product->price)
-                                                                @if ($product->discount_price)
-                                                                    <h6>{{ number_format($product->discount_price, 0, ',', '.') }}đ<span
-                                                                            class="ms-2">{{ number_format($product->price, 0, ',', '.') }}đ</span>
-                                                                    </h6>
-                                                                @else
-                                                                    <h6>{{ number_format($product->price, 0, ',', '.') }}đ<span
-                                                                            class="ms-2"></span></h6>
-                                                                @endif
-                                                            @else
-                                                                <h6>Đang cập nhật...<span class="ms-2"></span>
-                                                                </h6>
-                                                            @endif
-                                                        </div>
-                                                        <div class="cart-info">
-                                                            <button onclick="openCart()" class="tooltip-top"
-                                                                data-tippy-content="Add to cart">
-                                                                <i data-feather="shopping-cart"></i>
-                                                            </button>
-                                                            <a href="javascript:void(0)"
-                                                                class="add-to-wish tooltip-top"
-                                                                data-tippy-content="Add to Wishlist">
-                                                                <i data-feather="heart"></i>
-                                                            </a>
-                                                            <a href="javascript:void(0)" data-bs-toggle="modal"
-                                                                data-bs-target="#quick-view" class="tooltip-top"
-                                                                data-tippy-content="Quick View">
-                                                                <i data-feather="eye"></i>
-                                                            </a>
-                                                            <a href="compare.html" class="tooltip-top"
-                                                                data-tippy-content="Compare">
-                                                                <i data-feather="refresh-cw"></i>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                @if (($key + 1) % 3 == 0 || $loop->last)
-                        </div>
-                        @endif
-                        @endforeach
-                            </div>
+                            @endif
+                            @endforeach
                         </div>
                     </div>
+                    <div id="tab-9" class="tab-content ">
+                        <div class="media-slide-5 product-m no-arrow">
+                            @foreach ($bigDiscountProducts as $key => $product)
+                                @if ($key % 3 == 0)
+                                    <div>
+                                @endif
+
+                                <div class="media-banner media-banner-1 border-0">
+                                    <div class="media-banner-box">
+                                        <div class="media">
+                                            <a href="product-page(left-sidebar).html">
+                                                <img src="{{ asset($product->image) }}" class="img-fluid" alt="banner"
+                                                    style="height: 84px; width: 84px;">
+                                            </a>
+                                            <div class="media-body">
+                                                <div class="media-contant">
+                                                    <div>
+                                                        <div class="product-detail">
+                                                            <ul class="rating">
+                                                                @for ($i = 1; $i <= 5; $i++)
+                                                                    @if ($i <= floor($product->ratingStar))
+                                                                        <div class="fa fa-star text-warning"></div>
+                                                                    @else
+                                                                        <div class="fa fa-star-o text-secondary">
+                                                                        </div>
+                                                                    @endif
+                                                                @endfor
+                                                            </ul>
+                                                            <a href="product-page(left-sidebar).html">
+                                                                <p>{{ $product->name }}</p>
+                                                            </a>
+                                                            @if ($product->price)
+                                                                @if ($product->discount_price)
+                                                                    <h6>{{ number_format($product->discount_price, 0, ',', '.') }}đ<span
+                                                                            class="ms-2">{{ number_format($product->price, 0, ',', '.') }}đ</span>
+                                                                    </h6>
+                                                                @else
+                                                                    <h6>{{ number_format($product->price, 0, ',', '.') }}đ<span
+                                                                            class="ms-2"></span></h6>
+                                                                @endif
+                                                            @else
+                                                                <h6>Đang cập nhật...<span class="ms-2"></span>
+                                                                </h6>
+                                                            @endif
+                                                        </div>
+                                                        <div class="cart-info">
+                                                            <button onclick="openCart()" class="tooltip-top"
+                                                                data-tippy-content="Add to cart">
+                                                                <i data-feather="shopping-cart"></i>
+                                                            </button>
+                                                            <a href="javascript:void(0)" class="add-to-wish tooltip-top"
+                                                                data-tippy-content="Add to Wishlist">
+                                                                <i data-feather="heart"></i>
+                                                            </a>
+                                                            <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                                data-bs-target="#quick-view" class="tooltip-top"
+                                                                data-tippy-content="Quick View">
+                                                                <i data-feather="eye"></i>
+                                                            </a>
+                                                            <a href="compare.html" class="tooltip-top"
+                                                                data-tippy-content="Compare">
+                                                                <i data-feather="refresh-cw"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @if (($key + 1) % 3 == 0 || $loop->last)
+                        </div>
+                        @endif
+                        @endforeach
+                    </div>
+                </div>
+                <div id="tab-10" class="tab-content ">
+                    <div class="media-slide-5 product-m no-arrow">
+                        @foreach ($bestViewProducts as $key => $product)
+                            @if ($key % 3 == 0)
+                                <div>
+                            @endif
+
+                            <div class="media-banner media-banner-1 border-0">
+                                <div class="media-banner-box">
+                                    <div class="media">
+                                        <a href="product-page(left-sidebar).html">
+                                            <img src="{{ asset($product->image) }}" class="img-fluid" alt="banner"
+                                                style="height: 84px; width: 84px;">
+                                        </a>
+                                        <div class="media-body">
+                                            <div class="media-contant">
+                                                <div>
+                                                    <div class="product-detail">
+                                                        <ul class="rating">
+                                                            @for ($i = 1; $i <= 5; $i++)
+                                                                @if ($i <= floor($product->ratingStar))
+                                                                    <div class="fa fa-star text-warning"></div>
+                                                                @else
+                                                                    <div class="fa fa-star-o text-secondary">
+                                                                    </div>
+                                                                @endif
+                                                            @endfor
+                                                        </ul>
+                                                        <a href="product-page(left-sidebar).html">
+                                                            <p>{{ $product->name }}</p>
+                                                        </a>
+                                                        @if ($product->price)
+                                                            @if ($product->discount_price)
+                                                                <h6>{{ number_format($product->discount_price, 0, ',', '.') }}đ<span
+                                                                        class="ms-2">{{ number_format($product->price, 0, ',', '.') }}đ</span>
+                                                                </h6>
+                                                            @else
+                                                                <h6>{{ number_format($product->price, 0, ',', '.') }}đ<span
+                                                                        class="ms-2"></span></h6>
+                                                            @endif
+                                                        @else
+                                                            <h6>Đang cập nhật...<span class="ms-2"></span>
+                                                            </h6>
+                                                        @endif
+                                                    </div>
+                                                    <div class="cart-info">
+                                                        <button onclick="openCart()" class="tooltip-top"
+                                                            data-tippy-content="Add to cart">
+                                                            <i data-feather="shopping-cart"></i>
+                                                        </button>
+                                                        <a href="javascript:void(0)" class="add-to-wish tooltip-top"
+                                                            data-tippy-content="Add to Wishlist">
+                                                            <i data-feather="heart"></i>
+                                                        </a>
+                                                        <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                            data-bs-target="#quick-view" class="tooltip-top"
+                                                            data-tippy-content="Quick View">
+                                                            <i data-feather="eye"></i>
+                                                        </a>
+                                                        <a href="compare.html" class="tooltip-top"
+                                                            data-tippy-content="Compare">
+                                                            <i data-feather="refresh-cw"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            @if (($key + 1) % 3 == 0 || $loop->last)
+                    </div>
+                    @endif
+                    @endforeach
                 </div>
             </div>
         </div>
         </div>
+        </div>
+        </div>
+        </div>
     </section>
     <!-- media banner tab end -->
+
+    <!--collection banner start-->
+    <section class="collection-banner section-py-space">
+        <div class="container-fluid">
+            <div class="row collection2">
+                @foreach ($bannersTypeProductHome as $banner)
+                    <div class="col-md-4">
+                        <div class="collection-banner-main banner-1  p-right">
+                            <div class="collection-img" style="height: 204px; border-radius: 12px;">
+                                <img src="{{ asset($banner->image) }}" class="img-fluid bg-img  " alt="banner">
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+    <!--collection banner end-->
 @endsection
