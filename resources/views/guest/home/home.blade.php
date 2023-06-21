@@ -288,12 +288,12 @@
                                 <div class="category-contain">
                                     <div class="img-wrapper">
                                         <a href="category-page(left-sidebar).html">
-                                            <img src="{{asset($productCategory->image)}}" alt="category  "
+                                            <img src="{{ asset($productCategory->image) }}" alt="category  "
                                                 class="img-fluid">
                                         </a>
                                     </div>
                                     <a href="category-page(left-sidebar).html" class="btn-rounded">
-                                        {{$productCategory->name}}
+                                        {{ $productCategory->name }}
                                     </a>
                                 </div>
                             </div>
@@ -304,6 +304,61 @@
         </div>
     </section>
     <!--rounded category end-->
+
+    <!--box categroy start-->
+    <section class="box-category section-py-space">
+        <div class="container-fluid ">
+            <div class="row">
+                <div class="col pl-0">
+                    <div class="slide-10 no-arrow">
+                        <div>
+                            <a href="category-page(left-sidebar).html">
+                                <div class="box-category-contain">
+                                    <h4>Hàng hiệu</h4>
+                                </div>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="category-page(left-sidebar).html">
+                                <div class="box-category-contain">
+                                    <h4>Miễn phí vận chuyển</h4>
+                                </div>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="category-page(left-sidebar).html">
+                                <div class="box-category-contain">
+                                    <h4>Giảm 50%</h4>
+                                </div>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="category-page(left-sidebar).html">
+                                <div class="box-category-contain">
+                                    <h4>Hàng quốc tế</h4>
+                                </div>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="category-page(left-sidebar).html">
+                                <div class="box-category-contain">
+                                    <h4>Dưới 99K</h4>
+                                </div>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="category-page(left-sidebar).html">
+                                <div class="box-category-contain">
+                                    <h4>Tiết kiệm</h4>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--box category end-->
 
     <!-- cookie bar start -->
     <div class="cookie-bar">
