@@ -7,6 +7,7 @@ use App\Models\MainSlider;
 use App\Models\Brand;
 use App\Models\Banner;
 use App\Models\ProductCategory;
+use App\Models\Product;
 
 use App\Helpers\Constants;
 
@@ -39,6 +40,18 @@ class HomeController extends Controller
 
         $bannerTypeSpecial = Banner::where('type', Constants::BANNER_TYPE_SPECIAL_HOME)->orderBy('order', 'desc')->first();
 
-        return view('guest.home.home', compact('mainSliders','brands','bannersTypeMainHome','productCategories','bannerTypeSpecial'));
+        $newProducts = Product::orderBy('created_at', 'desc')->take(30)->get();
+
+        $sellingProducts = Product::orderBy('created_at', 'desc')->take(30)->get();
+
+        $bigDiscountProducts = Product::orderByRaw('(price - discount_price) / price desc')->take(30)->get();
+
+        $bestViewProducts = Product::orderBy('view_count', 'desc')->take(30)->get();
+
+        return view('guest.home.home', compact(
+            'mainSliders','brands','bannersTypeMainHome','productCategories',
+            'bannerTypeSpecial','newProducts','sellingProducts','bigDiscountProducts',
+            'bestViewProducts'
+        ));
     }
 }
