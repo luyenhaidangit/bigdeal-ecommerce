@@ -35,12 +35,10 @@ class HomeController extends Controller
 
         $bannersTypeMainHome = Banner::where('type', Constants::BANNER_TYPE_MAIN_HOME)->orderBy('order', 'desc')->take(3)->get();
 
-        $productCategories = ProductCategory::with('products')
-        ->where('is_active', true)
-        ->orderBy('order', 'desc')
-        ->take(5)
-        ->get();
+        $productCategories = ProductCategory::with('products')->where('is_active', true)->orderBy('order', 'desc')->take(5)->get();
 
-        return view('guest.home.home', compact('mainSliders','brands','bannersTypeMainHome','productCategories'));
+        $bannerTypeSpecial = Banner::where('type', Constants::BANNER_TYPE_SPECIAL_HOME)->orderBy('order', 'desc')->first();
+
+        return view('guest.home.home', compact('mainSliders','brands','bannersTypeMainHome','productCategories','bannerTypeSpecial'));
     }
 }

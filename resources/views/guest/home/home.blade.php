@@ -227,6 +227,28 @@
     </section>
     <!-- slider tab end -->
 
+    <!--collection banner start-->
+    <section class="collection-banner section-pb-space ">
+        <div class="custom-container">
+            <div class="row">
+                <div class="col">
+                    <a href="{{$bannerTypeSpecial->link_url}}" class="collection-banner-main banner-5 p-center">
+                        <div class="collection-img" style="height: 160px;">
+                            <img src="{{asset($bannerTypeSpecial->image)}}" class="bg-img  " alt="banner">
+                        </div>
+                        <div class="collection-banner-contain ">
+                            <div class="sub-contain">
+                                <h3>{{$bannerTypeSpecial->title_1}}</h3>
+                                <h4>{{$bannerTypeSpecial->title_2}}</span></h4>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--collection banner end-->
+
     <!-- cookie bar start -->
     <div class="cookie-bar">
         <p>Chúng tôi sử dụng cookie để cải thiện trang web và trải nghiệm mua sắm của bạn. Bằng cách tiếp tục duyệt trang
