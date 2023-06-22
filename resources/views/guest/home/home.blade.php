@@ -731,4 +731,177 @@
         </div>
     </section>
     <!--collection banner end-->
+
+    <!--hot deal start-->
+    <section class="hot-deal hotdeal-first b-g-white section-big-pb-space space-abjust">
+        <div class="custom-container">
+            <div class="row hot-2 ">
+                <div class="col-12">
+                    <!--title start-->
+                    <div class="title3 b-g-white text-left">
+                        <h4>Ưu đãi hôm nay</h4>
+                    </div>
+                    <!--titel end-->
+                </div>
+                <div class="col-lg-9">
+                    <div class="slide-1 no-arrow">
+                        <div>
+                            <div class="hot-deal-contain ">
+                                <div class="row hot-deal-subcontain hotdeal-block1">
+                                    <div class="col-lg-4 col-md-4  ">
+                                        <div class="hotdeal-right-slick border-0">
+                                            @foreach ($bigDiscountProducts as $product)
+                                                <a href="product-page(left-sidebar).html">
+                                                    <div class="img-wrraper">
+                                                        <div>
+                                                            <img src="{{ asset($product->image) }}" alt="hot-deal"
+                                                                class="img-fluid  bg-img-contain">
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 deal-order-3">
+                                        <div class="hotdeal-right-slick border-0">
+                                            @foreach ($bigDiscountProducts as $product)
+                                                <div>
+                                                    <div>
+                                                        <a href="product-page(left-sidebar).html">
+                                                            <h5>{{ $product->name }}</h5>
+                                                        </a>
+                                                        <ul class="rating">
+                                                            @for ($i = 1; $i <= 5; $i++)
+                                                                @if ($i <= floor($product->ratingStar))
+                                                                    <div class="fa fa-star text-warning"></div>
+                                                                @else
+                                                                    <div class="fa fa-star-o text-secondary">
+                                                                    </div>
+                                                                @endif
+                                                            @endfor
+                                                        </ul>
+                                                        <p>
+                                                            {{ $product->short_description }}
+                                                        </p>
+                                                        @if ($product->price)
+                                                            @if ($product->discount_price)
+                                                                <h6>{{ number_format($product->discount_price, 0, ',', '.') }}đ<span
+                                                                        class="ms-2">{{ number_format($product->price, 0, ',', '.') }}đ</span>
+                                                                </h6>
+                                                            @else
+                                                                <h6>{{ number_format($product->price, 0, ',', '.') }}đ<span
+                                                                        class="ms-2"></span></h6>
+                                                            @endif
+                                                        @else
+                                                            <h6>Đang cập nhật...<span class="ms-2"></span>
+                                                            </h6>
+                                                        @endif
+                                                        <div class="timer">
+                                                            <p id="demo">
+                                                            </p>
+                                                        </div>
+                                                        <a href="product-page(left-sidebar).html"
+                                                            class="btn btn-normal btn-md ">Mua ngay</a>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 ">
+                                        <div class="hotdeal-right-nav">
+                                            @foreach ($bigDiscountProducts as $product)
+                                                <div><img src="{{ asset($product->image) }}" alt="hot-dea"
+                                                        class="img-fluid  "></div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="slide-1-section no-arrow">
+                        @foreach ($sellingProducts as $key => $product)
+                            @if ($key % 3 == 0)
+                                <div>
+                                    <div class="media-banner border-0">
+                                        <div class="media-banner-box">
+                                            <div class="media-heading">
+                                                <h5>Sản phẩm mới</h5>
+                                            </div>
+                                        </div>
+                            @endif
+
+
+                            <div class="media-banner-box">
+                                <div class="media">
+                                    <a href="product-page(left-sidebar).html">
+                                        <img src="{{ asset($product->image) }}" class="img-fluid " alt="banner">
+                                    </a>
+                                    <div class="media-body">
+                                        <div class="media-contant">
+                                            <div>
+                                                <div class="product-detail">
+                                                    <ul class="rating">
+                                                        @for ($i = 1; $i <= 5; $i++)
+                                                            @if ($i <= floor($product->ratingStar))
+                                                                <div class="fa fa-star text-warning"></div>
+                                                            @else
+                                                                <div class="fa fa-star-o text-secondary">
+                                                                </div>
+                                                            @endif
+                                                        @endfor
+                                                    </ul>
+                                                    <a href="product-page(left-sidebar).html">
+                                                        <p>{{ $product->name }}</p>
+                                                    </a>
+                                                    @if ($product->price)
+                                                        @if ($product->discount_price)
+                                                            <h6>{{ number_format($product->discount_price, 0, ',', '.') }}đ<span
+                                                                    class="ms-2">{{ number_format($product->price, 0, ',', '.') }}đ</span>
+                                                            </h6>
+                                                        @else
+                                                            <h6>{{ number_format($product->price, 0, ',', '.') }}đ<span
+                                                                    class="ms-2"></span></h6>
+                                                        @endif
+                                                    @else
+                                                        <h6>Đang cập nhật...<span class="ms-2"></span>
+                                                        </h6>
+                                                    @endif
+                                                </div>
+                                                <div class="cart-info">
+                                                    <button onclick="openCart()" class="tooltip-top"
+                                                        data-tippy-content="Add to cart"><i
+                                                            data-feather="shopping-cart"></i></button>
+                                                    <a href="javascript:void(0)" class="add-to-wish tooltip-top"
+                                                        data-tippy-content="Add to Wishlist"><i
+                                                            data-feather="heart"></i></a>
+                                                    <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                        data-bs-target="#quick-view" class="tooltip-top"
+                                                        data-tippy-content="Quick View"><i data-feather="eye"></i></a>
+                                                    <a href="compare.html" class="tooltip-top"
+                                                        data-tippy-content="Compare"><i data-feather="refresh-cw"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @if (($key + 1) % 3 == 0 || $loop->last)
+                                <div class="media-banner-box">
+                                    <div class="media-view">
+                                        <h5>Xem thêm</h5>
+                                    </div>
+                                </div>
+                    </div>
+                </div>
+                @endif
+                @endforeach
+            </div>
+        </div>
+        </div>
+        </div>
+    </section>
+    <!--hot deal start-->
 @endsection
