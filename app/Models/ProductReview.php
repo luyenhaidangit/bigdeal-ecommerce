@@ -14,4 +14,9 @@ class ProductReview extends Model
         'rating',
         'comment',
     ];
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 }
