@@ -71,7 +71,7 @@
                 <!--Blog sidebar start-->
                 <!--Blog List start-->
                 <div class="col-xl-9 col-lg-8 col-md-7 order-sec">
-                    @foreach ($newsNew as $news)
+                    @foreach ($newsAll as $news)
                     <div class="row blog-media">
                         <div class="col-xl-4 ">
                             <div class="blog-left">
@@ -101,7 +101,7 @@
                         </div>
                     </div>
                     @endforeach
-                    {{ $newsAll->onEachSide(1)->links('pagination::bootstrap-4') }}
+                    {{ $newsAll->links('pagination::bootstrap-4') }}
                 </div>
                 <!--Blog List start-->
             </div>

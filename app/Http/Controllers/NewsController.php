@@ -30,7 +30,7 @@ class NewsController extends Controller
 
         $newsPopular = News::orderBy('view_count', 'desc')->take(5)->get();
 
-        $newsAll = News::paginate(1);
+        $newsAll = News::paginate(5);
 
         return view('guest.news.news', compact('newsNew','newsPopular','newsAll'));
     }
