@@ -796,10 +796,10 @@
                                                             <h6>Đang cập nhật...<span class="ms-2"></span>
                                                             </h6>
                                                         @endif
-                                                        <div class="timer">
+                                                        {{-- <div class="timer">
                                                             <p id="demo">
                                                             </p>
-                                                        </div>
+                                                        </div> --}}
                                                         <a href="product-page(left-sidebar).html"
                                                             class="btn btn-normal btn-md ">Mua ngay</a>
                                                     </div>
@@ -904,4 +904,59 @@
         </div>
     </section>
     <!--hot deal start-->
+
+    <!--testimonial start-->
+    <section class="testimonial testimonial-inverse">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="slide-1 no-arrow">
+                        <div>
+                            <div class="testimonial-contain">
+                                <div class="media">
+                                    <div class="testimonial-img">
+                                        <img src="{{asset('guest-resource/images/testimonial/1.jpg')}}" class="img-fluid rounded-circle  "
+                                            alt="testimonial">
+                                    </div>
+                                    <div class="media-body">
+                                        <h5>Luyện Hải Đăng</h5>
+                                        <p>Tôi rất hài lòng với sản phẩm tôi đã mua từ trang web này. Chất lượng sản phẩm tuyệt vời và dịch vụ khách hàng tuyệt hảo. Tôi chắc chắn sẽ quay lại mua sắm ở đây trong tương lai.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="testimonial-contain">
+                                <div class="media">
+                                    <div class="testimonial-img">
+                                        <img src="{{asset('guest-resource/images/testimonial/2.jpg')}}" class="img-fluid rounded-circle  "
+                                            alt="testimonial">
+                                    </div>
+                                    <div class="media-body">
+                                        <h5>Đào Xuân Đức</h5>
+                                        <p>Trang web này mang đến cho tôi trải nghiệm mua sắm trực tuyến tuyệt vời. Giao hàng nhanh chóng và sản phẩm đáng tin cậy. Tôi đã mua nhiều sản phẩm từ đây và không hề thất vọng.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="testimonial-contain">
+                                <div class="media">
+                                    <div class="testimonial-img">
+                                        <img src="{{asset('guest-resource/images/testimonial/3.jpg')}}" class="img-fluid rounded-circle  "
+                                            alt="testimonial">
+                                    </div>
+                                    <div class="media-body">
+                                        <h5>Đỗ Như Nghĩa</h5>
+                                        <p>Tôi muốn chia sẻ rằng trang web này cung cấp những sản phẩm công nghệ tuyệt vời và giá cả cạnh tranh. Tôi đã so sánh với nhiều nơi khác và đây là nơi tốt nhất để mua sắm các sản phẩm công nghệ.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--testimonial end-->
 @endsection
