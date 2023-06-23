@@ -50,10 +50,12 @@ class HomeController extends Controller
 
         $bannersTypeProductHome = Banner::where('type', Constants::BANNER_TYPE_PRODUCT_HOME)->orderBy('order', 'desc')->take(3)->get();
 
+        $specialProducts = Product::where('is_special', true)->take(30)->get();
+
         return view('guest.home.home', compact(
             'mainSliders','brands','bannersTypeMainHome','productCategories',
             'bannerTypeSpecial','newProducts','sellingProducts','bigDiscountProducts',
-            'bestViewProducts','bannersTypeProductHome'
+            'bestViewProducts','bannersTypeProductHome', 'specialProducts'
         ));
     }
 }
