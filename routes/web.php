@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\NewsCommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,8 +21,15 @@ use App\Http\Controllers\NewsController;
 // });
 
 // Guest
+//Home
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+//News
 Route::get('/news', [NewsController::class, 'guestIndex'])->name('guest.news');
+Route::get('/news/{id}', [NewsController::class, 'guestShow'])->name('guest.news.show');
+Route::get('/guest/like/{id}', [NewsController::class, 'guestLove'])->name('guest.news.love');
+
+//NewsComment
+Route::post('/news_comment', [NewsCommentController::class, 'guestStore'])->name('guest.news_comment.store');
 
 Auth::routes();

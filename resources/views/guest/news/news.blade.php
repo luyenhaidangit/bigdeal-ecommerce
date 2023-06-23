@@ -10,7 +10,7 @@
                         <div>
                             <h2>Tin tức</h2>
                             <ul>
-                                <li><a href=""{{ route('home') }}">Trang chủ</a></li>
+                                <li><a href="{{ route('home') }}">Trang chủ</a></li>
                                 <li><i class="fa fa-angle-double-right"></i></li>
                                 <li><a href=""{{ route('guest.news') }}">Tin tức</a></li>
                             </ul>
@@ -34,13 +34,13 @@
                             <ul class="recent-blog">
                                 @foreach ($newsNew as $news)
                                 <li>
-                                    <div class="media"><img class="img-fluid " src="{{asset($news->image)}}"
+                                    <a style="color: unset !important" href="{{ route('guest.news.show', ['id' => $news->id]) }}" class="media"><img class="img-fluid " src="{{asset($news->image)}}"
                                             alt="Generic placeholder image">
                                         <div class="media-body align-self-center">
                                             <h6>Ngày đăng: {{ $news->created_at->format('d-m-Y') }}</h6>
                                             <p>{{$news->number_love}} lượt thích</p>
                                         </div>
-                                    </div>
+                                    </a>
                                 </li>
                                 @endforeach
                             </ul>
@@ -50,7 +50,7 @@
                             <ul class="popular-blog">
                                 @foreach ($newsNew as $news)
                                 <li>
-                                    <div class="media">
+                                    <a href="{{ route('guest.news.show', ['id' => $news->id]) }}" style="color: unset !important" class="media">
                                         <div class="blog-date">
                                             <span>{{ $news->created_at->day }}</span><span>{{ $news->created_at->month }}</span>
                                         </div>
@@ -58,7 +58,7 @@
                                             <h6>{{$news->title}}</h6>
                                             <p>{{$news->number_love}} lượt thích</p>
                                         </div>
-                                    </div>
+                                    </a>
                                     <p>{{ Str::limit($news->content, 80, '...') }}</p>
                                 </li>
                                 @endforeach
@@ -71,11 +71,11 @@
                 <!--Blog sidebar start-->
                 <!--Blog List start-->
                 <div class="col-xl-9 col-lg-8 col-md-7 order-sec">
-                    @foreach ($newsNew as $news)
+                    @foreach ($newsAll as $news)
                     <div class="row blog-media">
                         <div class="col-xl-4 ">
                             <div class="blog-left">
-                                <a href="javascript:void(0)"><img src="{{asset($news->image)}}" class="img-fluid  "
+                                <a href="{{ route('guest.news.show', ['id' => $news->id]) }}"><img src="{{asset($news->image)}}" class="img-fluid  "
                                         alt="blog-left"></a>
                                 <div class="label-block">
                                     <div class="date-label">
@@ -101,7 +101,7 @@
                         </div>
                     </div>
                     @endforeach
-                    {{ $newsAll->onEachSide(1)->links('pagination::bootstrap-4') }}
+                    {{ $newsAll->links('pagination::bootstrap-4') }}
                 </div>
                 <!--Blog List start-->
             </div>

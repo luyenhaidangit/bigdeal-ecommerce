@@ -30,8 +30,34 @@ class NewsController extends Controller
 
         $newsPopular = News::orderBy('view_count', 'desc')->take(5)->get();
 
-        $newsAll = News::paginate(1);
+        $newsAll = News::paginate(5);
 
         return view('guest.news.news', compact('newsNew','newsPopular','newsAll'));
+    }
+
+    public function guestShow($id)
+    {
+        $news = News::with('newsComments')->find($id);
+        $comments = $news->newsComments()->paginate(5);
+
+        return view('guest.news.news_detail', compact('news','comments'));
+    }
+
+    public function guestLove($id)
+    {
+        $news = News::find($id);
+
+        if (!request()->cookie('liked_posts')) {
+            $likedPosts = [];
+        } else {
+            $likedPosts = json_decode(request()->cookie('liked_posts'), true);
+        }
+
+        if (!in_array($news->id, $likedPosts)) {
+            $news->increment('number_love');
+            $likedPosts[] = $news->id;
+        }
+
+        return redirect()->back()->cookie('liked_posts', json_encode($likedPosts));
     }
 }
