@@ -54,7 +54,6 @@
     <!-- Theme js -->
     <script src="{{ asset('guest-resource/js/modal.js') }}"></script>
     <script src="{{ asset('guest-resource/js/script.js') }}"></script>
-    <script src="{{ asset('guest-resource/js/custom.js') }}"></script>
 
 </body>
 
