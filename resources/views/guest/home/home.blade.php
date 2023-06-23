@@ -915,12 +915,14 @@
                             <div class="testimonial-contain">
                                 <div class="media">
                                     <div class="testimonial-img">
-                                        <img src="{{asset('guest-resource/images/testimonial/1.jpg')}}" class="img-fluid rounded-circle  "
-                                            alt="testimonial">
+                                        <img src="{{ asset('guest-resource/images/testimonial/1.jpg') }}"
+                                            class="img-fluid rounded-circle  " alt="testimonial">
                                     </div>
                                     <div class="media-body">
                                         <h5>Luyện Hải Đăng</h5>
-                                        <p>Tôi rất hài lòng với sản phẩm tôi đã mua từ trang web này. Chất lượng sản phẩm tuyệt vời và dịch vụ khách hàng tuyệt hảo. Tôi chắc chắn sẽ quay lại mua sắm ở đây trong tương lai.</p>
+                                        <p>Tôi rất hài lòng với sản phẩm tôi đã mua từ trang web này. Chất lượng sản phẩm
+                                            tuyệt vời và dịch vụ khách hàng tuyệt hảo. Tôi chắc chắn sẽ quay lại mua sắm ở
+                                            đây trong tương lai.</p>
                                     </div>
                                 </div>
                             </div>
@@ -929,12 +931,14 @@
                             <div class="testimonial-contain">
                                 <div class="media">
                                     <div class="testimonial-img">
-                                        <img src="{{asset('guest-resource/images/testimonial/2.jpg')}}" class="img-fluid rounded-circle  "
-                                            alt="testimonial">
+                                        <img src="{{ asset('guest-resource/images/testimonial/2.jpg') }}"
+                                            class="img-fluid rounded-circle  " alt="testimonial">
                                     </div>
                                     <div class="media-body">
                                         <h5>Đào Xuân Đức</h5>
-                                        <p>Trang web này mang đến cho tôi trải nghiệm mua sắm trực tuyến tuyệt vời. Giao hàng nhanh chóng và sản phẩm đáng tin cậy. Tôi đã mua nhiều sản phẩm từ đây và không hề thất vọng.</p>
+                                        <p>Trang web này mang đến cho tôi trải nghiệm mua sắm trực tuyến tuyệt vời. Giao
+                                            hàng nhanh chóng và sản phẩm đáng tin cậy. Tôi đã mua nhiều sản phẩm từ đây và
+                                            không hề thất vọng.</p>
                                     </div>
                                 </div>
                             </div>
@@ -943,12 +947,14 @@
                             <div class="testimonial-contain">
                                 <div class="media">
                                     <div class="testimonial-img">
-                                        <img src="{{asset('guest-resource/images/testimonial/3.jpg')}}" class="img-fluid rounded-circle  "
-                                            alt="testimonial">
+                                        <img src="{{ asset('guest-resource/images/testimonial/3.jpg') }}"
+                                            class="img-fluid rounded-circle  " alt="testimonial">
                                     </div>
                                     <div class="media-body">
                                         <h5>Đỗ Như Nghĩa</h5>
-                                        <p>Tôi muốn chia sẻ rằng trang web này cung cấp những sản phẩm công nghệ tuyệt vời và giá cả cạnh tranh. Tôi đã so sánh với nhiều nơi khác và đây là nơi tốt nhất để mua sắm các sản phẩm công nghệ.</p>
+                                        <p>Tôi muốn chia sẻ rằng trang web này cung cấp những sản phẩm công nghệ tuyệt vời
+                                            và giá cả cạnh tranh. Tôi đã so sánh với nhiều nơi khác và đây là nơi tốt nhất
+                                            để mua sắm các sản phẩm công nghệ.</p>
                                     </div>
                                 </div>
                             </div>
@@ -959,4 +965,116 @@
         </div>
     </section>
     <!--testimonial end-->
+
+    <!--title start-->
+    <div class="title1 section-my-space">
+        <h4>Sản phẩm nổi bật</h4>
+    </div>
+    <!--title end-->
+
+    <!--product start-->
+    <section class="product section-pb-space mb--5">
+        <div class="custom-container">
+            <div class="row">
+                <div class="col pr-0">
+                    <div class="product-slide-6 no-arrow">
+                        @foreach ($specialProducts as $product)
+                            <div>
+                                <div class="product-box">
+                                    <div class="product-imgbox">
+                                        <div class="product-front">
+                                            <a href="product-page(left-sidebar).html">
+                                                @if ($product->image)
+                                                    <img src="{{ asset($product->image) }}" class="img-fluid"
+                                                        alt="product"
+                                                        style="margin: 12px; width: -webkit-fill-available; min-height: 160px;">
+                                                @else
+                                                    <img src="{{ asset('guest-resource/images/layout-2/product/5.jpg') }}"
+                                                        class="img-fluid" alt="default-image">
+                                                @endif
+                                            </a>
+                                        </div>
+                                        <div class="product-back">
+                                            <a href="product-page(left-sidebar).html">
+                                                @if ($product->image)
+                                                    <img src="{{ asset($product->image) }}" class="img-fluid"
+                                                        alt="product"
+                                                        style="margin: 12px; width: -webkit-fill-available;min-height: 160px;">
+                                                @else
+                                                    <img src="{{ asset('guest-resource/images/layout-2/product/5.jpg') }}"
+                                                        class="img-fluid" alt="default-image">
+                                                @endif
+                                            </a>
+                                        </div>
+                                        <div class="product-icon icon-inline">
+                                            <button onclick="openCart()" class="tooltip-top"
+                                                data-tippy-content="Add to cart">
+                                                <i data-feather="shopping-cart"></i>
+                                            </button>
+                                            <a href="javascript:void(0)" class="add-to-wish tooltip-top"
+                                                data-tippy-content="Add to Wishlist">
+                                                <i data-feather="heart"></i>
+                                            </a>
+                                            <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                data-bs-target="#quick-view" class="tooltip-top"
+                                                data-tippy-content="Quick View">
+                                                <i data-feather="eye"></i>
+                                            </a>
+                                            <a href="compare.html" class="tooltip-top" data-tippy-content="Compare">
+                                                <i data-feather="refresh-cw"></i>
+                                            </a>
+                                        </div>
+                                        @if ($product->created_at >= now()->subDays(7))
+                                            <div class="new-label1">
+                                                <div>Mới</div>
+                                            </div>
+                                        @endif
+                                        @if (
+                                            !is_null($product->discount_price) &&
+                                                $product->start_date_discount <= now() &&
+                                                $product->expiration_date_discount >= now())
+                                            <div class="on-sale1">
+                                                Giảm giá
+                                            </div>
+                                        @endif
+                                    </div>
+                                    <div class="product-detail detail-inline">
+                                        <div class="detail-title">
+                                            <div class="detail-left">
+                                                <div class="rating-star">
+                                                    @for ($i = 1; $i <= 5; $i++)
+                                                        @if ($i <= floor($product->ratingStar))
+                                                            <div class="fa fa-star text-warning"></div>
+                                                        @else
+                                                            <div class="fa fa-star-o text-secondary"></div>
+                                                        @endif
+                                                    @endfor
+                                                </div>
+                                                <a href="product-page(left-sidebar).html">
+                                                    <h6 class="price-title">
+                                                        {{ $product->name }}
+                                                    </h6>
+                                                </a>
+                                            </div>
+                                            <div class="detail-right">
+                                                <div class="check-price">
+                                                    {{ number_format($product->price, 0, ',', '.') }}đ
+                                                </div>
+                                                <div class="price">
+                                                    <div class="price">
+                                                        {{ number_format($product->discount_price, 0, ',', '.') }}đ
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--product end-->
 @endsection
