@@ -331,12 +331,12 @@
                                     </li>
                                     <!--HOME-->
                                     <li>
-                                        <a class="dark-menu-item" href="javascript:void(0)">Trang chủ</a>
+                                        <a class="dark-menu-item" href="{{ route('home') }}">Trang chủ</a>
                                     </li>
                                     <!--HOME-END-->
                                     <!--SHOP-->
                                     <li>
-                                        <a class="dark-menu-item" href="javascript:void(0)">Tin tức</a>
+                                        <a class="dark-menu-item" href="{{ route('guest.news') }}">Tin tức</a>
                                     </li>
                                     <!--SHOP-END-->
                                     <!--product-meu start-->
