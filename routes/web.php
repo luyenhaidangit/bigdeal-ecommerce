@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NewsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,5 +21,7 @@ use App\Http\Controllers\HomeController;
 
 // Guest
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::get('/news', [NewsController::class, 'guestIndex'])->name('guest.news');
 
 Auth::routes();
