@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use App\Models\ProductCategory;
 use App\Models\Coupon;
+use App\Helpers\Constants;
 
 class SharedViewsServiceProvider extends ServiceProvider
 {
@@ -46,7 +47,8 @@ class SharedViewsServiceProvider extends ServiceProvider
 
             $view->with('productCategoryDefaultData', $productCategoryDefaultData)
                 ->with('productCategoryMoreData', $productCategoryMoreData)
-                ->with('couponData', $couponData);
+                ->with('couponData', $couponData)
+                ->with('constants', Constants::class);
         });
     
         // View::composer('guest.layouts.footer', function ($view) {
