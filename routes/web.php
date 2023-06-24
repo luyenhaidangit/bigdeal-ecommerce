@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\NewsCommentController;
 use App\Http\Controllers\FaqController;
+use App\Http\Controllers\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,5 +36,8 @@ Route::post('/news_comment', [NewsCommentController::class, 'guestStore'])->name
 
 //Faq
 Route::get('/faq', [FaqController::class, 'guestIndex'])->name('guest.faq');
+
+//Page
+Route::get('/page/{slug}', [PageController::class, 'guestShow'])->name('guest.page.show');
 
 Auth::routes();

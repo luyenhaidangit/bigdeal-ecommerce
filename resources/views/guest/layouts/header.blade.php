@@ -347,7 +347,7 @@
 
                                     <!--mega-meu start-->
                                     <li class="mega">
-                                        <a class="dark-menu-item" href="javascript:void(0)">Chính sách & hoàn trả</a>
+                                        <a class="dark-menu-item" href="{{ route('guest.page.show', ['slug' => $constants::PAGE_RETURN_POLICY_SLUG]) }}">Chính sách & hoàn trả</a>
                                     </li>
                                     <!--mega-meu end-->
 
@@ -359,7 +359,7 @@
 
                                     <!--blog-meu start-->
                                     <li>
-                                        <a class="dark-menu-item" href="javascript:void(0)">Về chúng tôi</a>
+                                        <a class="dark-menu-item" href="{{ route('guest.page.show', ['slug' => $constants::PAGE_ABOUT_US_SLUG]) }}">Về chúng tôi</a>
                                     </li>
                                     <!--blog-meu end-->
                                 </ul>
