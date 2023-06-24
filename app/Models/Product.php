@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\ProductCategory;
 use App\Models\ProductReview;
+use App\Models\Brand;
+use App\Models\ProductOption;
 
 class Product extends Model
 {
@@ -33,9 +35,19 @@ class Product extends Model
         return $this->belongsTo(ProductCategory::class);
     }
 
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class);
+    }
+
     public function productReviews()
     {
         return $this->hasMany(ProductReview::class);
+    }
+
+    public function productOptions()
+    {
+        return $this->hasMany(ProductOption::class);
     }
 
     public function getRatingStarAttribute()
