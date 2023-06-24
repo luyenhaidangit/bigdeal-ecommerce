@@ -104,7 +104,7 @@
                             </ul>
                         </div>
                         <div class="brand-logo logo-sm-center">
-                            <a href="index.html">
+                            <a href="{{ route('home') }}">
                                 <img src="{{ asset('guest-resource/images/layout-2/logo/logo.png') }}"
                                     class="img-fluid  " alt="logo">
                             </a>
@@ -261,7 +261,7 @@
                     <div class="navbar-menu">
                         <div class="logo-block">
                             <div class="brand-logo logo-sm-center">
-                                <a href="index.html">
+                                <a href="{{ route('home') }}">
                                     <img src="{{ asset('guest-resource/images/layout-2/logo/logo.png') }}"
                                         class="img-fluid  " alt="logo">
                                 </a>
@@ -340,7 +340,7 @@
                                     </li>
                                     <!--SHOP-END-->
                                     <!--product-meu start-->
-                                    <li class="mega"><a class="dark-menu-item" href="javascript:void(0)">Hỏi
+                                    <li class="mega"><a class="dark-menu-item" href="{{ route('guest.faq') }}">Hỏi
                                             đáp</a>
                                     </li>
                                     <!--product-meu end-->

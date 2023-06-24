@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\NewsCommentController;
+use App\Http\Controllers\FaqController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,5 +32,8 @@ Route::get('/guest/like/{id}', [NewsController::class, 'guestLove'])->name('gues
 
 //NewsComment
 Route::post('/news_comment', [NewsCommentController::class, 'guestStore'])->name('guest.news_comment.store');
+
+//Faq
+Route::get('/faq', [FaqController::class, 'guestIndex'])->name('guest.faq');
 
 Auth::routes();
