@@ -89,21 +89,18 @@
                                                     <div
                                                         class="custom-control custom-checkbox form-check collection-filter-checkbox">
                                                         <input type="checkbox"
-                                                            class="custom-control-input form-check-input brand-checkbox"
-                                                            id="{{ $color }}" data-color="{{ $color }}"
-                                                            onclick="handleColorFilter()"
+                                                            class="custom-control-input form-check-input color-checkbox"
+                                                            id="{{ $color }}" onclick="handleColorFilter()"
                                                             {{ in_array(urldecode($color), $selectedColors) ? 'checked' : '' }}>
                                                         <label class="custom-control-label form-check-label"
                                                             for="{{ $color }}">{{ $color }}</label>
                                                     </div>
                                                 @endforeach
-
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             @endif
-
 
                             @if (isset($options['sizes']) && count($options['sizes']->filter()) > 0)
                                 <div class="collection-collapse-block open">
@@ -278,14 +275,15 @@
 
                             <!-- price filter start here -->
                             <div class="collection-collapse-block border-0 open">
-                                <h3 class="collapse-block-title">price</h3>
+                                <h3 class="collapse-block-title">Giá</h3>
                                 <div class="collection-collapse-block-content">
                                     <div class="filter-slide">
-                                        <input class="js-range-slider" type="text" name="my_range" value=""
-                                            data-type="double" />
+                                        <input id="price-slider" class="js-range-slider" type="text" name="my_range"
+                                            value="" data-type="double" />
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                         <!-- silde-bar colleps block end here -->
                         <!-- side-bar single product slider start -->
@@ -424,16 +422,13 @@
                                                         </ul>
                                                     </div>
                                                     <div class="product-page-per-view">
-                                                        <select id="perPageSelect">
+                                                        <select id="perPageSelect" onchange="handlePageChange()">
                                                             <option value="1" {{ $perPage == 1 ? 'selected' : '' }}>
-                                                                10 sản
-                                                                phẩm mỗi trang</option>
+                                                                10 sản phẩm mỗi trang</option>
                                                             <option value="2" {{ $perPage == 2 ? 'selected' : '' }}>
-                                                                20 sản
-                                                                phẩm mỗi trang</option>
+                                                                20 sản phẩm mỗi trang</option>
                                                             <option value="5" {{ $perPage == 5 ? 'selected' : '' }}>
-                                                                50 sản
-                                                                phẩm mỗi trang</option>
+                                                                50 sản phẩm mỗi trang</option>
                                                         </select>
                                                     </div>
                                                     <div class="product-page-filter">
@@ -547,6 +542,7 @@
                                                             @if ($products->onFirstPage())
                                                                 <li class="page-item disabled">
                                                                     <a class="page-link" href="javascript:void(0)"
+                                                                        onclick="handlePageChange({{ $products->currentPage() - 1 }})"
                                                                         aria-label="Previous">
                                                                         <span aria-hidden="true"><i
                                                                                 class="fa fa-chevron-left"
@@ -556,8 +552,8 @@
                                                                 </li>
                                                             @else
                                                                 <li class="page-item">
-                                                                    <a class="page-link"
-                                                                        href="{{ $products->previousPageUrl() }}"
+                                                                    <a class="page-link" href="javascript:void(0)"
+                                                                        onclick="handlePageChange({{ $products->currentPage() - 1 }})"
                                                                         aria-label="Previous">
                                                                         <span aria-hidden="true"><i
                                                                                 class="fa fa-chevron-left"
@@ -568,25 +564,23 @@
                                                             @endif
 
                                                             @foreach ($products->getUrlRange(1, $products->lastPage()) as $page => $url)
-                                                                @php
-                                                                    $params = collect(request()->except('page'))->merge(['sort' => $sort, 'perPage' => $products->perPage()]);
-                                                                    $url = $url . (strpos($url, '?') === false ? '?' : '&') . http_build_query($params->all());
-                                                                @endphp
                                                                 @if ($page == $products->currentPage())
-                                                                    <li class="page-item active"><a class="page-link"
-                                                                            href="javascript:void(0)">{{ $page }}</a>
+                                                                    <li class="page-item active">
+                                                                        <a class="page-link" href="javascript:void(0)"
+                                                                            onclick="handlePageChange({{ $page }})">{{ $page }}</a>
                                                                     </li>
                                                                 @else
-                                                                    <li class="page-item"><a class="page-link"
-                                                                            href="{{ $url }}">{{ $page }}</a>
+                                                                    <li class="page-item">
+                                                                        <a class="page-link" href="javascript:void(0)"
+                                                                            onclick="handlePageChange({{ $page }})">{{ $page }}</a>
                                                                     </li>
                                                                 @endif
                                                             @endforeach
 
                                                             @if ($products->hasMorePages())
                                                                 <li class="page-item">
-                                                                    <a class="page-link"
-                                                                        href="{{ $products->nextPageUrl() }}"
+                                                                    <a class="page-link" href="javascript:void(0)"
+                                                                        onclick="handlePageChange({{ $products->currentPage() + 1 }})"
                                                                         aria-label="Next">
                                                                         <span aria-hidden="true"><i
                                                                                 class="fa fa-chevron-right"
@@ -597,6 +591,7 @@
                                                             @else
                                                                 <li class="page-item disabled">
                                                                     <a class="page-link" href="javascript:void(0)"
+                                                                        onclick="handlePageChange({{ $products->currentPage() + 1 }})"
                                                                         aria-label="Next">
                                                                         <span aria-hidden="true"><i
                                                                                 class="fa fa-chevron-right"
@@ -606,6 +601,7 @@
                                                                 </li>
                                                             @endif
                                                         </ul>
+
                                                     </nav>
                                                 </div>
                                                 <div class="col-xl-6 col-md-6 col-sm-12">
@@ -1310,66 +1306,83 @@
     <!-- add to  setting bar  end-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        document.getElementById('perPageSelect').onchange = function() {
-            var perPage = this.value;
-            var url = window.location.href;
-            var updatedUrl = updateQueryStringParameter(url, 'perPage', perPage);
-            window.location.href = updatedUrl;
-        };
+        function handleSortChange(selectElement) {
+            var selectedValue = selectElement.value;
+            var url = new URI(window.location.href);
+            var params = url.search(true);
 
-        function handleSortChange(select) {
-            var sortValue = select.value;
-            var perPage = '{{ $perPage }}';
-            var url = window.location.href;
-            var newUrl = updateQueryStringParameter(url, 'sort', sortValue);
-            newUrl = updateQueryStringParameter(newUrl, 'perPage', perPage);
-            window.location.href = newUrl;
+            if (selectedValue === 'default') {
+                delete params.sort;
+            } else {
+                params.sort = selectedValue;
+            }
+
+            var updatedUrl = url.search(params).toString();
+
+            window.location.href = updatedUrl;
         }
 
         function handleBrandFilter() {
-    var selectedBrands = Array.from(document.querySelectorAll('.brand-checkbox:checked'))
-        .map(checkbox => checkbox.getAttribute('data-brand-id'));
+            var selectedBrands = Array.from(document.querySelectorAll('.brand-checkbox:checked'))
+                .map(checkbox => checkbox.getAttribute('data-brand-id'));
 
-    var url = window.location.href;
-    var params = new URLSearchParams(window.location.search);
+            var url = new URI(window.location.href);
+            var params = url.search(true);
 
-    // Xóa tham số 'brand' hiện tại khỏi URL
-    params.delete('brand');
+            delete params.brand;
 
-    if (selectedBrands.length > 0) {
-        // Thêm tham số 'brand' mới vào URL
-        var brandParam = selectedBrands.filter(brand => brand !== '').join(',');
-        params.set('brand', brandParam);
-    }
-
-    // Cập nhật URL với các tham số đã thay đổi
-    var updatedUrl = window.location.pathname + '?' + params.toString();
-    
-    // Xóa dấu phẩy thừa nếu tham số 'brand' rỗng
-    updatedUrl = updatedUrl.replace(/(&brand=,)|(\?brand=,)/g, '');
-
-    window.location.href = updatedUrl;
-}
-
-
-
-
-
-        function handleColorFilter() {
-            var selectedColors = Array.from(document.querySelectorAll('.brand-checkbox:checked'))
-                .map(checkbox => checkbox.getAttribute('data-color'));
-
-            var url = window.location.href;
-            var updatedUrl = '';
-
-            if (selectedColors.length > 0) {
-                updatedUrl = updateQueryStringParameter(url, 'color', selectedColors.join(','));
-            } else {
-                var params = new URLSearchParams(window.location.search);
-                params.delete('color');
-                updatedUrl = window.location.pathname + '?' + params.toString();
+            if (selectedBrands.length > 0) {
+                var brandParam = selectedBrands.filter(brand => brand !== '').join(',');
+                params.brand = brandParam;
             }
 
+            var updatedUrl = url.search(params).toString();
+
+            updatedUrl = updatedUrl.replace(/(&brand=,)|(\?brand=,)/g, '');
+
+            window.location.href = updatedUrl;
+        }
+
+        function handlePageChange() {
+            var perPage = document.getElementById('perPageSelect').value;
+            var url = new URI(window.location.href);
+            var params = url.search(true);
+
+            params.perPage = perPage;
+
+            var updatedUrl = url.search(params).toString();
+
+            window.location.href = updatedUrl;
+        }
+
+        function handleColorFilter() {
+            var selectedColors = Array.from(document.querySelectorAll('.color-checkbox:checked'))
+                .map(checkbox => checkbox.id);
+
+            var url = new URI(window.location.href);
+            var params = url.search(true);
+
+            delete params.color;
+
+            if (selectedColors.length > 0) {
+                var colorParam = selectedColors.filter(color => color !== '').join(',');
+                params.color = colorParam;
+            }
+
+            var updatedUrl = url.search(params).toString();
+
+            updatedUrl = updatedUrl.replace(/(&color=,)|(\?color=,)/g, '');
+
+            window.location.href = updatedUrl;
+        }
+
+        function handlePageChange(page) {
+            var url = new URI(window.location.href);
+            var params = url.search(true);
+
+            params.page = page;
+
+            var updatedUrl = url.search(params).toString();
             window.location.href = updatedUrl;
         }
 
@@ -1381,6 +1394,42 @@
             } else {
                 return url + separator + key + "=" + value;
             }
+        }
+
+        $(document).ready(function() {
+            var url = new URI(window.location.href);
+            var minPrice = url.query(true).min_price || {{ $minPriceAll }};
+            var maxPrice = url.query(true).max_price || {{ $maxPriceAll }};
+
+            $("#price-slider").ionRangeSlider({
+                type: "double",
+                min: {{ $minPriceAll }},
+                max: {{ $maxPriceAll }},
+                from: minPrice,
+                to: maxPrice,
+                grid: true,
+                grid_snap: true,
+                onFinish: function(data) {
+                    handlePriceFilter();
+                }
+            });
+        });
+
+        function handlePriceFilter() {
+            var priceSlider = $("#price-slider").data("ionRangeSlider");
+            var minPrice = priceSlider.result.from;
+            var maxPrice = priceSlider.result.to;
+
+            var url = new URL(window.location.href);
+            var params = new URLSearchParams(url.search);
+
+            params.set('min_price', minPrice);
+            params.set('max_price', maxPrice);
+
+            url.search = params.toString();
+            var updatedUrl = url.toString();
+
+            window.location.href = updatedUrl;
         }
     </script>
 

@@ -35,6 +35,19 @@ class ProductCategoryController extends Controller
             abort(404);
         }
 
+        $minPrice = $category->products()->min('price');
+$maxPrice = $category->products()->max('price');
+
+// Kiểm tra nếu giá trị không tồn tại hoặc không hợp lệ, gán mặc định
+if (!$minPrice || !$maxPrice || $minPrice >= $maxPrice) {
+    $minPrice = 0;
+    $maxPrice = 20000000;
+}
+
+// Chuyển đổi thành số thập phân nếu cần thiết
+$minPriceAll = floatval($minPrice);
+$maxPriceAll = floatval($maxPrice);
+
         $selectedColors = $request->input('color', []);
 
         $selectedBrands = $request->input('brand', []);
@@ -63,11 +76,20 @@ class ProductCategoryController extends Controller
                 });
             }
         }
-        
+
         if ($sort === 'low_to_high') {
             $productsQuery->orderBy('price', 'asc');
         } elseif ($sort === 'high_to_low') {
             $productsQuery->orderBy('price', 'desc');
+        }
+
+        $minPrice = floatval($request->input('min_price',0));
+        $maxPrice = floatval($request->input('max_price'));
+        // dd($maxPrice);
+
+        if ($minPrice || $maxPrice) {
+            
+            $productsQuery->whereBetween('price', [$minPrice, $maxPrice]);
         }
 
         $newProducts = $category->products()->get();
@@ -87,7 +109,6 @@ class ProductCategoryController extends Controller
         $options['sweep_frequencys'] = ProductOption::whereIn('product_id', $productIds)->distinct('sweep_frequency')->take(5)->pluck('sweep_frequency');
         $options['hard_drives'] = ProductOption::whereIn('product_id', $productIds)->distinct('hard_drive')->take(5)->pluck('hard_drive');
         $options['resolutions'] = ProductOption::whereIn('product_id', $productIds)->distinct('resolution')->take(5)->pluck('resolution');
-
-        return view('guest.product_category.show', compact('category', 'products', 'perPage', 'sort', 'brands', 'options', 'newProducts', 'selectedBrands','selectedColors'));
+        return view('guest.product_category.show', compact('category', 'products', 'perPage', 'sort', 'brands', 'options', 'newProducts', 'selectedBrands', 'selectedColors','minPriceAll','maxPriceAll'));
     }
 }

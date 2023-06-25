@@ -46,7 +46,7 @@
 
     <!-- range sldier -->
     <script src="{{ asset('guest-resource/js/ion.rangeSlider.js') }}"></script>
-    <script src="{{ asset('guest-resource/js/rangeslidermain.js') }}"></script>
+    {{-- <script src="{{ asset('guest-resource/js/rangeslidermain.js') }}"></script> --}}
 
     <!-- Bootstrap js -->
     <script src="{{ asset('guest-resource/js/bootstrap.js') }}"></script>
@@ -58,6 +58,9 @@
     <!-- father icon -->
     <script src="{{ asset('guest-resource/js/feather.min.js') }}"></script>
     <script src="{{ asset('guest-resource/js/feather-icon.js') }}"></script>
+
+    <!-- URI js -->
+    <script src="{{ asset('guest-resource/js/URI.min.js') }}"></script>
 
     <!-- Theme js -->
     <script src="{{ asset('guest-resource/js/modal.js') }}"></script>
