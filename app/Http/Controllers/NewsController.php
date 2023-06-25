@@ -32,15 +32,16 @@ class NewsController extends Controller
 
         $newsAll = News::paginate(5);
 
-        return view('guest.news.news', compact('newsNew','newsPopular','newsAll'));
+        return view('guest.news.news', compact('newsNew', 'newsPopular', 'newsAll'));
     }
 
     public function guestShow($id)
     {
         $news = News::with('newsComments')->find($id);
+        $news->increment('view_count'); 
         $comments = $news->newsComments()->paginate(5);
 
-        return view('guest.news.news_detail', compact('news','comments'));
+        return view('guest.news.news_detail', compact('news', 'comments'));
     }
 
     public function guestLove($id)

@@ -38,12 +38,12 @@
                             <li>Ngày đăng: {{ $news->created_at->format('d-m-Y') }}</li>
                             <li>Người đăng : BigDeal</li>
                             <li>
-                                @if (in_array($news->id, json_decode(request()->cookie('liked_posts'), true)))
+                                @if (null !== request()->cookie('liked_posts') && in_array($news->id, json_decode(request()->cookie('liked_posts'), true)))
                                     <i class="fa fa-heart text-danger"></i>
                                 @else
-                                <a style="color: unset !important" href="{{ route('guest.news.love', $news->id) }}">
-                                    <i class="fa fa-heart"></i>
-                                </a>
+                                    <a style="color: unset !important" href="{{ route('guest.news.love', $news->id) }}">
+                                        <i class="fa fa-heart"></i>
+                                    </a>
                                 @endif
                                 {{ $news->number_love }} lượt thích
                             </li>
@@ -80,9 +80,9 @@
                 <div class="col-sm-12  ">
                     <div class="creative-card">
                         @if (session('success'))
-                        <div class="alert alert-success bg-success text-white" role="alert">
-                            {{ session('success') }}
-                        </div>
+                            <div class="alert alert-success bg-success text-white" role="alert">
+                                {{ session('success') }}
+                            </div>
                         @endif
                         <h2>Bình luận</h2>
                         <form class="theme-form" action="{{ route('guest.news_comment.store') }}" method="POST">
