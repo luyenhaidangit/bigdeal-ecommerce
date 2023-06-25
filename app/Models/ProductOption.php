@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Product;
 
 class ProductOption extends Model
 {
@@ -28,4 +29,9 @@ class ProductOption extends Model
         'start_date_discount' => 'datetime',
         'expiration_date_discount' => 'datetime',
     ];
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
 }
