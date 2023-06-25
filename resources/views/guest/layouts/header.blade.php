@@ -281,7 +281,7 @@
                                 <div class="collapse  nav-desk" id="navbarToggleExternalContent">
                                     <ul class="nav-cat title-font">
                                         @foreach ($productCategoryDefaultData as $productCategory)
-                                            <li> <a href="category-page(left-sidebar).html">
+                                            <li> <a href="{{ route('guest.product_category.show', ['slug' => $productCategory->slug]) }}">
                                                     @if ($productCategory->image)
                                                         <img src="{{ asset($productCategory->image) }}" height="40"
                                                             width="40">

@@ -287,12 +287,12 @@
                             <div>
                                 <div class="category-contain">
                                     <div class="img-wrapper">
-                                        <a href="category-page(left-sidebar).html">
+                                        <a href="{{ route('guest.product_category.show', ['slug' => $productCategory->slug]) }}">
                                             <img src="{{ asset($productCategory->image) }}" alt="category  "
                                                 class="img-fluid">
                                         </a>
                                     </div>
-                                    <a href="category-page(left-sidebar).html" class="btn-rounded">
+                                    <a href="{{ route('guest.product_category.show', ['slug' => $productCategory->slug]) }}" class="btn-rounded">
                                         {{ $productCategory->name }}
                                     </a>
                                 </div>
