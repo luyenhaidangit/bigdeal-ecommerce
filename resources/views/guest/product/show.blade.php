@@ -258,18 +258,19 @@
                                 </div>
                             @endif
 
-
                             <div class="pro-group">
-                                <h6 class="product-title">delivery location</h6>
+                                <h6 class="product-title">Địa chỉ giao hàng</h6>
                                 <div class="delivery-detail">
                                     <div class="delivery-detail-contian">
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="ti-location-pin"></i></span>
-                                            <input type="text" class="form-control"
-                                                placeholder="Enter Pincode for delivery">
+                                            <input value="{{ $codeDelivery }}" type="text" id="delivery-code-input"
+                                                class="form-control" placeholder="Mã Code Địa Chỉ">
                                         </div>
-                                        <a href="javascript:void(0)" class="btn btn-solid btn-md ">check</a>
+                                        <a href="javascript:void(0)" class="btn btn-solid btn-md"
+                                            onclick="checkDelivery()">Kiểm tra</a>
                                     </div>
+                                    @if ($timeDeliveryResult)
                                     <div class="delivery-lable">
                                         <svg enable-background="new 0 0 512 512" viewBox="0 0 512 512"
                                             xmlns="http://www.w3.org/2000/svg">
@@ -306,8 +307,10 @@
                                                 </g>
                                             </g>
                                         </svg>
-                                        Order within 12 hrs
+                                        {{$timeDeliveryResult}}
                                     </div>
+                                    @endif
+                                    
                                 </div>
                             </div>
                             <div class="pro-group">
@@ -1637,5 +1640,22 @@
                 });
             });
         });
+
+        function checkDelivery() {
+            var deliveryCode = document.getElementById('delivery-code-input').value;
+
+            // Tạo đối tượng URI từ URL hiện tại
+            var uri = new URI(window.location.href);
+            // Xóa tham số "code_delivery" nếu có
+            uri.removeQuery('code_delivery');
+
+            if (deliveryCode !== null && deliveryCode.trim() !== '') {
+                // Thêm tham số "code_delivery" vào URL
+                uri.addQuery('code_delivery', deliveryCode);
+            }
+
+            // Chuyển hướng trang đến URL mới
+            window.location.href = uri.toString();
+        }
     </script>
 @endsection

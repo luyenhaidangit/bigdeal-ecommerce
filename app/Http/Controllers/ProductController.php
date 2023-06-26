@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\DeliveryLocation;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -25,13 +26,27 @@ class ProductController extends Controller
      */
 
 
-    public function guestShow($slug,Request $request)
+    public function guestShow($slug, Request $request)
     {
         $product = Product::with('productImages')
             ->with('productOptions')
             ->with('productReviews')
             ->where('slug', $slug)
             ->firstOrFail();
+
+        $codeDelivery = $request->input('code_delivery');
+        $timeDeliveryResult = null;
+        if ($codeDelivery) {
+            $deliveryLocation = DeliveryLocation::where('code', $codeDelivery)->first();
+
+            $deliveryLocation = DeliveryLocation::where('code', $codeDelivery)->first();
+
+            if ($deliveryLocation) {
+                $timeDeliveryResult = 'Địa chỉ được giao hàng trước hỗ trợ giao hàng';
+            } else {
+                $timeDeliveryResult = 'Địa chỉ giao hàng không được hỗ trợ';
+            }
+        }
 
         $price = $product->price;
         $priceDiscount = $product->discount_price;
@@ -40,9 +55,9 @@ class ProductController extends Controller
         $code = $request->input('code');
 
         if ($product->productOptions->isNotEmpty()) {
-            if($code){
+            if ($code) {
                 $productOption = $product->productOptions->firstWhere('id', $code);
-            }else{
+            } else {
                 $productOption = $product->productOptions->first();
             }
 
@@ -56,15 +71,25 @@ class ProductController extends Controller
                 $priceDiscount = $productOption->discount_price;
                 $remainingDuration = $now->diff($expirationDiscount);
                 $timeRemaining = $remainingDuration->format('%d ngày %H tiếng');
-            }else{
+            } else {
                 $priceDiscount = null;
             }
         }
 
         $discountPercentage = round((($price - $priceDiscount) / $price) * 100);
 
-        return view('guest.product.show', compact('product', 'price', 'priceDiscount', 'discountPercentage', 'timeRemaining','productOption'));
+        return view(
+            'guest.product.show',
+            compact(
+                'product',
+                'price',
+                'priceDiscount',
+                'discountPercentage',
+                'timeRemaining',
+                'productOption',
+                'codeDelivery',
+                'timeDeliveryResult'
+            )
+        );
     }
-
-
 }
