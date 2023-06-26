@@ -7,6 +7,7 @@ use App\Http\Controllers\NewsCommentController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductCategoryController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,5 +44,8 @@ Route::get('/page/{slug}', [PageController::class, 'guestShow'])->name('guest.pa
 
 //ProductCategory
 Route::get('/product-category/{slug}', [ProductCategoryController::class, 'guestShow'])->name('guest.product_category.show');
+
+//Product
+Route::get('/product/{slug}', [ProductController::class, 'guestShow'])->name('guest.product.show');
 
 Auth::routes();

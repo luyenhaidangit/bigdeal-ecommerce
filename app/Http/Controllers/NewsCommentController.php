@@ -24,14 +24,14 @@ class NewsCommentController extends Controller
      */
     public function guestStore(Request $request)
     {
-        $validatedData = $request->validate([
+        $request->validate([
             'news_id' => 'required',
             'name' => 'required',
             'email' => 'required|email',
             'content' => 'required',
         ]);
 
-        $comment = NewsComment::create([
+        NewsComment::create([
             'news_id' => $request->news_id,
             'name' => $request->name,
             'email' => $request->email,

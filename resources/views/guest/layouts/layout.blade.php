@@ -34,10 +34,6 @@
     <script src="{{ asset('guest-resource/js/popper.min.js') }}"></script>
     <script src="{{ asset('guest-resource/js/bootstrap-notify.min.js') }}"></script>
 
-    <!-- range sldier -->
-    <script src="../assets/js/ion.rangeSlider.js"></script>
-    <script src="../assets/js/rangeslidermain.js"></script>
-
     <!-- menu js -->
     <script src="{{ asset('guest-resource/js/menu.js') }}"></script>
 
@@ -61,6 +57,9 @@
 
     <!-- URI js -->
     <script src="{{ asset('guest-resource/js/URI.min.js') }}"></script>
+
+    <!-- elevatezoom js-->
+    <script src="{{ asset('guest-resource/js/jquery.elevatezoom.js') }}"></script>
 
     <!-- Theme js -->
     <script src="{{ asset('guest-resource/js/modal.js') }}"></script>
