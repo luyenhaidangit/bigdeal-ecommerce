@@ -9,6 +9,8 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductReviewController;
+use App\Http\Controllers\SearchController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -51,5 +53,8 @@ Route::get('/product/{slug}', [ProductController::class, 'guestShow'])->name('gu
 
 //ProductReview
 Route::post('/product-review', [ProductReviewController::class, 'guestStore'])->name('guest.product_review.store');
+
+//Search
+Route::get('/search/product', [SearchController::class, 'guestProduct'])->name('guest.search.product');
 
 Auth::routes();
