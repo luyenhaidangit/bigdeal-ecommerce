@@ -21,10 +21,16 @@
         </div>
     </div>
     <!-- breadcrumb End -->
+    @if ($keyword)
+        <div class="title6 ">
+            <h4>Từ khoá: {{ $keyword }}</h4>
+        </div>
+    @else
+        <div class="title6 ">
+            <h4>Toàn bộ sản phẩm</h4>
+        </div>
+    @endif
 
-    <div class="title6 ">
-        <h4>Từ khoá: {{ $keyword }}</h4>
-    </div>
 
     <!--element product box start -->
     <section class=" ratio_asos product b-g-light ">
