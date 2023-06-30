@@ -12,15 +12,11 @@
                             <div class="footer-contant">
                                 <div class="footer-logo">
                                     <a href="index.html">
-                                        <img src="{{ asset('guest-resource/images/layout-2/logo/logo.png') }}"
+                                        <img src="{{ asset($website->logo) }}"
                                             class="img-fluid" alt="logo">
                                     </a>
                                 </div>
-                                <p>BigDeal là một trang web kinh doanh đồ điện tử, chuyên cung cấp các sản phẩm công
-                                    nghệ và điện tử như điện thoại di động, máy tính, TV, gia dụng và nhiều hơn nữa.
-                                    Chúng tôi cam kết cung cấp những sản phẩm chất lượng từ các thương hiệu uy tín, đồng
-                                    thời mang đến cho khách hàng trải nghiệm mua sắm thuận tiện và dịch vụ chăm sóc sau
-                                    bán hàng tận tâm.</p>
+                                <p>{!! $website->description !!}</p>
                                 <ul class="paymant">
                                     <li><a href="javascript:void(0)"><img
                                                 src="{{ asset('guest-resource/images/layout-1/pay/1.png') }}"
@@ -61,10 +57,9 @@
                             <div class="footer-contant">
                                 <ul class="contact-list">
                                     <li><i class="fa fa-map-marker"></i>Cửa hàng BigDeal <br>
-                                        VietNam-<span>3654123</span></li>
-                                    <li><i class="fa fa-phone"></i>Số điện thoại: <span>092.2002,360</span></li>
-                                    <li><i class="fa fa-envelope-o"></i>Email: luyenhaidangit@bigdeal.com</li>
-                                    <li><i class="fa fa-fax"></i>Fax <span>092.2002.360</span></li>
+                                        {!! $website->address !!}</li>
+                                    <li><i class="fa fa-phone"></i>Số điện thoại: <span> {!! $website->phone !!}</span></li>
+                                    <li><i class="fa fa-envelope-o"></i>Email: {!! $website->email !!}</li>
                                 </ul>
                             </div>
                         </div>
@@ -102,7 +97,7 @@
             <div class="row">
                 <div class="col-xl-6 col-md-8 col-sm-12">
                     <div class="footer-left">
-                        <p>2023 - Thiết kế bởi luyenhaidangit</p>
+                        <p>2023 - Cửa hàng Bigdeal</p>
                     </div>
                 </div>
                 <div class="col-xl-6 col-md-4 col-sm-12">
