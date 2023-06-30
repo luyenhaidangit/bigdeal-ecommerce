@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Coupon;
 use App\Models\DeliveryLocation;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -33,6 +34,17 @@ class ProductController extends Controller
             ->with('productReviews')
             ->where('slug', $slug)
             ->firstOrFail();
+
+        // Coupon
+        $currentDate = now(); // Lấy ngày hiện tại
+
+        $coupons = Coupon::where('start_date', '<=', $currentDate)
+            ->where('expiration_date', '>=', $currentDate)
+            ->where('usage_limit', '>', 0)
+            ->whereHas('productCoupons', function ($query) use ($product) {
+                $query->where('product_id', $product->id);
+            })
+            ->get();
 
         $codeDelivery = $request->input('code_delivery');
         $timeDeliveryResult = null;
@@ -78,6 +90,12 @@ class ProductController extends Controller
 
         $discountPercentage = round((($price - $priceDiscount) / $price) * 100);
 
+        $relatedProducts = Product::where('product_category_id', $product->product_category_id)
+            ->where('id', '!=', $product->id)
+            ->inRandomOrder()
+            ->take(20) // Số lượng sản phẩm gợi ý, thay đổi nếu cần
+            ->get();
+
         return view(
             'guest.product.show',
             compact(
@@ -88,7 +106,9 @@ class ProductController extends Controller
                 'timeRemaining',
                 'productOption',
                 'codeDelivery',
-                'timeDeliveryResult'
+                'timeDeliveryResult',
+                'coupons',
+                'relatedProducts'
             )
         );
     }

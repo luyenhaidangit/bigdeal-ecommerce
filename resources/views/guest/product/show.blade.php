@@ -271,105 +271,100 @@
                                             onclick="checkDelivery()">Kiểm tra</a>
                                     </div>
                                     @if ($timeDeliveryResult)
-                                    <div class="delivery-lable">
-                                        <svg enable-background="new 0 0 512 512" viewBox="0 0 512 512"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <g>
+                                        <div class="delivery-lable">
+                                            <svg enable-background="new 0 0 512 512" viewBox="0 0 512 512"
+                                                xmlns="http://www.w3.org/2000/svg">
                                                 <g>
-                                                    <path d="m412.65 107.667h-80.65v148.333l180-21.056v-.108z"
-                                                        fill="#cce6ff" />
-                                                    <path d="m332 234.944h180v158.722h-180z" fill="#cc295f" />
+                                                    <g>
+                                                        <path d="m412.65 107.667h-80.65v148.333l180-21.056v-.108z"
+                                                            fill="#cce6ff" />
+                                                        <path d="m332 234.944h180v158.722h-180z" fill="#cc295f" />
+                                                    </g>
+                                                    <g>
+                                                        <path d="m356.333 65h-170.065l-15.601 159 15.601 169.667h170.065z"
+                                                            fill="#fdae02" />
+                                                        <path d="m0 393.667h186.268v-148.334l-186.267 20.334z"
+                                                            fill="#fdcb02" />
+                                                        <path d="m0 65 .001 96 186.267 20.333v-116.333z" fill="#fdcb02" />
+                                                        <path
+                                                            d="m235.314 265.667 29.905-104.667h-78.951l-15.601 52.333 15.601 52.334z"
+                                                            fill="#cc295f" />
+                                                        <path d="m.001 161h186.267v104.666h-186.267z" fill="#ff4d4d" />
+                                                    </g>
+                                                    <g>
+                                                        <circle cx="122.667" cy="384" fill="#f9f9f9"
+                                                            r="48" />
+                                                        <path
+                                                            d="m122.667 447c-34.738 0-63-28.262-63-63s28.262-63 63-63 63 28.262 63 63-28.262 63-63 63zm0-96c-18.196 0-33 14.804-33 33s14.804 33 33 33 33-14.804 33-33-14.804-33-33-33z"
+                                                            fill="#29376d" />
+                                                    </g>
+                                                    <g>
+                                                        <circle cx="389.333" cy="384" fill="#eaf1ff"
+                                                            r="48" />
+                                                        <path
+                                                            d="m389.333 447c-34.738 0-63-28.262-63-63s28.262-63 63-63 63 28.262 63 63-28.261 63-63 63zm0-96c-18.196 0-33 14.804-33 33s14.804 33 33 33 33-14.804 33-33-14.803-33-33-33z"
+                                                            fill="#23305b" />
+                                                    </g>
                                                 </g>
-                                                <g>
-                                                    <path d="m356.333 65h-170.065l-15.601 159 15.601 169.667h170.065z"
-                                                        fill="#fdae02" />
-                                                    <path d="m0 393.667h186.268v-148.334l-186.267 20.334z"
-                                                        fill="#fdcb02" />
-                                                    <path d="m0 65 .001 96 186.267 20.333v-116.333z" fill="#fdcb02" />
-                                                    <path
-                                                        d="m235.314 265.667 29.905-104.667h-78.951l-15.601 52.333 15.601 52.334z"
-                                                        fill="#cc295f" />
-                                                    <path d="m.001 161h186.267v104.666h-186.267z" fill="#ff4d4d" />
-                                                </g>
-                                                <g>
-                                                    <circle cx="122.667" cy="384" fill="#f9f9f9"
-                                                        r="48" />
-                                                    <path
-                                                        d="m122.667 447c-34.738 0-63-28.262-63-63s28.262-63 63-63 63 28.262 63 63-28.262 63-63 63zm0-96c-18.196 0-33 14.804-33 33s14.804 33 33 33 33-14.804 33-33-14.804-33-33-33z"
-                                                        fill="#29376d" />
-                                                </g>
-                                                <g>
-                                                    <circle cx="389.333" cy="384" fill="#eaf1ff"
-                                                        r="48" />
-                                                    <path
-                                                        d="m389.333 447c-34.738 0-63-28.262-63-63s28.262-63 63-63 63 28.262 63 63-28.261 63-63 63zm0-96c-18.196 0-33 14.804-33 33s14.804 33 33 33 33-14.804 33-33-14.803-33-33-33z"
-                                                        fill="#23305b" />
-                                                </g>
-                                            </g>
-                                        </svg>
-                                        {{$timeDeliveryResult}}
-                                    </div>
+                                            </svg>
+                                            {{ $timeDeliveryResult }}
+                                        </div>
                                     @endif
-                                    
+
                                 </div>
                             </div>
-                            <div class="pro-group">
-                                <div class="product-offer">
-                                    <h6 class="product-title"><i class="fa fa-tags"></i>5 offers Available </h6>
-                                    <div class="offer-contain">
-                                        <ul>
-                                            <li>
-                                                <span class="code-lable">OFFER40</span>
-                                                <div>
-                                                    <h5>Get extra $40 off on first Orders</h5>
-                                                    <p>Use code "OFFER40" Min. Cart Value $99 | Max. Discount $40</p>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                        <ul class="offer-sider">
-                                            <li>
-                                                <span class="code-lable">OFFER25</span>
-                                                <div>
-                                                    <h5>Get extra $25 off on second Orders</h5>
-                                                    <p>Use code "OFFER25" Min. Cart Value $99 | Max. Discount $25</p>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <span class="code-lable">OFFER40</span>
-                                                <div>
-                                                    <h5>Bank Offer40% Unlimited Cashback on bideal Axis Bank Credit Card
-                                                    </h5>
-                                                    <p>Use code "OFFER40" Min. Cart Value $99 | Max. Discount $40</p>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <span class="code-lable">OFFER10</span>
-                                                <div>
-                                                    <h5>Bank Offer10% off* with Axis Bank Buzz Credit Card</h5>
-                                                    <p>Use code "OFFER10" Min. Cart Value $99 | Max. Discount $10</p>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <span class="code-lable">OFFER5</span>
-                                                <div>
-                                                    <h5>Bank Offer5% Unlimited Cashback on bideal sbi banck Credit Card</h5>
-                                                    <p>Use code "OFFER5" Min. Cart Value $99 | Max. Discount $5</p>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                        <h5 class="show-offer"><span class="more-offer">show more offer</span><span
-                                                class="less-offer">less offer</span></h5>
+                            @if (count($coupons) > 0)
+                                <div class="pro-group">
+                                    <div class="product-offer">
+                                        <h6 class="product-title"><i class="fa fa-tags"></i>{{ count($coupons) }} mã giảm
+                                            giá
+                                            hợp lệ</h6>
+                                        <div class="offer-contain">
+                                            <ul>
+                                                <li>
+                                                    <span class="code-lable">{{ $coupons[0]->discount_code }}</span>
+                                                    <div>
+                                                        <h5>{{ $coupons[0]->description }}</h5>
+                                                        <p>Dùng mã "{{ $coupons[0]->discount_code }}" cho đơn hàng từ
+                                                            {{ number_format($coupons[0]->minimum_order_total, 0, ',', '.') }}đ
+                                                            |
+                                                            Giảm tối đa
+                                                            {{ number_format($coupons[0]->maximum_discount_amount, 0, ',', '.') }}đ
+                                                        </p>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                            <ul class="offer-sider">
+                                                @foreach ($coupons as $index => $coupon)
+                                                    @if ($index > 0)
+                                                        <li>
+                                                            <span class="code-lable">{{ $coupon->discount_code }}</span>
+                                                            <div>
+                                                                <h5>{{ $coupon->description }}</h5>
+                                                                <p>Dùng mã "{{ $coupon->discount_code }}" cho đơn từ
+                                                                    {{ number_format($coupon->minimum_order_total, 0, ',', '.') }}đ
+                                                                    | Giảm tối đa
+                                                                    {{ number_format($coupon->maximum_discount_amount, 0, ',', '.') }}đ
+                                                                </p>
+                                                            </div>
+                                                        </li>
+                                                    @endif
+                                                @endforeach
+                                            </ul>
+                                            <h5 class="show-offer"><span class="more-offer">Xem thêm</span><span
+                                                    class="less-offer">Thu gọn</span></h5>
+                                        </div>
+
                                     </div>
                                 </div>
+                            @endif
+
+                            <div class="pro-group">
+                                <h6 class="product-title">Thông tin sản phẩm</h6>
+                                <p>{{ $product->short_description }}</p>
                             </div>
                             <div class="pro-group">
-                                <h6 class="product-title">product infomation</h6>
-                                <p>Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque
-                                    laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi
-                                    architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem,</p>
-                            </div>
-                            <div class="pro-group">
-                                <h6 class="product-title">Delivery option</h6>
+                                <h6 class="product-title">Ưu đãi giao hàng</h6>
                                 <ul class="delivery-services">
                                     <li>
                                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -382,7 +377,7 @@
                                                 </g>
                                             </g>
                                         </svg>
-                                        free shipping
+                                        Miễn phí vận chuyển
                                     </li>
                                     <li>
                                         <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
@@ -390,7 +385,7 @@
                                                 d="m410 0c8.285156 0 15 6.714844 15 15v199.027344c52.363281 26.195312 87 79.976562 87 140.722656 0 86.84375-70.40625 157.25-157.25 157.25-60.746094 0-114.527344-34.636719-140.722656-87h-199.027344c-8.285156 0-15-6.714844-15-15v-395c0-8.285156 6.714844-15 15-15zm-126 30v84.0625c0 10.785156-11.507812 19.085938-22.746094 12.84375l-48.753906-24.773438-49.761719 25.289063c-9.988281 5.058594-21.710937-2.324219-21.703125-13.359375l-.035156-84.0625h-111v365h172.703125c-14.519531-54.976562 1.808594-112.394531 40.855469-151.441406s96.464844-55.375 151.441406-40.855469v-172.703125zm23 391h69.996094c15.984375 0 30.488281-6.511719 40.988281-17.015625 11.039063-11.035156 17.015625-25.332031 17.015625-41.980469 0-31.96875-26.035156-58.003906-58.003906-58.003906h-41.683594l8.804688-8.820312c13.871093-13.953126-7.339844-35.042969-21.210938-21.09375l-34.402344 34.464843c-5.824218 5.855469-5.800781 15.328125.058594 21.152344l34.46875 34.402344c13.949219 13.871093 35.042969-7.339844 21.09375-21.210938l-8.914062-8.894531h41.785156c16.242187 0 28.003906 12.984375 28.003906 28.996094 0 15.40625-12.597656 28.003906-28.003906 28.003906h-69.996094c-8.285156 0-15 6.714844-15 15s6.714844 15 15 15zm-42.230469-156.230469c-49.691406 49.695313-49.691406 130.269531 0 179.960938 49.695313 49.695312 130.269531 49.695312 179.960938 0 49.695312-49.691407 49.695312-130.265625 0-179.960938-49.691407-49.691406-130.269531-49.691406-179.960938 0zm-10.769531-234.769531h-83v59.65625l34.726562-17.648438c4.097657-2.078124 9.09375-2.246093 13.511719-.019531l34.761719 17.667969zm0 0"
                                                 fill-rule="evenodd" />
                                         </svg>
-                                        10 Days Returnable
+                                        10 ngày hoàn trả
                                     </li>
                                     <li>
                                         <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
@@ -404,12 +399,12 @@
                                                     d="M 254.667969 216.394531 L 195.402344 275.660156 L 179.316406 259.574219 C 173.449219 253.707031 163.9375 253.707031 158.070312 259.574219 C 152.207031 265.441406 152.207031 274.953125 158.070312 280.816406 L 184.78125 307.527344 C 187.714844 310.460938 191.558594 311.925781 195.402344 311.925781 C 199.246094 311.925781 203.089844 310.460938 206.023438 307.527344 L 275.914062 237.636719 C 281.777344 231.769531 281.777344 222.257812 275.914062 216.394531 C 270.046875 210.523438 260.535156 210.523438 254.667969 216.394531 Z M 254.667969 216.394531 " />
                                             </g>
                                         </svg>
-                                        1 Year Warranty
+                                        1 năm bảo hành
                                     </li>
                                 </ul>
                             </div>
                             <div class="pro-group pb-0">
-                                <h6 class="product-title">share</h6>
+                                <h6 class="product-title">Chia sẻ</h6>
                                 <ul class="product-social">
                                     <li><a href="javascript:void(0)"><i class="fa fa-facebook"></i></a></li>
                                     <li><a href="javascript:void(0)"><i class="fa fa-google-plus"></i></a></li>
@@ -426,7 +421,6 @@
     </section>
     <!-- Section ends -->
 
-
     <!-- product-tab starts -->
     <section class=" tab-product  tab-exes ">
         <div class="custom-container">
@@ -435,11 +429,11 @@
                     <div class=" creative-card creative-inner">
                         <ul class="nav nav-tabs nav-material" id="top-tab" role="tablist">
                             <li class="nav-item"><a class="nav-link active" id="top-home-tab" data-bs-toggle="tab"
-                                    href="#top-home" role="tab" aria-selected="true">Description</a>
+                                    href="#top-home" role="tab" aria-selected="true">Mô tả</a>
                                 <div class="material-border"></div>
                             </li>
                             <li class="nav-item"><a class="nav-link" id="profile-top-tab" data-bs-toggle="tab"
-                                    href="#top-profile" role="tab" aria-selected="false">Details</a>
+                                    href="#top-profile" role="tab" aria-selected="false">Chi tiết</a>
                                 <div class="material-border"></div>
                             </li>
                             <li class="nav-item"><a class="nav-link" id="contact-top-tab" data-bs-toggle="tab"
@@ -447,108 +441,76 @@
                                 <div class="material-border"></div>
                             </li>
                             <li class="nav-item"><a class="nav-link" id="review-top-tab" data-bs-toggle="tab"
-                                    href="#top-review" role="tab" aria-selected="false">Write Review</a>
+                                    href="#top-review" role="tab" aria-selected="false">Bình luận</a>
                                 <div class="material-border"></div>
                             </li>
                         </ul>
                         <div class="tab-content nav-material" id="top-tabContent">
                             <div class="tab-pane fade show active" id="top-home" role="tabpanel"
                                 aria-labelledby="top-home-tab">
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                    has been the industry's standard dummy text ever since the 1500s, when an unknown
-                                    printer took a galley of type and scrambled it to make a type specimen book. It has
-                                    survived not only five centuries, but also the leap into electronic typesetting,
-                                    remaining essentially unchanged. It was popularised in the 1960s with the release of
-                                    Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                                    publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum
-                                    is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                                    industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                                    galley of type and scrambled it to make a type specimen book. It has survived not only
-                                    five centuries, but also the leap into electronic typesetting, remaining essentially
-                                    unchanged. It was popularised in the 1960s with the release of Letraset sheets
-                                    containing Lorem Ipsum passages, and more recently with desktop publishing software like
-                                    Aldus PageMaker including versions of Lorem Ipsum.</p>
+                                <p> {!! $product->short_description !!}</p>
                             </div>
                             <div class="tab-pane fade" id="top-profile" role="tabpanel"
                                 aria-labelledby="profile-top-tab">
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                    has been the industry's standard dummy text ever since the 1500s, when an unknown
-                                    printer took a galley of type and scrambled it to make a type specimen book. It has
-                                    survived not only five centuries, but also the leap into electronic typesetting,
-                                    remaining essentially unchanged. It was popularised in the 1960s with the release of
-                                    Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                                    publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                                <div class="single-product-tables">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td>Febric</td>
-                                                <td>Chiffon</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Color</td>
-                                                <td>Red</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Material</td>
-                                                <td>Crepe printed</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td>Length</td>
-                                                <td>50 Inches</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Size</td>
-                                                <td>S, M, L .XXL</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+                                <p> {!! $product->full_description !!}</p>
                             </div>
                             <div class="tab-pane fade" id="top-contact" role="tabpanel"
                                 aria-labelledby="contact-top-tab">
                                 <div class="mt-4 text-center">
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/BUWzX78Ye_8"
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/lJPECDyMyCo"
                                         allow="autoplay; encrypted-media" allowfullscreen></iframe>
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="top-review" role="tabpanel" aria-labelledby="review-top-tab">
-                                <form class="theme-form">
+                                @if (session('success'))
+                                    <div class="alert alert-success bg-success text-white mt-2" role="alert">
+                                        {{ session('success') }}
+                                    </div>
+                                @endif
+                                <form class="theme-form" method="POST"
+                                    action="{{ route('guest.product_review.store') }}">
+                                    @csrf
+                                    <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                    <div class="col-md-12">
+                                        <input type="hidden" id="rating" name="rating" value="">
+                                    </div>
                                     <div class="row g-3">
                                         <div class="col-md-12">
                                             <div class="media">
-                                                <label>Rating</label>
+                                                <label>Đánh giá</label>
                                                 <div class="media-body ms-3">
-                                                    <div class="rating three-star"><i class="fa fa-star"></i> <i
-                                                            class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                                            class="fa fa-star"></i> <i class="fa fa-star"></i></div>
+                                                    <div class="rating-stars">
+                                                        <div class="fa fa-star text-secondary"></div>
+                                                        <div class="fa fa-star text-secondary"></div>
+                                                        <div class="fa fa-star text-secondary"></div>
+                                                        <div class="fa fa-star text-secondary"></div>
+                                                        <div class="fa fa-star text-secondary"></div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
-                                            <label for="name">Name</label>
-                                            <input type="text" class="form-control" id="name"
-                                                placeholder="Enter Your name" required>
+                                            <label for="name">Tên</label>
+                                            <input type="text" class="form-control" id="name" name="name"
+                                                placeholder="Nhập tên của bạn" required>
                                         </div>
                                         <div class="col-md-6">
-                                            <label>Email</label>
-                                            <input type="text" class="form-control" placeholder="Email" required>
+                                            <label for="email">Email</label>
+                                            <input type="email" class="form-control" id="email" name="email"
+                                                placeholder="Email" required>
                                         </div>
                                         <div class="col-md-12">
-                                            <label>Review Title</label>
-                                            <input type="text" class="form-control"
-                                                placeholder="Enter your Review Subjects" required>
+                                            <label for="review_title">Tiêu đề</label>
+                                            <input type="text" class="form-control" id="review_title"
+                                                name="review_title" placeholder="Nhập tiêu đề bình luận" required>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <label for="comment">Bình luận</label>
+                                            <textarea class="form-control" id="comment" name="comment" placeholder="Nhập bình luận" rows="6" required></textarea>
                                         </div>
                                         <div class="col-md-12">
-                                            <label>Review Title</label>
-                                            <textarea class="form-control" placeholder="Wrire Your Testimonial Here" rows="6"></textarea>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <button class="btn btn-normal" type="submit">Submit YOur Review</button>
+                                            <button class="btn btn-normal" type="submit">Xác nhận</button>
                                         </div>
                                     </div>
                                 </form>
@@ -561,454 +523,179 @@
     </section>
     <!-- product-tab ends -->
 
+    <!-- add to cart bottom sticky start-->
+    <div class="bottom-cart-sticky ">
+        <div class="container">
+            <div class="cart-content">
+                <div class="product-image">
+                    <img src="{{ asset($product->image) }}" class="img-fluid" alt="">
+                    <div class="content d-lg-block d-none">
+                        <h5>{{ $product->name }}t</h5>
+
+                        @if ($price)
+                            @if ($priceDiscount)
+                                <h6>{{ number_format($priceDiscount, 0, ',', '.') }}đ<del>{{ number_format($price, 0, ',', '.') }}đ</del><span>{{ $discountPercentage }}%</span>
+                                </h6>
+                            @else
+                                <h6>{{ number_format($price, 0, ',', '.') }}đ</h6>
+                            @endif
+                        @else
+                            <ul class="pro-price">
+                                <li>Đang cập nhật...</li>
+                            </ul>
+                        @endif
+                    </div>
+                </div>
+                <div class="selection-section">
+                    @if (count($product->productOptions) > 0)
+                        <div class="form-group mb-0">
+                            <select class="form-control">
+                                <option selected="">Tuỳ chọn sản phẩm </option>
+                                @foreach ($product->productOptions as $item)
+                                    <option>
+                                        @if ($item->color)
+                                            <span class="" style="width: unset !important">Màu:
+                                                {{ $item->color }}</span>
+                                        @endif
+                                        <!-- Các phần tử option khác -->
+                                        @if ($item->size)
+                                            <span class="" style="width: unset !important">Kích thước:
+                                                {{ $item->size }}</span>
+                                        @endif
+                                        @if ($item->ram)
+                                            <span class="" style="width: unset !important">Ram:
+                                                {{ $item->ram }}</span>
+                                        @endif
+                                        @if ($item->rom)
+                                            <span class="" style="width: unset !important">Rom:
+                                                {{ $item->rom }}</span>
+                                        @endif
+                                        @if ($item->ram_rom)
+                                            <span class="" style="width: unset !important">Ram-Rom:
+                                                {{ $item->ram_rom }}</span>
+                                        @endif
+                                        @if ($item->cpu)
+                                            <span class="" style="width: unset !important">CPU:
+                                                {{ $item->cpu }}</span>
+                                        @endif
+                                        @if ($item->sweep_frequency)
+                                            <span class="" style="width: unset !important">Tần số:
+                                                {{ $item->sweep_frequency }}</span>
+                                        @endif
+                                        @if ($item->hard_drive)
+                                            <span class="" style="width: unset !important">Ổ cứng:
+                                                {{ $item->hard_drive }}</span>
+                                        @endif
+                                        @if ($item->resolution)
+                                            <span class="" style="width: unset !important">Độ phân
+                                                giải:
+                                                {{ $item->resolution }}</span>
+                                        @endif
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+                    @endif
+                </div>
+                <div class="add-btn">
+                    <a href="javascript:void(0)" class="btn btn-solid btn-sm">Thêm vào giỏ hàng</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- add to cart bottom sticky end-->
+
     <!-- related products -->
     <section class="section-big-py-space  ratio_asos b-g-light">
         <div class="custom-container">
             <div class="row">
                 <div class="col-12 product-related">
-                    <h2>related products</h2>
+                    <h2>Sản phẩm gợi ý</h2>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12 product">
                     <div class="product-slide-6 product-m no-arrow">
-                        <div>
-                            <div class="product-box">
-                                <div class="product-imgbox">
-                                    <div class="product-front">
-                                        <a href="product-page(left-sidebar).html">
-                                            <img src="../assets/images/layout-2/product/1.jpg" class="img-fluid  "
-                                                alt="product">
-                                        </a>
-                                    </div>
-                                    <div class="product-back">
-                                        <a href="product-page(left-sidebar).html">
-                                            <img src="../assets/images/layout-2/product/a1.jpg" class="img-fluid  "
-                                                alt="product">
-                                        </a>
-                                    </div>
-                                    <div class="product-icon icon-inline">
-                                        <button class="tooltip-top add-cartnoty" data-tippy-content="Add to cart">
-                                            <i data-feather="shopping-cart"></i>
-                                        </button>
-                                        <a href="javascript:void(0)" class="add-to-wish tooltip-top"
-                                            data-tippy-content="Add to Wishlist">
-                                            <i data-feather="heart"></i>
-                                        </a>
-                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#quick-view"
-                                            class="tooltip-top" data-tippy-content="Quick View">
-                                            <i data-feather="eye"></i>
-                                        </a>
-                                        <a href="compare.html" class="tooltip-top" data-tippy-content="Compare">
-                                            <i data-feather="refresh-cw"></i>
-                                        </a>
-                                    </div>
+                        @foreach ($relatedProducts as $product)
+                            <div>
+                                <div class="product-box">
+                                    <div class="product-imgbox">
+                                        <div class="product-front">
+                                            <a href="product-page(left-sidebar).html">
+                                                <img src="{{ asset($product->image) }}" class="img-fluid  "
+                                                    alt="product">
+                                            </a>
+                                        </div>
+                                        <div class="product-back">
+                                            <a href="product-page(left-sidebar).html">
+                                                <img src="{{ asset($product->image) }}" class="img-fluid  "
+                                                    alt="product">
+                                            </a>
+                                        </div>
+                                        <div class="product-icon icon-inline">
+                                            <button class="tooltip-top add-cartnoty" data-tippy-content="Add to cart">
+                                                <i data-feather="shopping-cart"></i>
+                                            </button>
+                                            <a href="javascript:void(0)" class="add-to-wish tooltip-top"
+                                                data-tippy-content="Add to Wishlist">
+                                                <i data-feather="heart"></i>
+                                            </a>
+                                            <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                data-bs-target="#quick-view" class="tooltip-top"
+                                                data-tippy-content="Quick View">
+                                                <i data-feather="eye"></i>
+                                            </a>
+                                            <a href="compare.html" class="tooltip-top" data-tippy-content="Compare">
+                                                <i data-feather="refresh-cw"></i>
+                                            </a>
+                                        </div>
 
-                                </div>
-                                <div class="product-detail detail-inline ">
-                                    <div class="detail-title">
-                                        <div class="detail-left">
-                                            <div class="rating-star">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                            <a href="product-page(left-sidebar).html">
-                                                <h6 class="price-title">
-                                                    sony xperia m5
-                                                </h6>
-                                            </a>
-                                        </div>
-                                        <div class="detail-right">
-                                            <div class="check-price">
-                                                $ 56.21
-                                            </div>
-                                            <div class="price">
-                                                <div class="price">
-                                                    $ 24.05
+                                    </div>
+                                    <div class="product-detail detail-inline ">
+                                        <div class="detail-title">
+                                            <div class="detail-left">
+                                                <div class="rating-star">
+                                                    @for ($i = 1; $i <= 5; $i++)
+                                                        @if ($i <= floor($product->ratingStar))
+                                                            <div class="fa fa-star text-warning"></div>
+                                                        @else
+                                                            <div class="fa fa-star-o text-secondary">
+                                                            </div>
+                                                        @endif
+                                                    @endfor
                                                 </div>
+                                                <a href="product-page(left-sidebar).html">
+                                                    <h6 class="price-title">
+                                                        {{ $product->name }}
+                                                    </h6>
+                                                </a>
+                                            </div>
+                                            <div class="detail-right">
+                                                @if ($product->price)
+                                                    @if ($product->discount_price)
+                                                        <div class="check-price">
+                                                            {{ number_format($product->price, 0, ',', '.') }}đ
+                                                        </div>
+                                                        <div class="price">
+                                                            <div class="price">
+                                                                {{ number_format($product->discount_price, 0, ',', '.') }}đ
+                                                            </div>
+                                                        </div>
+                                                    @else
+                                                        <div class="check-price">
+                                                            {{ number_format($product->price, 0, ',', '.') }}đ
+                                                        </div>
+                                                    @endif
+                                                @else
+                                                    <h6>Đang cập nhật...<span class="ms-2"></span>
+                                                    </h6>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div>
-                            <div class="product-box">
-                                <div class="product-imgbox">
-                                    <div class="product-front">
-                                        <a href="product-page(left-sidebar).html">
-                                            <img src="../assets/images/layout-2/product/3.jpg" class="img-fluid  "
-                                                alt="product">
-                                        </a>
-                                    </div>
-                                    <div class="product-back">
-                                        <a href="product-page(left-sidebar).html">
-                                            <img src="../assets/images/layout-2/product/a3.jpg" class="img-fluid  "
-                                                alt="product">
-                                        </a>
-                                    </div>
-                                    <div class="product-icon icon-inline">
-                                        <button data-bs-toggle="modal" data-bs-target="#addtocart" class="tooltip-top"
-                                            data-tippy-content="Add to cart">
-                                            <i data-feather="shopping-cart"></i>
-                                        </button>
-                                        <a href="javascript:void(0)" class="add-to-wish tooltip-top"
-                                            data-tippy-content="Add to Wishlist">
-                                            <i data-feather="heart"></i>
-                                        </a>
-                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#quick-view"
-                                            class="tooltip-top" data-tippy-content="Quick View">
-                                            <i data-feather="eye"></i>
-                                        </a>
-                                        <a href="compare.html" class="tooltip-top" data-tippy-content="Compare">
-                                            <i data-feather="refresh-cw"></i>
-                                        </a>
-                                    </div>
-
-                                </div>
-                                <div class="product-detail detail-inline">
-                                    <div class="detail-title">
-                                        <div class="detail-left">
-                                            <div class="rating-star">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                            <a href="product-page(left-sidebar).html">
-                                                <h6 class="price-title">
-                                                    woman hande bag
-                                                </h6>
-                                            </a>
-                                        </div>
-                                        <div class="detail-right">
-                                            <div class="check-price">
-                                                $ 56.21
-                                            </div>
-                                            <div class="price">
-                                                <div class="price">
-                                                    $ 24.05
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="product-box">
-                                <div class="product-imgbox">
-                                    <div class="product-front">
-                                        <a href="product-page(left-sidebar).html">
-                                            <img src="../assets/images/layout-2/product/4.jpg" class="img-fluid  "
-                                                alt="product">
-                                        </a>
-                                    </div>
-                                    <div class="product-back">
-                                        <a href="product-page(left-sidebar).html">
-                                            <img src="../assets/images/layout-2/product/a4.jpg" class="img-fluid  "
-                                                alt="product">
-                                        </a>
-                                    </div>
-                                    <div class="product-icon icon-inline">
-                                        <button class="tooltip-top add-cartnoty" data-tippy-content="Add to cart">
-                                            <i data-feather="shopping-cart"></i>
-                                        </button>
-                                        <a href="javascript:void(0)" class="add-to-wish tooltip-top"
-                                            data-tippy-content="Add to Wishlist">
-                                            <i data-feather="heart"></i>
-                                        </a>
-                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#quick-view"
-                                            class="tooltip-top" data-tippy-content="Quick View">
-                                            <i data-feather="eye"></i>
-                                        </a>
-                                        <a href="compare.html" class="tooltip-top" data-tippy-content="Compare">
-                                            <i data-feather="refresh-cw"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="product-detail detail-inline">
-                                    <div class="detail-title">
-                                        <div class="detail-left">
-                                            <div class="rating-star">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                            <a href="product-page(left-sidebar).html">
-                                                <h6 class="price-title">
-                                                    nikon camera
-                                                </h6>
-                                            </a>
-                                        </div>
-                                        <div class="detail-right">
-                                            <div class="check-price">
-                                                $ 60.21
-                                            </div>
-                                            <div class="price">
-                                                <div class="price">
-                                                    $ 20.05
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="product-box">
-                                <div class="product-imgbox">
-                                    <div class="product-front">
-                                        <a href="product-page(left-sidebar).html">
-                                            <img src="../assets/images/layout-2/product/5.jpg" class="img-fluid  "
-                                                alt="product">
-                                        </a>
-                                    </div>
-                                    <div class="product-back">
-                                        <a href="product-page(left-sidebar).html">
-                                            <img src="../assets/images/layout-2/product/a5.jpg" class="img-fluid  "
-                                                alt="product">
-                                        </a>
-                                    </div>
-                                    <div class="product-icon icon-inline">
-                                        <button class="tooltip-top add-cartnoty" data-tippy-content="Add to cart">
-                                            <i data-feather="shopping-cart"></i>
-                                        </button>
-                                        <a href="javascript:void(0)" class="add-to-wish tooltip-top"
-                                            data-tippy-content="Add to Wishlist">
-                                            <i data-feather="heart"></i>
-                                        </a>
-                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#quick-view"
-                                            class="tooltip-top" data-tippy-content="Quick View">
-                                            <i data-feather="eye"></i>
-                                        </a>
-                                        <a href="compare.html" class="tooltip-top" data-tippy-content="Compare">
-                                            <i data-feather="refresh-cw"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="product-detail detail-inline">
-                                    <div class="detail-title">
-                                        <div class="detail-left">
-                                            <div class="rating-star">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                            <a href="product-page(left-sidebar).html">
-                                                <h6 class="price-title">
-                                                    lenovo laptop
-                                                </h6>
-                                            </a>
-                                        </div>
-                                        <div class="detail-right">
-                                            <div class="check-price">
-                                                $ 70.21
-                                            </div>
-                                            <div class="price">
-                                                <div class="price">
-                                                    $ 30.05
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="product-box">
-                                <div class="product-imgbox">
-                                    <div class="product-front">
-                                        <a href="product-page(left-sidebar).html">
-                                            <img src="../assets/images/layout-2/product/6.jpg" class="img-fluid  "
-                                                alt="product">
-                                        </a>
-                                    </div>
-                                    <div class="product-back">
-                                        <a href="product-page(left-sidebar).html">
-                                            <img src="../assets/images/layout-2/product/a6.jpg" class="img-fluid  "
-                                                alt="product">
-                                        </a>
-                                    </div>
-                                    <div class="product-icon icon-inline">
-                                        <button class="tooltip-top add-cartnoty" data-tippy-content="Add to cart">
-                                            <i data-feather="shopping-cart"></i>
-                                        </button>
-                                        <a href="javascript:void(0)" class="add-to-wish tooltip-top"
-                                            data-tippy-content="Add to Wishlist">
-                                            <i data-feather="heart"></i>
-                                        </a>
-                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#quick-view"
-                                            class="tooltip-top" data-tippy-content="Quick View">
-                                            <i data-feather="eye"></i>
-                                        </a>
-                                        <a href="compare.html" class="tooltip-top" data-tippy-content="Compare">
-                                            <i data-feather="refresh-cw"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="product-detail detail-inline">
-                                    <div class="detail-title">
-                                        <div class="detail-left">
-                                            <div class="rating-star">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                            <a href="product-page(left-sidebar).html">
-                                                <h6 class="price-title">
-                                                    earphone Pouch Bag
-                                                </h6>
-                                            </a>
-                                        </div>
-                                        <div class="detail-right">
-                                            <div class="check-price">
-                                                $ 100.21
-                                            </div>
-                                            <div class="price">
-                                                <div class="price">
-                                                    $ 80.05
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="product-box">
-                                <div class="product-imgbox">
-                                    <div class="product-front">
-                                        <a href="product-page(left-sidebar).html">
-                                            <img src="../assets/images/layout-2/product/7.jpg" class="img-fluid  "
-                                                alt="product">
-                                        </a>
-                                    </div>
-                                    <div class="product-back">
-                                        <a href="product-page(left-sidebar).html">
-                                            <img src="../assets/images/layout-2/product/a7.jpg" class="img-fluid  "
-                                                alt="product">
-                                        </a>
-                                    </div>
-                                    <div class="product-icon icon-inline">
-                                        <button class="tooltip-top add-cartnoty" data-tippy-content="Add to cart">
-                                            <i data-feather="shopping-cart"></i>
-                                        </button>
-                                        <a href="javascript:void(0)" class="add-to-wish tooltip-top"
-                                            data-tippy-content="Add to Wishlist">
-                                            <i data-feather="heart"></i>
-                                        </a>
-                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#quick-view"
-                                            class="tooltip-top" data-tippy-content="Quick View">
-                                            <i data-feather="eye"></i>
-                                        </a>
-                                        <a href="compare.html" class="tooltip-top" data-tippy-content="Compare">
-                                            <i data-feather="refresh-cw"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="product-detail detail-inline">
-                                    <div class="detail-title">
-                                        <div class="detail-left">
-                                            <div class="rating-star">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                            <a href="product-page(left-sidebar).html">
-                                                <h6 class="price-title">
-                                                    wooden table
-                                                </h6>
-                                            </a>
-                                        </div>
-                                        <div class="detail-right">
-                                            <div class="check-price">
-                                                $ 90.21
-                                            </div>
-                                            <div class="price">
-                                                <div class="price">
-                                                    $ 28.05
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="product-box">
-                                <div class="product-imgbox">
-                                    <div class="product-front">
-                                        <a href="product-page(left-sidebar).html">
-                                            <img src="../assets/images/layout-2/product/8.jpg" class="img-fluid  "
-                                                alt="product">
-                                        </a>
-                                    </div>
-                                    <div class="product-back">
-                                        <a href="product-page(left-sidebar).html">
-                                            <img src="../assets/images/layout-2/product/a8.jpg" class="img-fluid  "
-                                                alt="product">
-                                        </a>
-                                    </div>
-                                    <div class="product-icon icon-inline">
-                                        <button class="tooltip-top add-cartnoty" data-tippy-content="Add to cart">
-                                            <i data-feather="shopping-cart"></i>
-                                        </button>
-                                        <a href="javascript:void(0)" class="add-to-wish tooltip-top"
-                                            data-tippy-content="Add to Wishlist">
-                                            <i data-feather="heart"></i>
-                                        </a>
-                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#quick-view"
-                                            class="tooltip-top" data-tippy-content="Quick View">
-                                            <i data-feather="eye"></i>
-                                        </a>
-                                        <a href="compare.html" class="tooltip-top" data-tippy-content="Compare">
-                                            <i data-feather="refresh-cw"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="product-detail detail-inline">
-                                    <div class="detail-title">
-                                        <div class="detail-left">
-                                            <div class="rating-star">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                            <a href="product-page(left-sidebar).html">
-                                                <h6 class="price-title">
-                                                    Wireless Optical Mouse
-                                                </h6>
-                                            </a>
-                                        </div>
-                                        <div class="detail-right">
-                                            <div class="check-price">
-                                                $ 80.21
-                                            </div>
-                                            <div class="price">
-                                                <div class="price">
-                                                    $ 28.05
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -1385,7 +1072,7 @@
                                             <li><i class="fa fa-star"></i></li>
                                             <li><i class="fa fa-star"></i></li>
                                             <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star-o"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
                                         </ul>
                                         <a href="review.html"><span>(6 reviews)</span></a>
                                     </div>
@@ -1573,44 +1260,6 @@
     </div>
     <!-- Quick-view modal popup end-->
 
-    <!-- add to cart bottom sticky start-->
-    <div class="bottom-cart-sticky ">
-        <div class="container">
-            <div class="cart-content">
-                <div class="product-image">
-                    <img src="../assets/images/product-sidebar/001.jpg" class="img-fluid" alt="">
-                    <div class="content d-lg-block d-none">
-                        <h5>women blue shirt</h5>
-                        <h6>$32.96<del>$459.00</del><span>55% off</span></h6>
-                    </div>
-                </div>
-                <div class="selection-section">
-                    <div class="form-group mb-0">
-                        <select class="form-control">
-                            <option selected="">Choose color...</option>
-                            <option>pink</option>
-                            <option>blue</option>
-                            <option>grey</option>
-                        </select>
-                    </div>
-                    <div class="form-group mb-0">
-                        <select class="form-control">
-                            <option selected="">Choose size...</option>
-                            <option>small</option>
-                            <option>medium</option>
-                            <option>large</option>
-                            <option>extra large</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="add-btn">
-                    <a href="javascript:void(0)" class="btn btn-solid btn-sm">add to cart</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- add to cart bottom sticky end-->
-
     <!-- added to cart notification -->
     <div class="added-notification ">
         <img src="../assets/images/product-sidebar/001.jpg" class="img-fluid" alt="">
@@ -1658,4 +1307,30 @@
             window.location.href = uri.toString();
         }
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const ratingStars = document.querySelectorAll('.rating-stars .fa');
+
+            ratingStars.forEach(function(star, index) {
+                star.addEventListener('click', function() {
+                    // Reset all stars to default state
+                    ratingStars.forEach(function(star) {
+                        star.classList.remove('text-warning');
+                        star.classList.add('text-secondary');
+                    });
+
+                    // Highlight selected stars
+                    for (let i = 0; i <= index; i++) {
+                        ratingStars[i].classList.remove('text-secondary');
+                        ratingStars[i].classList.add('text-warning');
+                    }
+
+                    // Set the selected rating value to a hidden input field for form submission
+                    const ratingInput = document.getElementById('rating');
+                    ratingInput.value = index + 1;
+                });
+            });
+        });
+    </script>
+
 @endsection

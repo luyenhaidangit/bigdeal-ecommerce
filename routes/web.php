@@ -8,6 +8,7 @@ use App\Http\Controllers\FaqController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,5 +48,8 @@ Route::get('/product-category/{slug}', [ProductCategoryController::class, 'guest
 
 //Product
 Route::get('/product/{slug}', [ProductController::class, 'guestShow'])->name('guest.product.show');
+
+//ProductReview
+Route::post('/product-review', [ProductReviewController::class, 'guestStore'])->name('guest.product_review.store');
 
 Auth::routes();
