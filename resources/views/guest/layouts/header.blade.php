@@ -105,30 +105,31 @@
                         </div>
                         <div class="brand-logo logo-sm-center">
                             <a href="{{ route('home') }}">
-                                <img src="{{ asset($website->logo) }}"
-                                    class="img-fluid  " alt="logo">
+                                <img src="{{ asset($website->logo) }}" class="img-fluid  " alt="logo">
                             </a>
                         </div>
                     </div>
                     <div class="input-block">
                         <div class="input-box">
-                            <form class="big-deal-form ">
-                                <div class="input-group ">
+                            <form class="big-deal-form" action="{{ route('guest.search.product') }}" method="GET">
+                                <div class="input-group">
                                     <div class="input-group-text">
                                         <span class="search"><i class="fa fa-search"></i></span>
                                     </div>
-                                    <input type="search" class="form-control" placeholder="Tìm kiếm sản phẩm">
+                                    <input type="search" class="form-control" name="keyword" placeholder="Tìm kiếm sản phẩm">
                                     <div class="input-group-text">
-                                        <select>
-                                            <option>Tất cả</option>
-                                            <option>indurstrial</option>
-                                            <option>sports</option>
+                                        <select name="category">
+                                            <option value="all">Tất cả</option>
+                                            @foreach ($productCategoryDefaultData->take(5) as $category)
+                                                <option value="{{ $category->slug }}">{{ $category->name }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
+                                    <button type="submit" class="btn btn-primary">Tìm kiếm</button>
                                 </div>
                             </form>
                         </div>
-                    </div>
+                    </div>                    
                     <div class="header-right">
                         <div class="icon-block">
                             <ul>
@@ -262,8 +263,7 @@
                         <div class="logo-block">
                             <div class="brand-logo logo-sm-center">
                                 <a href="{{ route('home') }}">
-                                    <img src="{{ asset($website->logo) }}"
-                                        class="img-fluid  " alt="logo">
+                                    <img src="{{ asset($website->logo) }}" class="img-fluid  " alt="logo">
                                 </a>
                             </div>
                         </div>
@@ -281,7 +281,8 @@
                                 <div class="collapse  nav-desk" id="navbarToggleExternalContent">
                                     <ul class="nav-cat title-font">
                                         @foreach ($productCategoryDefaultData as $productCategory)
-                                            <li> <a href="{{ route('guest.product_category.show', ['slug' => $productCategory->slug]) }}">
+                                            <li> <a
+                                                    href="{{ route('guest.product_category.show', ['slug' => $productCategory->slug]) }}">
                                                     @if ($productCategory->image)
                                                         <img src="{{ asset($productCategory->image) }}" height="40"
                                                             width="40">
@@ -347,7 +348,9 @@
 
                                     <!--mega-meu start-->
                                     <li class="mega">
-                                        <a class="dark-menu-item" href="{{ route('guest.page.show', ['slug' => $constants::PAGE_RETURN_POLICY_SLUG]) }}">Chính sách & hoàn trả</a>
+                                        <a class="dark-menu-item"
+                                            href="{{ route('guest.page.show', ['slug' => $constants::PAGE_RETURN_POLICY_SLUG]) }}">Chính
+                                            sách & hoàn trả</a>
                                     </li>
                                     <!--mega-meu end-->
 
@@ -359,7 +362,9 @@
 
                                     <!--blog-meu start-->
                                     <li>
-                                        <a class="dark-menu-item" href="{{ route('guest.page.show', ['slug' => $constants::PAGE_ABOUT_US_SLUG]) }}">Về chúng tôi</a>
+                                        <a class="dark-menu-item"
+                                            href="{{ route('guest.page.show', ['slug' => $constants::PAGE_ABOUT_US_SLUG]) }}">Về
+                                            chúng tôi</a>
                                     </li>
                                     <!--blog-meu end-->
                                 </ul>
@@ -472,16 +477,16 @@
                                 </div>
                                 <div class="dropdown-menu gift-dropdown">
                                     @foreach ($couponData as $coupon)
-                                    <div class="media">
-                                        <div class="me-3">
-                                            <img src="{{ asset($coupon->image) }}"
-                                                alt="Generic placeholder image">
+                                        <div class="media">
+                                            <div class="me-3">
+                                                <img src="{{ asset($coupon->image) }}"
+                                                    alt="Generic placeholder image">
+                                            </div>
+                                            <div class="media-body">
+                                                <h5 class="mt-0">{{ $coupon->discount_code }}</h5>
+                                                <p>{{ $coupon->description }}</p>
+                                            </div>
                                         </div>
-                                        <div class="media-body">
-                                            <h5 class="mt-0">{{$coupon->discount_code}}</h5>
-                                            <p>{{$coupon->description}}</p>
-                                        </div>
-                                    </div>
                                     @endforeach
                                 </div>
                             </div>
