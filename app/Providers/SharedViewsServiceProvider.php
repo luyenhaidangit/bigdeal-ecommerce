@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use App\Models\ProductCategory;
 use App\Models\Coupon;
+use App\Models\Website;
 use App\Helpers\Constants;
 
 class SharedViewsServiceProvider extends ServiceProvider
@@ -45,16 +46,18 @@ class SharedViewsServiceProvider extends ServiceProvider
                 ->take(5)
                 ->get();
 
+            $website = Website::first();
+
             $view->with('productCategoryDefaultData', $productCategoryDefaultData)
                 ->with('productCategoryMoreData', $productCategoryMoreData)
                 ->with('couponData', $couponData)
+                ->with('website', $website)
                 ->with('constants', Constants::class);
         });
     
-        // View::composer('guest.layouts.footer', function ($view) {
-        //     $footerData = 
-        //     $view->with('footerData', $footerData);
-        //     ->with('data2', $data2);
-        // });
+        View::composer('guest.layouts.footer', function ($view) {
+            $website = Website::first();
+            $view->with('website', $website);
+        });
     }
 }

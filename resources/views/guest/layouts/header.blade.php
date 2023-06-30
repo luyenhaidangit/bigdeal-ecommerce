@@ -105,7 +105,7 @@
                         </div>
                         <div class="brand-logo logo-sm-center">
                             <a href="{{ route('home') }}">
-                                <img src="{{ asset('guest-resource/images/layout-2/logo/logo.png') }}"
+                                <img src="{{ asset($website->logo) }}"
                                     class="img-fluid  " alt="logo">
                             </a>
                         </div>
@@ -262,7 +262,7 @@
                         <div class="logo-block">
                             <div class="brand-logo logo-sm-center">
                                 <a href="{{ route('home') }}">
-                                    <img src="{{ asset('guest-resource/images/layout-2/logo/logo.png') }}"
+                                    <img src="{{ asset($website->logo) }}"
                                         class="img-fluid  " alt="logo">
                                 </a>
                             </div>
