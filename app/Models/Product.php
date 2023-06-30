@@ -7,6 +7,7 @@ use App\Models\ProductCategory;
 use App\Models\ProductReview;
 use App\Models\Brand;
 use App\Models\ProductOption;
+use App\Models\ProductImage;
 
 class Product extends Model
 {
@@ -48,6 +49,11 @@ class Product extends Model
     public function productOptions()
     {
         return $this->hasMany(ProductOption::class);
+    }
+
+    public function productImages()
+    {
+        return $this->hasMany(ProductImage::class);
     }
 
     public function getRatingStarAttribute()
