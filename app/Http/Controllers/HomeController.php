@@ -36,21 +36,21 @@ class HomeController extends Controller
 
         $bannersTypeMainHome = Banner::where('type', Constants::BANNER_TYPE_MAIN_HOME)->orderBy('order', 'desc')->take(3)->get();
 
-        $productCategories = ProductCategory::with('products')->where('is_active', true)->orderBy('order', 'desc')->take(5)->get();
+        $productCategories = ProductCategory::with('products.productOptions')->where('is_active', true)->orderBy('order', 'desc')->take(5)->get();
 
         $bannerTypeSpecial = Banner::where('type', Constants::BANNER_TYPE_SPECIAL_HOME)->orderBy('order', 'desc')->first();
 
-        $newProducts = Product::orderBy('created_at', 'desc')->take(30)->get();
+        $newProducts = Product::with('productOptions')->orderBy('created_at', 'desc')->take(30)->get();
 
-        $sellingProducts = Product::orderBy('created_at', 'desc')->take(30)->get();
+        $sellingProducts = Product::with('productOptions')->orderBy('created_at', 'desc')->take(30)->get();
 
-        $bigDiscountProducts = Product::orderByRaw('(price - discount_price) / price desc')->take(30)->get();
+        $bigDiscountProducts = Product::with('productOptions')->orderByRaw('(price - discount_price) / price desc')->take(30)->get();
 
-        $bestViewProducts = Product::orderBy('view_count', 'desc')->take(30)->get();
+        $bestViewProducts = Product::with('productOptions')->orderBy('view_count', 'desc')->take(30)->get();
 
         $bannersTypeProductHome = Banner::where('type', Constants::BANNER_TYPE_PRODUCT_HOME)->orderBy('order', 'desc')->take(3)->get();
 
-        $specialProducts = Product::where('is_special', true)->take(30)->get();
+        $specialProducts = Product::with('productOptions')->where('is_special', true)->take(30)->get();
 
         return view('guest.home.home', compact(
             'mainSliders','brands','bannersTypeMainHome','productCategories',
