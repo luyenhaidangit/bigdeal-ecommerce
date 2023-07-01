@@ -287,12 +287,14 @@
                             <div>
                                 <div class="category-contain">
                                     <div class="img-wrapper">
-                                        <a href="{{ route('guest.product_category.show', ['slug' => $productCategory->slug]) }}">
+                                        <a
+                                            href="{{ route('guest.product_category.show', ['slug' => $productCategory->slug]) }}">
                                             <img src="{{ asset($productCategory->image) }}" alt="category  "
                                                 class="img-fluid">
                                         </a>
                                     </div>
-                                    <a href="{{ route('guest.product_category.show', ['slug' => $productCategory->slug]) }}" class="btn-rounded">
+                                    <a href="{{ route('guest.product_category.show', ['slug' => $productCategory->slug]) }}"
+                                        class="btn-rounded">
                                         {{ $productCategory->name }}
                                     </a>
                                 </div>
@@ -442,10 +444,13 @@
                                                                     @endif
                                                                 </div>
                                                                 <div class="cart-info">
-                                                                    <button onclick="openCart()" class="tooltip-top"
-                                                                        data-tippy-content="Add to cart">
+                                                                    <script>
+                                                                        var productAddCart = {!! json_encode($product) !!};
+                                                                    </script>
+                                                                    <button onclick="openCart()" class="tooltip-top" data-tippy-content="Add to cart">
                                                                         <i data-feather="shopping-cart"></i>
                                                                     </button>
+                                                                    
                                                                     <a href="javascript:void(0)"
                                                                         class="add-to-wish tooltip-top"
                                                                         data-tippy-content="Add to Wishlist">
@@ -1169,4 +1174,7 @@
         </div>
     </section>
     <!--instagra end-->
+
+    @include('guest.layouts.modal')
+
 @endsection
