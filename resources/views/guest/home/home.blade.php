@@ -151,7 +151,7 @@
                                                             </a>
                                                         </div>
                                                         <div class="product-icon icon-inline">
-                                                            <button onclick="openCart()" class="tooltip-top"
+                                                            <button class="add-to-cart-btn" data-product-id="{{$product->id}}" class="tooltip-top"
                                                                 data-tippy-content="Add to cart">
                                                                 <i data-feather="shopping-cart"></i>
                                                             </button>
@@ -444,12 +444,9 @@
                                                                     @endif
                                                                 </div>
                                                                 <div class="cart-info">
-                                                                    <script>
-                                                                        var productAddCart = {!! json_encode($product) !!};
-                                                                    </script>
-                                                                    <button onclick="openCart()" class="tooltip-top" data-tippy-content="Add to cart">
-                                                                        <i data-feather="shopping-cart"></i>
-                                                                    </button>
+                                                                    <button class="add-to-cart-btn tooltip-top" onclick="openCart()" data-product-id="{{$product->id}}" data-tippy-content="Add to cart">
+                                                                        <i class="add-to-cart-btn " data-feather="shopping-cart"></i>
+                                                                    </button>                                                                    
                                                                     
                                                                     <a href="javascript:void(0)"
                                                                         class="add-to-wish tooltip-top"
