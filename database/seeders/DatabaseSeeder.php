@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
         $this->call(BannerSeeder::class);
         $this->call(BrandSeeder::class);
         $this->call(CouponSeeder::class);
+        $this->call(CustomerSeeder::class);
         $this->call(DeliveryLocationSeeder::class);
         $this->call(FaqSeeder::class);
         $this->call(MainSliderSeeder::class);
