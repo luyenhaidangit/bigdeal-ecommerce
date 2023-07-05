@@ -1,4 +1,15 @@
 $(document).ready(function () {
+    //Handle submit search bar
+    $(".big-deal-form").on("submit", function (e) {
+        var keyword = $("input[name='keyword']").val().trim();
+        if (keyword === '') {
+            e.preventDefault();
+            return;
+        }
+
+        $(this).submit();
+    });
+
     //Handle click add to cart top bar
     $(document).on("click", ".add-to-cart-btn", function () {
         var productId = $(this).data("product-id");

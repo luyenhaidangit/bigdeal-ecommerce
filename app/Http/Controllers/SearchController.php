@@ -16,6 +16,8 @@ class SearchController extends Controller
 
         if ($keyword) {
             $products->where('name', 'like', '%' . $keyword . '%');
+        }else{
+            return view('guest.status.404');
         }
 
         if ($category && $category !== 'all') {
@@ -28,6 +30,6 @@ class SearchController extends Controller
     
         $products = $products->get();
 
-        return view('guest.search.product', compact('products','keyword','category'));
+        return view('guest.search.product', compact('products','keyword'));
     }
 }
