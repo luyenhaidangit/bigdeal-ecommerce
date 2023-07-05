@@ -356,7 +356,7 @@
 
                                     <!--pages meu start-->
                                     <li>
-                                        <a class="dark-menu-item" href="javascript:void(0)">Liên hệ</a>
+                                        <a class="dark-menu-item" href="{{ route('guest.page.show', ['slug' => $constants::PAGE_CONTACT_SLUG]) }}">Liên hệ</a>
                                     </li>
                                     <!--product-end end-->
 
