@@ -2725,9 +2725,9 @@
     /*=====================
    19. add to cart sidebar js
    ==========================*/
-    function openCart() {
-        document.getElementById("cart_side").classList.add("open-side");
-    }
+    // function openCart() {
+    //     document.getElementById("cart_side").classList.add("open-side");
+    // }
     function closeCart() {
         document.getElementById("cart_side").classList.remove("open-side");
     }
@@ -2913,71 +2913,9 @@
     });
 })(jQuery);
 
-function openCart() {
-    console.log(productAddCart)
-    var cartItems = localStorage.getItem("cartItems");
-    if (!cartItems) {
-        cartItems = []; // Nếu chưa có, tạo một mảng mới
-    } else {
-        cartItems = JSON.parse(cartItems); // Nếu đã có, chuyển đổi từ chuỗi JSON sang mảng
-    }
-
-    var newProduct = {
-      name: productAddCart?.name,
-      price: productAddCart?.price,
-      discount_price: productAddCart?.discount_price,
-      image: productAddCart?.image,
-      productOptions: productAddCart?.productOptions,
-  };
-
-    // Thêm sản phẩm vào giỏ hàng
-    cartItems.push(newProduct);
-
-    // Lưu lại giỏ hàng vào localStorage
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
-
-    $.notify(
-        {
-            icon: "fa fa-check",
-            title: "Success!",
-            message: "Sản phẩm đã được thêm vào giỏ hàng!",
-        },
-        {
-            element: "body",
-            position: null,
-            type: "info",
-            allow_dismiss: true,
-            newest_on_top: false,
-            showProgressbar: true,
-            placement: {
-                from: "top",
-                align: "right",
-            },
-            offset: 20,
-            spacing: 10,
-            z_index: 99999999,
-            delay: 1000,
-            animate: {
-                enter: "animated fadeInRight", // Hiệu ứng vào
-                exit: "animated fadeOutUp", // Hiệu ứng ra
-            },
-            icon_type: "class",
-            template:
-                '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
-                '<button type="button" aria-hidden="true" class="btn-close" data-notify="dismiss"></button>' +
-                '<span data-notify="icon"></span> ' +
-                '<span data-notify="title">{1}</span> ' +
-                '<span data-notify="message">{2}</span>' +
-                '<div class="progress" data-notify="progressbar">' +
-                '<div class="progress-bar progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>' +
-                "</div>" +
-                '<a href="{3}" target="{4}" data-notify="url"></a>' +
-                "</div>",
-        }
-    );
-
-    document.getElementById("cart_side").classList.add("open-side");
-}
+// function openCart() {
+//     document.getElementById("cart_side").classList.add("open-side");
+// }
 function closeCart() {
     document.getElementById("cart_side").classList.remove("open-side");
 }

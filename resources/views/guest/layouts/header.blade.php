@@ -211,7 +211,7 @@
                                                     </g>
                                                 </svg>
                                             </div>
-                                            <div class="cart-item">
+                                            <div class="cart-item open-to-cart-btn">
                                                 <h5>Giỏ</h5>
                                                 <h5>hàng</h5>
                                             </div>

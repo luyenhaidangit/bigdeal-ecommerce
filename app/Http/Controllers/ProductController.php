@@ -112,4 +112,15 @@ class ProductController extends Controller
             )
         );
     }
+
+    public function guestGetById($id)
+    {
+        $product = Product::with('productOptions')->find($id);
+
+        if ($product) {
+            return response()->json($product);
+        } else {
+            return response()->json(['error' => 'Product not found'], 404);
+        }
+    }
 }
