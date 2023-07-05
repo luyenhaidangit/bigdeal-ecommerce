@@ -221,81 +221,88 @@ $(document).ready(function () {
 
         renderCartItems();
     });
+});
 
-    function renderCartItems() {
-        var cart = JSON.parse(localStorage.getItem("cart"));
-        var cartProductList = $(".cart_product");
-        var totalAmount = 0;
+function openCart(){
+    renderCartItems();
+    document.getElementById("cart_side").classList.add("open-side");
+}
 
-        if (!cart) {
-            // Cart is empty, clear the existing cart product list
-            cartProductList.empty();
-            return;
-        }
+function renderCartItems() {
+    var cart = JSON.parse(localStorage.getItem("cart"));
+    var cartProductList = $(".cart_product");
+    var totalAmount = 0;
 
-        // Clear the existing cart product list
+    if (!cart) {
+        // Cart is empty, clear the existing cart product list
+        $('#total-cart').text('0đ');
+        $('#total-cart-1').text('0đ')
         cartProductList.empty();
+        return;
+    }
 
-        // Loop through the cart items and create HTML elements
-        cart.forEach(function (product) {
-            var listItem = $(`
-                <li>
-                    <div class="media">
-                        <img class="me-3" src="${product.image}">
-                        <div class="media-body">
-                            <a href="#"><h4>${product.name}</h4></a>
-                            <h6>${formatPrice(
-                                product.price
-                            )} <span>${formatPrice(
-                product.discount_price
-            )}</span></h6>
-                            <div class="addit-box">
-                                <div class="qty-box">
-                                    <div class="input-group">
-                                        <button class="qty-minus"></button>
-                                        <input class="qty-adj form-control" type="number" value="${
-                                            product.quantity
-                                        }">
-                                        <button class="qty-plus"></button>
-                                    </div>
+    // Clear the existing cart product list
+    cartProductList.empty();
+
+    // Loop through the cart items and create HTML elements
+    cart.forEach(function (product) {
+        var listItem = $(`
+            <li>
+                <div class="media">
+                    <img class="me-3" src="${product.image}">
+                    <div class="media-body">
+                        <a href="#"><h4>${product.name}</h4></a>
+                        <h6>${formatPrice(
+                            product.price
+                        )} <span>${formatPrice(
+            product.discount_price
+        )}</span></h6>
+                        <div class="addit-box">
+                            <div class="qty-box">
+                                <div class="input-group">
+                                    <button class="qty-minus"></button>
+                                    <input class="qty-adj form-control" type="number" value="${
+                                        product.quantity
+                                    }">
+                                    <button class="qty-plus"></button>
                                 </div>
-                                <div class="pro-add">
-                                    <a href="javascript:void(0)" class="edit-to-cart" data-product-id="${
-                                        product.id
-                                    }" data-bs-toggle="modal" data-bs-target="#edit-product"><i data-feather="edit"></i></a>
-                                    <a href="javascript:void(0)" class="delete-to-cart" data-product-id="${
-                                        product.id
-                                    }"><i data-feather="trash-2"></i></a>
-                                </div>
+                            </div>
+                            <div class="pro-add">
+                                <a href="javascript:void(0)" class="edit-to-cart" data-product-id="${
+                                    product.id
+                                }" data-bs-toggle="modal" data-bs-target="#edit-product"><i data-feather="edit"></i></a>
+                                <a href="javascript:void(0)" class="delete-to-cart" data-product-id="${
+                                    product.id
+                                }"><i data-feather="trash-2"></i></a>
                             </div>
                         </div>
                     </div>
-                </li>
-            `);
+                </div>
+            </li>
+        `);
 
-            cartProductList.append(listItem);
+        cartProductList.append(listItem);
 
-            var subtotal = parseFloat(product.price) * product.quantity;
-            totalAmount += subtotal;
-        });
+        var subtotal = parseFloat(product.price) * product.quantity;
+        totalAmount += subtotal;
+    });
 
-        // Initialize Feather icons
-        feather.replace();
-        $("#total-cart").text(formatPrice(totalAmount));
-        $("#total-cart-1").text(formatPrice(totalAmount));
+    // Initialize Feather icons
+    feather.replace();
+    $("#total-cart").text(formatPrice(totalAmount));
+    $("#total-cart-1").text(formatPrice(totalAmount));
+}
+
+function formatPrice(price) {
+    if (isNaN(price)) {
+        return "Invalid Price";
     }
 
-    function formatPrice(price) {
-        if (isNaN(price)) {
-            return "Invalid Price";
-        }
+    var numericPrice = parseFloat(price);
+    var formattedPrice = numericPrice
+        .toFixed(0)
+        .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
+    var finalPrice = formattedPrice + "đ";
 
-        var numericPrice = parseFloat(price);
-        var formattedPrice = numericPrice
-            .toFixed(0)
-            .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
-        var finalPrice = formattedPrice + "đ";
-
-        return finalPrice;
-    }
-});
+    return finalPrice;
+}
