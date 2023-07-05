@@ -55,6 +55,6 @@ Route::get('/product/{slug}', [ProductController::class, 'guestShow'])->name('gu
 Route::post('/product-review', [ProductReviewController::class, 'guestStore'])->name('guest.product_review.store');
 
 //Search
-Route::get('/search/product', [SearchController::class, 'guestProduct'])->name('guest.search.product');
+Route::get('/search', [SearchController::class, 'guestProduct'])->name('guest.search.product');
 
 Auth::routes();
