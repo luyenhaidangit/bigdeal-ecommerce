@@ -10,7 +10,7 @@
                         <div>
                             <h2>Loại sản phẩm</h2>
                             <ul>
-                                <li><a href="{{ route('home') }}">Trang chủ</a></li>
+                                <li><a href="{{ route('guest.home') }}">Trang chủ</a></li>
                                 <li><i class="fa fa-angle-double-right"></i></li>
                                 <li><a
                                         href="{{ route('guest.product_category.show', ['slug' => $category->slug]) }}">{{ $category->name }}</a>

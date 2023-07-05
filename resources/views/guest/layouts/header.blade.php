@@ -104,7 +104,7 @@
                             </ul>
                         </div>
                         <div class="brand-logo logo-sm-center">
-                            <a href="{{ route('home') }}">
+                            <a href="{{ route('guest.home') }}">
                                 <img src="{{ asset($website->logo) }}" class="img-fluid  " alt="logo">
                             </a>
                         </div>
@@ -262,7 +262,7 @@
                     <div class="navbar-menu">
                         <div class="logo-block">
                             <div class="brand-logo logo-sm-center">
-                                <a href="{{ route('home') }}">
+                                <a href="{{ route('guest.home') }}">
                                     <img src="{{ asset($website->logo) }}" class="img-fluid  " alt="logo">
                                 </a>
                             </div>
@@ -332,7 +332,7 @@
                                     </li>
                                     <!--HOME-->
                                     <li>
-                                        <a class="dark-menu-item" href="{{ route('home') }}">Trang chủ</a>
+                                        <a class="dark-menu-item" href="{{ route('guest.home') }}">Trang chủ</a>
                                     </li>
                                     <!--HOME-END-->
                                     <!--SHOP-->
@@ -356,7 +356,7 @@
 
                                     <!--pages meu start-->
                                     <li>
-                                        <a class="dark-menu-item" href="javascript:void(0)">Liên hệ</a>
+                                        <a class="dark-menu-item" href="{{ route('guest.page.show', ['slug' => $constants::PAGE_CONTACT_SLUG]) }}">Liên hệ</a>
                                     </li>
                                     <!--product-end end-->
 

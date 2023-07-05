@@ -10,7 +10,7 @@
                         <div>
                             <h2>Tìm kiếm</h2>
                             <ul>
-                                <li><a href="{{ route('home') }}">Trang chủ</a></li>
+                                <li><a href="{{ route('guest.home') }}">Trang chủ</a></li>
                                 <li><i class="fa fa-angle-double-right"></i></li>
                                 <li><a href="{{ route('guest.search.product') }}">Tìm kiếm sản phẩm</a></li>
                             </ul>

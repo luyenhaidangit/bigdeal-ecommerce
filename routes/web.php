@@ -29,7 +29,7 @@ use App\Http\Controllers\SearchController;
 
 // Guest
 //Home
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('guest.home');
 
 //News
 Route::get('/news', [NewsController::class, 'guestIndex'])->name('guest.news');
@@ -56,5 +56,15 @@ Route::post('/product-review', [ProductReviewController::class, 'guestStore'])->
 
 //Search
 Route::get('/search', [SearchController::class, 'guestProduct'])->name('guest.search.product');
+
+//Cart
+Route::get('/cart', function () {
+    return view('guest.cart.cart');
+})->name('guest.cart');
+
+//Checkout
+Route::get('/checkout', function () {
+    return view('guest.checkout.checkout');
+})->name('guest.checkout');
 
 Auth::routes();

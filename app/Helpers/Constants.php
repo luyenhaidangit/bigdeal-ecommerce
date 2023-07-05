@@ -14,4 +14,5 @@ class Constants
     const PAGE_ABOUT_US_SLUG = 'about-us';
     const PAGE_RETURN_POLICY_SLUG = 'return-policy';
     const PAGE_DELIVERY_SLUG = 'delivery-policy';
+    const PAGE_CONTACT_SLUG = 'contact';
 }
