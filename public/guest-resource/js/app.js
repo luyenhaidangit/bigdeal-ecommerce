@@ -11,6 +11,8 @@ $(document).ready(function () {
     });
 
     //Handle click add to cart top bar
+    renderCartItems();
+
     $(document).on("click", ".add-to-cart-btn", function () {
         var productId = $(this).data("product-id");
         // Get product data from API
@@ -255,6 +257,8 @@ function renderCartItems() {
     // Clear the existing cart product list
     cartProductList.empty();
 
+    $('.item-count-contain').text(cart.length);
+
     // Loop through the cart items and create HTML elements
     cart.forEach(function (product) {
         var listItem = $(`
@@ -272,7 +276,7 @@ function renderCartItems() {
                             <div class="qty-box">
                                 <div class="input-group">
                                     <button class="qty-minus"></button>
-                                    <input class="qty-adj form-control" type="number" value="${
+                                    <input class="qty-adj form-control" readonly type="number" value="${
                                         product.quantity
                                     }">
                                     <button class="qty-plus"></button>

@@ -28,3 +28,5 @@
 
     <!-- Theme css -->
     <link rel="stylesheet" type="text/css" href="{{ asset('guest-resource/css/color2.css') }}" media="screen" id="color">
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('guest-resource/css/app.css') }}">

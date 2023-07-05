@@ -30,8 +30,8 @@
                 </li>
                 <li>
                     <div class="buttons">
-                        <a href="cart.html" class="btn btn-solid btn-sm">Giỏ hàng</a>
-                        <a href="checkout.html" class="btn btn-solid btn-sm ">Thanh toán</a>
+                        <a href="{{ route('guest.cart') }}" class="btn btn-solid btn-sm">Giỏ hàng</a>
+                        <a href="{{ route('guest.checkout') }}" class="btn btn-solid btn-sm ">Thanh toán</a>
                     </div>
                 </li>
             </ul>

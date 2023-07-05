@@ -9,7 +9,7 @@
                     <div class="error-section">
                         <h1>404</h1>
                         <h2>Trang không tồn tại</h2>
-                        <a href="{{ route('home') }}" class="btn btn-normal">Trở về trang chủ</a>
+                        <a href="{{ route('guest.home') }}" class="btn btn-normal">Trở về trang chủ</a>
                     </div>
                 </div>
             </div>
