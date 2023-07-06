@@ -10,6 +10,7 @@ use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductReviewController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\CustomerController;
 
 
 /*
@@ -67,4 +68,8 @@ Route::get('/checkout', function () {
     return view('guest.checkout.checkout');
 })->name('guest.checkout');
 
-Auth::routes();
+//Customer
+Route::get('/login', [CustomerController::class, 'guestLogin'])->name('guest.customer.login');
+Route::post('/login', [CustomerController::class, 'guestPostLogin'])->name('guest.customer.login.post');
+Route::get('/register', [CustomerController::class, 'guestRegister'])->name('guest.customer.register');
+Route::get('/forget-password', [CustomerController::class, 'guestForgetPassword'])->name('guest.customer.forget_password');
