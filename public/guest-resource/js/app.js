@@ -247,7 +247,7 @@ function openAccount() {
     var csrfToken = $('meta[name="csrf-token"]').attr('content');
 
     $.ajax({
-        url: "api/customer/check-login",
+        url: "customer/check-login",
         type: "GET",
         dataType: "json",
         headers: {

@@ -59,7 +59,6 @@ class CustomerController extends Controller
         if (Auth::guard('customers')->attempt($credentials)) {
             session()->put('user', [
                 'email' => $user->email,
-                'name' => $user->name,
                 'role' => 'customer',
             ]);
 
@@ -175,10 +174,10 @@ class CustomerController extends Controller
             $user = Auth::guard('customers')->user();
             $userData = [
                 'email' => $user->email,
-                'name' => $user->name,
+                'name' => $user->first_name . ' ' . $user->last_name,
                 'role' => 'customer',
             ];
-    
+
             return response()->json([
                 'success' => true,
                 'user' => $userData,

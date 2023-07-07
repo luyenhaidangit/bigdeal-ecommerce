@@ -22,6 +22,3 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 //Product
 Route::get('product/{id}', [ProductController::class, 'guestGetById']);
-
-//Customer
-Route::middleware('web')->get('customer/check-login', [CustomerController::class, 'guestPostCheckLogin']);

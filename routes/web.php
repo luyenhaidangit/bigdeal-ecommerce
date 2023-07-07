@@ -78,4 +78,5 @@ Route::get('/forget-password', [CustomerController::class, 'guestForgetPassword'
 Route::post('/forget-password', [CustomerController::class, 'guestPostForgetPassword'])->name('guest.customer.forget_password.post');
 Route::get('/customer/reset-password', [CustomerController::class, 'guestResetPassword'])->name('guest.customer.reset_password');
 Route::post('/customer/reset-password', [CustomerController::class, 'guestPostResetPassword'])->name('guest.customer.reset_password.post');
+Route::get('/customer/check-login', [CustomerController::class, 'guestPostCheckLogin'])->name('guest.customer.check_login');
 
