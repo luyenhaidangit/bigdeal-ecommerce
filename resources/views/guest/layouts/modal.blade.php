@@ -39,6 +39,7 @@
     </div>
 </div>
 <!-- Add to cart bar end-->
+
 <!-- edit product modal start-->
 <div class="modal fade bd-example-modal-lg theme-modal pro-edit-modal" id="edit-product" tabindex="-1" role="dialog"
     aria-hidden="true">
@@ -51,7 +52,8 @@
                         <div class="media">
                             <div class="img-wraper me-2">
                                 <a href="product-page(left-sidebar).html">
-                                    <img style="height: 80px !important;width: 80px !important" src="../assets/images/layout-2/product/1.jpg" alt="">
+                                    <img style="height: 80px !important;width: 80px !important"
+                                        src="../assets/images/layout-2/product/1.jpg" alt="">
                                 </a>
                             </div>
                             <div class="media-body">
@@ -66,7 +68,7 @@
                 <div class="pro-group" id="choose-option">
                     <h6 class="product-title">Lựa chọn sản phẩm</h6>
                     <select class="form-control">
-                      
+
                     </select>
                 </div>
                 <div class="pro-group">
@@ -94,3 +96,42 @@
     </div>
 </div>
 <!-- edit product modal end-->
+
+<!-- My account bar start-->
+<div id="myAccount" class="add_to_cart right account-bar">
+    <a href="javascript:void(0)" class="overlay" onclick="closeAccount()"></a>
+    <div class="cart-inner">
+        <div class="cart_top">
+            <h3>Tài khoản</h3>
+            <div class="close-cart">
+                <a href="javascript:void(0)" onclick="closeAccount()">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+        <form class="theme-form" action="{{ route('guest.customer.login.post') }}" method="POST">
+            @csrf
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" id="email" name="email" placeholder="Nhập email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Mật khẩu</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Nhập mật khẩu" required>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-solid btn-md btn-block">Đăng nhập</button>
+            </div>
+            <div class="accout-fwd">
+                <a href="{{ route('guest.customer.forget_password') }}" class="d-block">
+                    <h5>Quên mật khẩu?</h5>
+                </a>
+                <a href="{{ route('guest.customer.register') }}" class="d-block">
+                    <h6>Chưa có tài khoản? <span>Đăng ký ngay</span></h6>
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Add to account bar end-->
+

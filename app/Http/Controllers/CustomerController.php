@@ -57,6 +57,12 @@ class CustomerController extends Controller
         }
 
         if (Auth::guard('customers')->attempt($credentials)) {
+            session()->put('user', [
+                'email' => $user->email,
+                'name' => $user->name,
+                'role' => 'customer',
+            ]);
+
             return redirect()->intended('/');
         } else {
             return back()->withErrors([
@@ -161,5 +167,26 @@ class CustomerController extends Controller
         $customer->save();
 
         return redirect()->route('guest.customer.login')->with('success', 'Mật khẩu đã được đặt lại thành công. Vui lòng đăng nhập bằng mật khẩu mới.');
+    }
+
+    public function guestPostCheckLogin()
+    {
+        if (Auth::guard('customers')->check()) {
+            $user = Auth::guard('customers')->user();
+            $userData = [
+                'email' => $user->email,
+                'name' => $user->name,
+                'role' => 'customer',
+            ];
+    
+            return response()->json([
+                'success' => true,
+                'user' => $userData,
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+            ]);
+        }
     }
 }

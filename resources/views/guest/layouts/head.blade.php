@@ -5,6 +5,7 @@
     <meta name="description" content="big-deal">
     <meta name="keywords" content="big-deal">
     <meta name="author" content="big-deal">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" href="{{asset('guest-resource/images/favicon/favicon.png')}}" type="image/x-icon">
     <link rel="shortcut icon" href="{{asset('guest-resource/images/favicon/favicon.png')}} type="image/x-icon">
 

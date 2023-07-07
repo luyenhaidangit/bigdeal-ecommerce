@@ -2,7 +2,7 @@ $(document).ready(function () {
     //Handle submit search bar
     $(".big-deal-form").on("submit", function (e) {
         var keyword = $("input[name='keyword']").val().trim();
-        if (keyword === '') {
+        if (keyword === "") {
             e.preventDefault();
             return;
         }
@@ -172,7 +172,7 @@ $(document).ready(function () {
                         selectElement.append(optionElement);
                         if (product?.productOptionId === option.id) {
                             optionElement.attr("selected", true);
-                        }     
+                        }
                         optionElement.val(option?.id);
                     });
                 } else {
@@ -201,7 +201,7 @@ $(document).ready(function () {
 
     $(document).on("click", ".save-to-cart", function () {
         var productId = $("#edit-product").data("product-id");
-    
+
         var selectedOption = $("#edit-product select option:selected");
         var productOptionId = selectedOption.val();
         var quantity = parseInt($("#edit-product .qty-adj").val());
@@ -213,10 +213,12 @@ $(document).ready(function () {
             return item.id === productId;
         });
 
-        console.log(product)
+        console.log(product);
 
         if (product) {
-            var selectedProductOption = product.productOptions.find(function(option) {
+            var selectedProductOption = product.productOptions.find(function (
+                option
+            ) {
                 return option.id === +productOptionId;
             });
 
@@ -225,7 +227,7 @@ $(document).ready(function () {
             product.quantity = quantity;
             product.price = selectedProductOption.price;
             product.discount_price = selectedProductOption.discount_price;
-    
+
             // Update the cart in localStorage
             localStorage.setItem("cart", JSON.stringify(cart));
         }
@@ -236,9 +238,35 @@ $(document).ready(function () {
     });
 });
 
-function openCart(){
+function openCart() {
     renderCartItems();
     document.getElementById("cart_side").classList.add("open-side");
+}
+
+function openAccount() {
+    var csrfToken = $('meta[name="csrf-token"]').attr('content');
+
+    $.ajax({
+        url: "api/customer/check-login",
+        type: "GET",
+        dataType: "json",
+        headers: {
+            'X-CSRF-TOKEN': csrfToken
+        },
+        success: function (data) {
+            console.log(data)
+            if (data.success) {
+                // Người dùng đã đăng nhập, chuyển hướng đến trang quản lý tài khoản
+                window.location.href = "/account";
+            } else {
+                // Người dùng chưa đăng nhập, thực hiện các hành động khác
+                $("#myAccount").addClass("open-side");
+            }
+        },
+        error: function (error) {
+            console.error("Lỗi kiểm tra đăng nhập:", error);
+        },
+    });
 }
 
 function renderCartItems() {
@@ -248,8 +276,8 @@ function renderCartItems() {
 
     if (!cart) {
         // Cart is empty, clear the existing cart product list
-        $('#total-cart').text('0đ');
-        $('#total-cart-1').text('0đ')
+        $("#total-cart").text("0đ");
+        $("#total-cart-1").text("0đ");
         cartProductList.empty();
         return;
     }
@@ -257,7 +285,7 @@ function renderCartItems() {
     // Clear the existing cart product list
     cartProductList.empty();
 
-    $('.item-count-contain').text(cart.length);
+    $(".item-count-contain").text(cart.length);
 
     // Loop through the cart items and create HTML elements
     cart.forEach(function (product) {
@@ -267,9 +295,7 @@ function renderCartItems() {
                     <img class="me-3" src="${product.image}">
                     <div class="media-body">
                         <a href="#"><h4>${product.name}</h4></a>
-                        <h6>${formatPrice(
-                            product.price
-                        )} <span>${formatPrice(
+                        <h6>${formatPrice(product.price)} <span>${formatPrice(
             product.discount_price
         )}</span></h6>
                         <div class="addit-box">

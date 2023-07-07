@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 //Product
 Route::get('product/{id}', [ProductController::class, 'guestGetById']);
+
+//Customer
+Route::middleware('web')->get('customer/check-login', [CustomerController::class, 'guestPostCheckLogin']);
