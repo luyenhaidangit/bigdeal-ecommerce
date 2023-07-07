@@ -2,7 +2,7 @@ $(document).ready(function () {
     //Handle submit search bar
     $(".big-deal-form").on("submit", function (e) {
         var keyword = $("input[name='keyword']").val().trim();
-        if (keyword === '') {
+        if (keyword === "") {
             e.preventDefault();
             return;
         }
@@ -12,6 +12,7 @@ $(document).ready(function () {
 
     //Handle click add to cart top bar
     renderCartItems();
+    renderWishlists();
 
     $(document).on("click", ".add-to-cart-btn", function () {
         var productId = $(this).data("product-id");
@@ -172,7 +173,7 @@ $(document).ready(function () {
                         selectElement.append(optionElement);
                         if (product?.productOptionId === option.id) {
                             optionElement.attr("selected", true);
-                        }     
+                        }
                         optionElement.val(option?.id);
                     });
                 } else {
@@ -201,7 +202,7 @@ $(document).ready(function () {
 
     $(document).on("click", ".save-to-cart", function () {
         var productId = $("#edit-product").data("product-id");
-    
+
         var selectedOption = $("#edit-product select option:selected");
         var productOptionId = selectedOption.val();
         var quantity = parseInt($("#edit-product .qty-adj").val());
@@ -213,10 +214,12 @@ $(document).ready(function () {
             return item.id === productId;
         });
 
-        console.log(product)
+        console.log(product);
 
         if (product) {
-            var selectedProductOption = product.productOptions.find(function(option) {
+            var selectedProductOption = product.productOptions.find(function (
+                option
+            ) {
                 return option.id === +productOptionId;
             });
 
@@ -225,7 +228,7 @@ $(document).ready(function () {
             product.quantity = quantity;
             product.price = selectedProductOption.price;
             product.discount_price = selectedProductOption.discount_price;
-    
+
             // Update the cart in localStorage
             localStorage.setItem("cart", JSON.stringify(cart));
         }
@@ -236,9 +239,61 @@ $(document).ready(function () {
     });
 });
 
-function openCart(){
+function openCart() {
     renderCartItems();
     document.getElementById("cart_side").classList.add("open-side");
+}
+
+function openAccount() {
+    var csrfToken = $('meta[name="csrf-token"]').attr("content");
+
+    $.ajax({
+        url: "customer/check-login",
+        type: "GET",
+        dataType: "json",
+        headers: {
+            "X-CSRF-TOKEN": csrfToken,
+        },
+        success: function (data) {
+            console.log(data);
+            if (data.success) {
+                // Người dùng đã đăng nhập, chuyển hướng đến trang quản lý tài khoản
+                window.location.href = "/account";
+            } else {
+                // Người dùng chưa đăng nhập, thực hiện các hành động khác
+                $("#myAccount").addClass("open-side");
+            }
+        },
+        error: function (error) {
+            console.error("Lỗi kiểm tra đăng nhập:", error);
+        },
+    });
+}
+
+function openWishlist() {
+    var csrfToken = $('meta[name="csrf-token"]').attr("content");
+
+    $.ajax({
+        url: "customer/check-login",
+        type: "GET",
+        dataType: "json",
+        headers: {
+            "X-CSRF-TOKEN": csrfToken,
+        },
+        success: function (data) {
+            if (data.success) {
+                renderWishlists();
+                document
+                    .getElementById("wishlist_side")
+                    .classList.add("open-side");
+            } else {
+                $("#myAccount").addClass("open-side");
+            }
+        },
+        error: function (error) {
+            console.error("Lỗi kiểm tra đăng nhập:", error);
+        },
+    });
 }
 
 function renderCartItems() {
@@ -248,8 +303,8 @@ function renderCartItems() {
 
     if (!cart) {
         // Cart is empty, clear the existing cart product list
-        $('#total-cart').text('0đ');
-        $('#total-cart-1').text('0đ')
+        $("#total-cart").text("0đ");
+        $("#total-cart-1").text("0đ");
         cartProductList.empty();
         return;
     }
@@ -257,7 +312,7 @@ function renderCartItems() {
     // Clear the existing cart product list
     cartProductList.empty();
 
-    $('.item-count-contain').text(cart.length);
+    $(".item-count-contain").text(cart.length);
 
     // Loop through the cart items and create HTML elements
     cart.forEach(function (product) {
@@ -267,9 +322,7 @@ function renderCartItems() {
                     <img class="me-3" src="${product.image}">
                     <div class="media-body">
                         <a href="#"><h4>${product.name}</h4></a>
-                        <h6>${formatPrice(
-                            product.price
-                        )} <span>${formatPrice(
+                        <h6>${formatPrice(product.price)} <span>${formatPrice(
             product.discount_price
         )}</span></h6>
                         <div class="addit-box">
@@ -306,6 +359,81 @@ function renderCartItems() {
     feather.replace();
     $("#total-cart").text(formatPrice(totalAmount));
     $("#total-cart-1").text(formatPrice(totalAmount));
+}
+
+function renderWishlists() {
+    var csrfToken = $('meta[name="csrf-token"]').attr("content");
+    var products = [];
+
+    $.ajax({
+        url: "customer/wishlist-reponse",
+        type: "GET",
+        dataType: "json",
+        headers: {
+            "X-CSRF-TOKEN": csrfToken,
+        },
+        success: function (data) {
+            if (data.success) {
+                products = data?.products;
+                var wishlistProductList = $(".cart_product.wishlist-products");
+
+                // Xóa danh sách sản phẩm yêu thích hiện tại
+                wishlistProductList.empty();
+
+                var totalAmount = 0;
+
+                $(".item-count-contain.item-count-contain-wishlist").text(products.length);
+                $("#count-wishlist").text(products.length);
+
+                // Duyệt qua danh sách sản phẩm yêu thích và tạo phần tử HTML
+                products.forEach(function (product) {
+                    var listItem = $(`
+            <li>
+                <div class="media">
+                    <a href="javascript:void(0)">
+                        <img alt="${product.name}" class="me-3" src="${
+                        product.image
+                    }">
+                    </a>
+                    <div class="media-body">
+                        <a href="product-page(left-sidebar).html">
+                            <h4>${product.name}</h4>
+                        </a>
+                        <h6>${formatPrice(product.price)} <span>${formatPrice(
+                        product.discount_price
+                    )}</span></h6>
+                        <div class="addit-box">
+                            <div class="qty-box">
+                                <div class="input-group">
+                                    <button class="qty-minus"></button>
+                                    <input class="qty-adj form-control" readonly type="number" value="${
+                                        product.quantity
+                                    }"/>
+                                    <button class="qty-plus"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        `);
+
+                    var subtotal = parseFloat(product.price) * product.quantity;
+                    totalAmount += subtotal;
+
+                    wishlistProductList.append(listItem);
+                });
+
+                // Khởi tạo lại các biểu tượng Feather Icons
+                feather.replace();
+                $("#wishlist-total-1").text(formatPrice(totalAmount));
+                $("#wishlist-total-2").text(formatPrice(totalAmount));
+            }
+        },
+        error: function (error) {
+            console.error("Lỗi kiểm tra đăng nhập:", error);
+        },
+    });
 }
 
 function formatPrice(price) {

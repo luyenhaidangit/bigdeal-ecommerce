@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Wishlist;
 
 class Customer extends Authenticatable
 {
@@ -32,6 +33,11 @@ class Customer extends Authenticatable
         'region_state',
         'password',
     ];
+
+    public function wishlists()
+    {
+        return $this->hasMany(Wishlist::class);
+    }
 
     public static function boot()
     {
