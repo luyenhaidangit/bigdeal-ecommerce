@@ -50,7 +50,7 @@
                                 <input type="password" class="form-control" name="password" placeholder="Mật khẩu" required>
                             </div>
                             <button type="submit" class="btn btn-normal">Đăng nhập</button>
-                            <a class="float-end txt-default mt-2" href="forget-pwd.html">Quên mật khẩu?</a>
+                            <a class="float-end txt-default mt-2" href="{{ route('guest.customer.forget_password') }}">Quên mật khẩu?</a>
                         </form>
 
                         <p class="mt-3">Đăng ký tài khoản miễn phí tại cửa hàng của chúng tôi. Quá trình đăng ký nhanh

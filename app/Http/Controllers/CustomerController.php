@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use App\Helpers\MailHelper;
 use App\Mail\AccountCustomerActivationEmail;
+use App\Mail\AccountCustomerResetPasswordEmail;
 use Illuminate\Support\Facades\Mail;
 
 class CustomerController extends Controller
@@ -26,6 +27,15 @@ class CustomerController extends Controller
     public function guestForgetPassword()
     {
         return view('guest.customer.forget_password');
+    }
+
+    public function guestResetPassword(Request $request)
+    {
+        $email = $request->query('email');
+        $token = $request->query('token');
+
+
+        return view('guest.customer.reset_password', compact('email', 'token'));
     }
 
     public function guestPostLogin(Request $request)
@@ -103,5 +113,53 @@ class CustomerController extends Controller
         }
 
         return redirect()->route('guest.customer.login')->with('error', 'Xác nhận email không hợp lệ.');
+    }
+
+    public function guestPostForgetPassword(Request $request)
+    {
+        $email = $request->input('email');
+
+        // Kiểm tra xem khách hàng có tồn tại với email đã cung cấp hay không
+        $customer = Customer::where('email', $email)->first();
+
+        if ($customer) {
+            // Tạo token cho đặt lại mật khẩu
+            $token = Str::random(60);
+            $customer->token = $token;
+            $customer->save();
+
+            // Gửi email đặt lại mật khẩu
+            Mail::to($email)->send(new AccountCustomerResetPasswordEmail($customer));
+
+            return redirect()->route('guest.customer.login')->with('success', 'Một email chứa hướng dẫn đặt lại mật khẩu đã được gửi đến địa chỉ email của bạn.');
+        }
+
+        return redirect()->back()->withErrors(['email' => 'Không tìm thấy người dùng với địa chỉ email đã cung cấp.'])->withInput();
+    }
+
+    public function guestPostResetPassword(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'token' => 'required',
+            'password' => 'required|min:8|confirmed',
+        ]);
+
+        $email = $request->input('email');
+        $token = $request->input('token');
+
+        $customer = Customer::where('email', $email)
+            ->where('token', $token)
+            ->first();
+
+        if (!$customer) {
+            return redirect()->route('guest.customer.login')->with('error', 'Liên kết đặt lại mật khẩu không hợp lệ.');
+        }
+
+        $customer->password = $request->input('password');
+        $customer->token = null;
+        $customer->save();
+
+        return redirect()->route('guest.customer.login')->with('success', 'Mật khẩu đã được đặt lại thành công. Vui lòng đăng nhập bằng mật khẩu mới.');
     }
 }
