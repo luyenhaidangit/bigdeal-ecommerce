@@ -33,6 +33,11 @@
                                 {{ $message }}
                             </div>
                         @enderror
+                        @if (session('success'))
+                            <div class="alert alert-success bg-success text-white">
+                                {{ session('success') }}
+                            </div>
+                        @endif
                         <h3 class="text-center">Đăng nhập</h3>
                         <form class="theme-form" method="POST" action="{{ route('guest.customer.login.post') }}">
                             @csrf

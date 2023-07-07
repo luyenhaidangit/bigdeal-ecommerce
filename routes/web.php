@@ -71,5 +71,7 @@ Route::get('/checkout', function () {
 //Customer
 Route::get('/login', [CustomerController::class, 'guestLogin'])->name('guest.customer.login');
 Route::post('/login', [CustomerController::class, 'guestPostLogin'])->name('guest.customer.login.post');
-Route::get('/register', [CustomerController::class, 'guestRegister'])->name('guest.customer.register');
+Route::get('/register', [CustomerController::class, 'guestRegister'])->name('guest.customer.register.post');
+Route::post('/register', [CustomerController::class, 'guestPostRegister'])->name('guest.customer.register');
+Route::get('/customer/active/{email}', [CustomerController::class, 'guestVerify'])->name('guest.customer.active');
 Route::get('/forget-password', [CustomerController::class, 'guestForgetPassword'])->name('guest.customer.forget_password');
