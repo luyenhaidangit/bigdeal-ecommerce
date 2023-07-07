@@ -10,6 +10,7 @@ use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductReviewController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\CustomerController;
 
 
 /*
@@ -67,4 +68,14 @@ Route::get('/checkout', function () {
     return view('guest.checkout.checkout');
 })->name('guest.checkout');
 
-Auth::routes();
+//Customer
+Route::get('/login', [CustomerController::class, 'guestLogin'])->name('guest.customer.login');
+Route::post('/login', [CustomerController::class, 'guestPostLogin'])->name('guest.customer.login.post');
+Route::get('/register', [CustomerController::class, 'guestRegister'])->name('guest.customer.register.post');
+Route::post('/register', [CustomerController::class, 'guestPostRegister'])->name('guest.customer.register');
+Route::get('/customer/active/{email}', [CustomerController::class, 'guestVerify'])->name('guest.customer.active');
+Route::get('/forget-password', [CustomerController::class, 'guestForgetPassword'])->name('guest.customer.forget_password');
+Route::post('/forget-password', [CustomerController::class, 'guestPostForgetPassword'])->name('guest.customer.forget_password.post');
+Route::get('/customer/reset_password', [CustomerController::class, 'guestResetPassword'])->name('guest.customer.reset_password');
+Route::post('/customer/reset_password', [CustomerController::class, 'guestPostResetPassword'])->name('guest.customer.reset_password.post');
+
