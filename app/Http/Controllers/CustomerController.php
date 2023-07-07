@@ -188,4 +188,37 @@ class CustomerController extends Controller
             ]);
         }
     }
+
+    public function guestWishlistReponse()
+    {
+        if (Auth::guard('customers')->check()) {
+            $user = Auth::guard('customers')->user();
+
+            if (!$user) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Người dùng không tồn tại.',
+                ]);
+            }
+
+            // $products = $user->wishlists()->with('product')->get()->pluck('product');
+            $wishlists = $user->wishlists()->with('product')->get();
+
+            $products = $wishlists->map(function ($wishlist) {
+                $product = $wishlist->product;
+                $product->quantity = $wishlist->quantity;
+                return $product;
+            });
+
+            return response()->json([
+                'success' => true,
+                'products' => $products,
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'Người dùng chưa đăng nhập'
+            ]);
+        }
+    }
 }

@@ -52,8 +52,8 @@
                         <div class="media">
                             <div class="img-wraper me-2">
                                 <a href="product-page(left-sidebar).html">
-                                    <img style="height: 80px !important;width: 80px !important"
-                                        src="" alt="">
+                                    <img style="height: 80px !important;width: 80px !important" src=""
+                                        alt="">
                                 </a>
                             </div>
                             <div class="media-body">
@@ -113,11 +113,13 @@
             @csrf
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="text" class="form-control" id="email" name="email" placeholder="Nhập email" required>
+                <input type="text" class="form-control" id="email" name="email" placeholder="Nhập email"
+                    required>
             </div>
             <div class="form-group">
                 <label for="password">Mật khẩu</label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="Nhập mật khẩu" required>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Nhập mật khẩu"
+                    required>
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-solid btn-md btn-block">Đăng nhập</button>
@@ -137,19 +139,19 @@
 
 <!-- wishlistbar bar -->
 <div id="wishlist_side" class="add_to_cart right ">
-    <a href="javascript:void(0)" class="overlay"  onclick="closeWishlist()"></a>
+    <a href="javascript:void(0)" class="overlay" onclick="closeWishlist()"></a>
     <div class="cart-inner">
-      <div class="cart_top">
-        <h3>my wishlist</h3>
-        <div class="close-cart">
-          <a href="javascript:void(0)" onclick="closeWishlist()">
-            <i class="fa fa-times" aria-hidden="true"></i>
-          </a>
+        <div class="cart_top">
+            <h3>Yêu thích</h3>
+            <div class="close-cart">
+                <a href="javascript:void(0)" onclick="closeWishlist()">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </a>
+            </div>
         </div>
-      </div>
-      <div class="cart_media">
-        <ul class="cart_product">
-          {{-- <li>
+        <div class="cart_media">
+            <ul class="cart_product wishlist-products">
+                {{-- <li>
             <div class="media">
               <a href="product-page(left-sidebar).html">
                 <img alt="megastore1" class="me-3" src="../assets/images/layout-2/product/1.jpg">
@@ -245,30 +247,29 @@
               </div>
             </div>
           </li> --}}
-        </ul>
-        <ul class="cart_total">
-          <li>
-            subtotal : <span>$1050.00</span>
-          </li>
-          <li>
-            shpping <span>free</span>
-          </li>
-          <li>
-            taxes <span>$0.00</span>
-          </li>
-          <li>
-            <div class="total">
-              total<span>$1050.00</span>
-            </div>
-          </li>
-          <li>
-            <div class="buttons">
-              <a href="wishlist.html" class="btn btn-solid btn-block btn-md">view wislist</a>
-            </div>
-          </li>
-        </ul>
-      </div>
+            </ul>
+            <ul class="cart_total">
+                <li>
+                    Tổng tiền : <span id="wishlist-total-1">$1050.00</span>
+                </li>
+                <li>
+                    Phí Ship <span>Free</span>
+                </li>
+                <li>
+                    Thuế <span>0đ</span>
+                </li>
+                <li>
+                    <div class="total">
+                        Thanh toán<span id="wishlist-total-2">$1050.00</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="buttons">
+                        <a href="wishlist.html" class="btn btn-solid btn-block btn-md">Xem danh sách</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
-  </div>
-  <!-- wishlistbar bar end-->
-
+</div>
+<!-- wishlistbar bar end-->

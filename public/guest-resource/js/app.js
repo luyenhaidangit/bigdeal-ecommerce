@@ -12,6 +12,7 @@ $(document).ready(function () {
 
     //Handle click add to cart top bar
     renderCartItems();
+    renderWishlists();
 
     $(document).on("click", ".add-to-cart-btn", function () {
         var productId = $(this).data("product-id");
@@ -244,22 +245,48 @@ function openCart() {
 }
 
 function openAccount() {
-    var csrfToken = $('meta[name="csrf-token"]').attr('content');
+    var csrfToken = $('meta[name="csrf-token"]').attr("content");
 
     $.ajax({
         url: "customer/check-login",
         type: "GET",
         dataType: "json",
         headers: {
-            'X-CSRF-TOKEN': csrfToken
+            "X-CSRF-TOKEN": csrfToken,
         },
         success: function (data) {
-            console.log(data)
+            console.log(data);
             if (data.success) {
                 // Người dùng đã đăng nhập, chuyển hướng đến trang quản lý tài khoản
                 window.location.href = "/account";
             } else {
                 // Người dùng chưa đăng nhập, thực hiện các hành động khác
+                $("#myAccount").addClass("open-side");
+            }
+        },
+        error: function (error) {
+            console.error("Lỗi kiểm tra đăng nhập:", error);
+        },
+    });
+}
+
+function openWishlist() {
+    var csrfToken = $('meta[name="csrf-token"]').attr("content");
+
+    $.ajax({
+        url: "customer/check-login",
+        type: "GET",
+        dataType: "json",
+        headers: {
+            "X-CSRF-TOKEN": csrfToken,
+        },
+        success: function (data) {
+            if (data.success) {
+                renderWishlists();
+                document
+                    .getElementById("wishlist_side")
+                    .classList.add("open-side");
+            } else {
                 $("#myAccount").addClass("open-side");
             }
         },
@@ -332,6 +359,89 @@ function renderCartItems() {
     feather.replace();
     $("#total-cart").text(formatPrice(totalAmount));
     $("#total-cart-1").text(formatPrice(totalAmount));
+}
+
+function renderWishlists() {
+    var csrfToken = $('meta[name="csrf-token"]').attr("content");
+    var products = [];
+
+    $.ajax({
+        url: "customer/wishlist-reponse",
+        type: "GET",
+        dataType: "json",
+        headers: {
+            "X-CSRF-TOKEN": csrfToken,
+        },
+        success: function (data) {
+            if (data.success) {
+                products = data?.products;
+                var wishlistProductList = $(".cart_product.wishlist-products");
+
+                // Xóa danh sách sản phẩm yêu thích hiện tại
+                wishlistProductList.empty();
+
+                var totalAmount = 0;
+
+                $(".item-count-contain.item-count-contain-wishlist").text(products.length);
+                $("#count-wishlist").text(products.length);
+
+                // Duyệt qua danh sách sản phẩm yêu thích và tạo phần tử HTML
+                products.forEach(function (product) {
+                    var listItem = $(`
+            <li>
+                <div class="media">
+                    <a href="javascript:void(0)">
+                        <img alt="${product.name}" class="me-3" src="${
+                        product.image
+                    }">
+                    </a>
+                    <div class="media-body">
+                        <a href="product-page(left-sidebar).html">
+                            <h4>${product.name}</h4>
+                        </a>
+                        <h6>${formatPrice(product.price)} <span>${formatPrice(
+                        product.discount_price
+                    )}</span></h6>
+                        <div class="addit-box">
+                            <div class="qty-box">
+                                <div class="input-group">
+                                    <button class="qty-minus"></button>
+                                    <input class="qty-adj form-control" type="number" value="${
+                                        product.quantity
+                                    }"/>
+                                    <button class="qty-plus"></button>
+                                </div>
+                            </div>
+                            <div class="pro-add">
+                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#edit-product">
+                                    <i data-feather="edit"></i>
+                                </a>
+                                <a href="javascript:void(0)">
+                                    <i data-feather="trash-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        `);
+
+                    var subtotal = parseFloat(product.price) * product.quantity;
+                    totalAmount += subtotal;
+
+                    wishlistProductList.append(listItem);
+                });
+
+                // Khởi tạo lại các biểu tượng Feather Icons
+                feather.replace();
+                $("#wishlist-total-1").text(formatPrice(totalAmount));
+                $("#wishlist-total-2").text(formatPrice(totalAmount));
+            }
+        },
+        error: function (error) {
+            console.error("Lỗi kiểm tra đăng nhập:", error);
+        },
+    });
 }
 
 function formatPrice(price) {

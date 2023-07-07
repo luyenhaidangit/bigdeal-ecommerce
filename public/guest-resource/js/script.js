@@ -2927,9 +2927,9 @@ function closeAccount() {
     document.getElementById("myAccount").classList.remove("open-side");
 }
 
-function openWishlist() {
-    document.getElementById("wishlist_side").classList.add("open-side");
-}
+// function openWishlist() {
+//     document.getElementById("wishlist_side").classList.add("open-side");
+// }
 function closeWishlist() {
     document.getElementById("wishlist_side").classList.remove("open-side");
 }
