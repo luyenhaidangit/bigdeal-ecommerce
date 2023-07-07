@@ -406,19 +406,11 @@ function renderWishlists() {
                             <div class="qty-box">
                                 <div class="input-group">
                                     <button class="qty-minus"></button>
-                                    <input class="qty-adj form-control" type="number" value="${
+                                    <input class="qty-adj form-control" readonly type="number" value="${
                                         product.quantity
                                     }"/>
                                     <button class="qty-plus"></button>
                                 </div>
-                            </div>
-                            <div class="pro-add">
-                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#edit-product">
-                                    <i data-feather="edit"></i>
-                                </a>
-                                <a href="javascript:void(0)">
-                                    <i data-feather="trash-2"></i>
-                                </a>
                             </div>
                         </div>
                     </div>

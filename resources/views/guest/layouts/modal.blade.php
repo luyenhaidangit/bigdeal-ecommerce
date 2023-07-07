@@ -265,7 +265,7 @@
                 </li>
                 <li>
                     <div class="buttons">
-                        <a href="wishlist.html" class="btn btn-solid btn-block btn-md">Xem danh sách</a>
+                        <a href="{{ route('guest.customer.wishlist') }}" class="btn btn-solid btn-block btn-md">Xem danh sách</a>
                     </div>
                 </li>
             </ul>
