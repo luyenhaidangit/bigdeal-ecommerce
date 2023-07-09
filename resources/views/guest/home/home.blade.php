@@ -9,7 +9,7 @@
                     <li><a href="javascript:void(0)">Nhãn hiệu nổi bật</a></li>
                     <li><a>:</a></li>
                     @foreach ($brands as $brand)
-                        <li><a href="category-page(left-sidebar).html">{{ $brand->name }}</a></li>
+                        <li><a href="{{ route('guest.brand.show', ['slug' => $brand->slug]) }}">{{ $brand->name }}</a></li>
                     @endforeach
                 </ul>
             </div>
