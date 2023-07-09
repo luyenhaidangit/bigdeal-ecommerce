@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Customer;
+use App\Models\Wishlist;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -213,6 +214,56 @@ class CustomerController extends Controller
             return response()->json([
                 'success' => true,
                 'products' => $products,
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'Người dùng chưa đăng nhập'
+            ]);
+        }
+    }
+
+    public function guestPostWishlistReponse(Request $request)
+    {
+        if (Auth::guard('customers')->check()) {
+            $user = Auth::guard('customers')->user();
+
+            if (!$user) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Người dùng không tồn tại.',
+                ]);
+            }
+
+            $productId = $request->input('product_id');
+            $quantity = $request->input('quantity', 1);
+
+            
+
+            // Tìm kiếm sản phẩm trong danh sách yêu thích của người dùng
+            $wishlistItem = Wishlist::where('customer_id', $user->id)
+                ->where('product_id', $productId)
+                ->first();
+
+            
+
+            if ($wishlistItem) {
+                // Sản phẩm đã tồn tại trong danh sách yêu thích, cập nhật số lượng
+                $wishlistItem->quantity += $quantity;
+                $wishlistItem->save();
+            } else {
+                // Sản phẩm chưa tồn tại trong danh sách yêu thích, tạo mới
+                $wishlist = [
+                    'customer_id' => $user->id,
+                    'product_id' => $productId,
+                    'quantity' => $quantity,
+                ];
+                Wishlist::create($wishlist);
+            }
+
+            return response()->json([
+                'success' => true,
+                'message' => "Thêm sản phẩm vào danh sách yêu thích thành công!",
             ]);
         } else {
             return response()->json([

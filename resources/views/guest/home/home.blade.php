@@ -127,7 +127,7 @@
                                                 <div class="product-box">
                                                     <div class="product-imgbox">
                                                         <div class="product-front">
-                                                            <a href="product-page(left-sidebar).html">
+                                                            <a href="{{ route('guest.product.show', ['slug' => $product->slug]) }}">
                                                                 @if ($product->image)
                                                                     <img src="{{ asset($product->image) }}"
                                                                         class="img-fluid" alt="product"
@@ -139,7 +139,7 @@
                                                             </a>
                                                         </div>
                                                         <div class="product-back">
-                                                            <a href="product-page(left-sidebar).html">
+                                                            <a href="{{ route('guest.product.show', ['slug' => $product->slug]) }}">
                                                                 @if ($product->image)
                                                                     <img src="{{ asset($product->image) }}"
                                                                         class="img-fluid" alt="product"
@@ -151,17 +151,17 @@
                                                             </a>
                                                         </div>
                                                         <div class="product-icon icon-inline">
-                                                            <button class="add-to-cart-btn" data-product-id="{{$product->id}}" class="tooltip-top"
-                                                                data-tippy-content="Add to cart">
+                                                            <a href="javascript:void(0)" class="add-to-cart-btn tooltip-top" data-product-id="{{$product->id}}"
+                                                                data-tippy-content="Thêm vào giỏ hàng">
                                                                 <i data-feather="shopping-cart"></i>
-                                                            </button>
-                                                            <a href="javascript:void(0)" class="add-to-wish tooltip-top"
-                                                                data-tippy-content="Add to Wishlist">
+                                                            </a>
+                                                            <a href="javascript:void(0)" class="add-to-wishlist tooltip-top" data-product-id="{{$product->id}}"
+                                                                data-tippy-content="Thêm vào yêu thích">
                                                                 <i data-feather="heart"></i>
                                                             </a>
-                                                            <a href="javascript:void(0)" data-bs-toggle="modal"
-                                                                data-bs-target="#quick-view" class="tooltip-top"
-                                                                data-tippy-content="Quick View">
+                                                            <a href="javascript:void(0)" data-bs-toggle="modal" data-product-id="{{$product->id}}"
+                                                                data-bs-target="#quick-view" class="tooltip-top add-to-quickview"
+                                                                data-tippy-content="Xem chi tiết">
                                                                 <i data-feather="eye"></i>
                                                             </a>
                                                             <a href="compare.html" class="tooltip-top"

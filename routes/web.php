@@ -12,6 +12,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductReviewController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\WishlistController;
 
 
 /*
@@ -57,7 +58,7 @@ Route::get('/brand/{slug}', [BrandController::class, 'guestShow'])->name('guest.
 Route::get('/product/{slug}', [ProductController::class, 'guestShow'])->name('guest.product.show');
 
 //ProductReview
-Route::post('/product-review', [ProductReviewController::class, 'guestStore'])->name('guest.product_review.store');
+Route::post('/product-review', [ProductReviewController::class, 'guestStoreReponse'])->name('guest.product_review.store');
 
 //Search
 Route::get('/search', [SearchController::class, 'guestProduct'])->name('guest.search.product');
@@ -84,5 +85,7 @@ Route::get('/customer/reset-password', [CustomerController::class, 'guestResetPa
 Route::post('/customer/reset-password', [CustomerController::class, 'guestPostResetPassword'])->name('guest.customer.reset_password.post');
 Route::get('/customer/check-login', [CustomerController::class, 'guestPostCheckLogin'])->name('guest.customer.check_login');
 Route::get('/customer/wishlist-reponse', [CustomerController::class, 'guestWishlistReponse'])->name('guest.customer.wishlist_reponse');
+Route::post('/customer/wishlist-reponse', [CustomerController::class, 'guestPostWishlistReponse'])->name('guest.customer.wishlist_reponse.post');
 Route::get('/customer/wishlist', [CustomerController::class, 'guestWishlist'])->name('guest.customer.wishlist');
+
 
