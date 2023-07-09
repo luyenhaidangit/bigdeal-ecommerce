@@ -247,8 +247,10 @@ function openCart() {
 function openAccount() {
     var csrfToken = $('meta[name="csrf-token"]').attr("content");
 
+    var baseUrl = window.location.origin;
+
     $.ajax({
-        url: "customer/check-login",
+        url: baseUrl + "/customer/check-login",
         type: "GET",
         dataType: "json",
         headers: {
@@ -273,8 +275,10 @@ function openAccount() {
 function openWishlist() {
     var csrfToken = $('meta[name="csrf-token"]').attr("content");
 
+    var baseUrl = window.location.origin;
+
     $.ajax({
-        url: "customer/check-login",
+        url: baseUrl + "/customer/check-login",
         type: "GET",
         dataType: "json",
         headers: {
@@ -365,8 +369,10 @@ function renderWishlists() {
     var csrfToken = $('meta[name="csrf-token"]').attr("content");
     var products = [];
 
+    var baseUrl = window.location.origin;
+
     $.ajax({
-        url: "customer/wishlist-reponse",
+        url: baseUrl + "/customer/wishlist-reponse",
         type: "GET",
         dataType: "json",
         headers: {
