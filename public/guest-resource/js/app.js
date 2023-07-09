@@ -266,6 +266,30 @@ $(document).ready(function () {
             },
         });
     });
+
+    //Handle click quickview
+    $(document).on("click", ".add-to-quickview", function () {
+        var productId = $(this).data("product-id");
+        var csrfToken = $('meta[name="csrf-token"]').attr("content");
+        var baseUrl = window.location.origin;
+        
+        $.ajax({
+            url:  baseUrl +  "/api/product/" + productId,
+            type: "GET",
+            dataType: "json",
+            headers: {
+                "X-CSRF-TOKEN": csrfToken,
+            },
+            success: function (data) {
+                console.log(data);
+                $('.quick-view-img').css({'background-image': "url("+data?.image+")"});
+                $("#title-quickview").text(data?.name);
+            },
+            error: function (error) {
+                console.error("Lỗi kiểm tra đăng nhập:", error);
+            },
+        });
+    });
 });
 
 function openCart() {
