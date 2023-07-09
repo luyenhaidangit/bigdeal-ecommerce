@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Product;
+use Illuminate\Support\Str;
 
 class ProductOption extends Model
 {
@@ -33,5 +34,10 @@ class ProductOption extends Model
     public function product()
     {
         return $this->belongsTo(Product::class);
+    }
+
+    public function getColorSlugAttribute()
+    {
+        return Str::slug($this->color);
     }
 }
