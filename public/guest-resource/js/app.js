@@ -237,6 +237,35 @@ $(document).ready(function () {
 
         renderCartItems();
     });
+
+    //Handle click wishlist
+    $(document).on("click", ".add-to-wishlist", function () {
+        var productId = $(this).data("product-id");
+        var csrfToken = $('meta[name="csrf-token"]').attr("content");
+
+        var baseUrl = window.location.origin;
+
+        $.ajax({
+            url:  baseUrl +  "/customer/wishlist-reponse",
+            type: "POST",
+            dataType: "json",
+            data: {
+                product_id: productId,
+            },
+            headers: {
+                "X-CSRF-TOKEN": csrfToken,
+            },
+            success: function (data) {
+                console.log(data);
+                if(data.success){
+                    openWishlist();
+                }
+            },
+            error: function (error) {
+                console.error("Lỗi kiểm tra đăng nhập:", error);
+            },
+        });
+    });
 });
 
 function openCart() {
@@ -388,7 +417,9 @@ function renderWishlists() {
 
                 var totalAmount = 0;
 
-                $(".item-count-contain.item-count-contain-wishlist").text(products.length);
+                $(".item-count-contain.item-count-contain-wishlist").text(
+                    products.length
+                );
                 $("#count-wishlist").text(products.length);
 
                 // Duyệt qua danh sách sản phẩm yêu thích và tạo phần tử HTML
